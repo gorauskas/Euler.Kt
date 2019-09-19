@@ -89,3 +89,19 @@ fun fibonacciSequence(): Sequence<Long> {
     }
 
 }
+
+fun Long.isPrime(): Boolean {
+    if (this and 1 == 0L) {
+        return this == 2L
+    }
+
+    var k = 3L
+    while (k * k <= this) {
+        if (this % k == 0L) {
+            return false
+        }
+        k += 2
+    }
+
+    return this != 1L
+}

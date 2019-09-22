@@ -79,29 +79,3 @@ class Euler : CliktCommand() {
 }
 
 fun main(args: Array<String>) = Euler().main(args)
-
-fun fibonacciSequence(): Sequence<Long> {
-
-    return generateSequence(Pair(0, 1), {
-        Pair(it.second, it.first + it.second)
-    }).map {
-        it.first.toLong()
-    }
-
-}
-
-fun Long.isPrime(): Boolean {
-    if (this and 1 == 0L) {
-        return this == 2L
-    }
-
-    var k = 3L
-    while (k * k <= this) {
-        if (this % k == 0L) {
-            return false
-        }
-        k += 2
-    }
-
-    return this != 1L
-}

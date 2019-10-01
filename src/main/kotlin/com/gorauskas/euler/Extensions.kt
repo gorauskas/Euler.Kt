@@ -23,3 +23,7 @@ fun Long.isPalindrome(): Boolean {
         StringBuilder().append(this.toString()).reverse().toString()
     )
 }
+
+fun Long.gcd(i: Long): Long {
+    return if (i == 0L) this else i.gcd(this % i)
+}

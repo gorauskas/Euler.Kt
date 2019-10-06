@@ -27,3 +27,16 @@ fun Long.isPalindrome(): Boolean {
 fun Long.gcd(i: Long): Long {
     return if (i == 0L) this else i.gcd(this % i)
 }
+
+fun Long.isMultipleOf(multiple: Long): Boolean {
+    return if (this == 0L || multiple == 0L) false else this % multiple == 0L
+}
+
+fun Long.numberOfDivisors(): Long {
+    if (this == 1L)
+        return this
+
+    return (1L..Math.sqrt(this.toDouble()).toLong())
+        .filter { this.isMultipleOf(it) }
+        .count() * 2L
+}

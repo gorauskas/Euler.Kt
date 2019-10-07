@@ -24,3 +24,12 @@ fun primeSequence(): Sequence<Long> {
 fun primeSequence(max: Int): Sequence<Long> {
     return primeSequence().takeWhile { it < max }
 }
+
+fun triangleSequence(): Sequence<Long> {
+    val i = 1L;
+    return generateSequence(i, { it + 1 }).map { n -> (n * n + n) / 2 }
+}
+
+fun triangleSequence(max: Int): Sequence<Long> {
+    return triangleSequence().takeWhile { it < max }
+}

@@ -1,6 +1,7 @@
 package com.gorauskas.euler.extensions
 
-import java.lang.StringBuilder
+import java.util.*
+
 
 fun Long.isPrime(): Boolean {
     if (this and 1 == 0L) {
@@ -32,11 +33,21 @@ fun Long.isMultipleOf(multiple: Long): Boolean {
     return if (this == 0L || multiple == 0L) false else this % multiple == 0L
 }
 
+fun Long.divisors(): List<Long> {
+    val factors = mutableSetOf<Long>()
+    (1L..Math.sqrt(this.toDouble()).toLong() + 1L)
+        .map {
+            if (this.isMultipleOf(it)) {
+                factors.add(it)
+                factors.add(this / it)
+            }
+        }
+    return factors.toList()
+}
+
 fun Long.numberOfDivisors(): Long {
     if (this == 1L)
         return this
 
-    return (1L..Math.sqrt(this.toDouble()).toLong())
-        .filter { this.isMultipleOf(it) }
-        .count() * 2L
+    return this.divisors().count().toLong()
 }

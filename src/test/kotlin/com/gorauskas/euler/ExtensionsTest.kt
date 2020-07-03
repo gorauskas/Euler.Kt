@@ -27,4 +27,20 @@ class ExtensionsTest {
         Assertions.assertEquals(3, 57L.gcd(144))
         Assertions.assertEquals(24, 144L.gcd(168))
     }
+
+    @Test
+    fun testIsMultipleOf() {
+        Assertions.assertTrue(10L.isMultipleOf(5L))
+        Assertions.assertTrue(21L.isMultipleOf(7L))
+        Assertions.assertFalse(10L.isMultipleOf(3L))
+    }
+
+    @Test
+    fun testNumberOfDivisors() {
+        Assertions.assertEquals(6L, 12L.numberOfDivisors())
+        Assertions.assertEquals(8L, 24L.numberOfDivisors())
+        Assertions.assertEquals(3L, 49L.numberOfDivisors())
+        Assertions.assertEquals(2L, 53L.numberOfDivisors())
+        Assertions.assertEquals(12L, 96L.numberOfDivisors())
+    }
 }

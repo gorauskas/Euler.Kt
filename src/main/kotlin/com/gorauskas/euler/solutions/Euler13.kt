@@ -21,7 +21,7 @@ class Euler13 : IEuler {
 
     override val answer = """
         
-        The first ten digits of the sum of the large numbers is: ${solve()}
+        The first ten digits of the sum of the large numbers is: ${solve().toLong()}
     """.trimIndent()
 
     fun getNums(): List<BigInteger> {

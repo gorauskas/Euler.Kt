@@ -2,6 +2,8 @@
 
 Solutions to the Project Euler problems written in Kotlin.
 
+[![Build Status](https://travis-ci.org/gorauskas/Euler.Kt.svg?branch=master)](https://travis-ci.org/gorauskas/Euler.Kt)
+
 Clone this repo and then run the following from the command line:
 
     ./gradlew clean build

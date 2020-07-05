@@ -1,6 +1,7 @@
 package com.gorauskas.euler.extensions
 
-import java.util.*
+import java.util.stream.DoubleStream
+import java.util.stream.LongStream
 
 
 fun Long.isPrime(): Boolean {
@@ -51,3 +52,17 @@ fun Long.numberOfDivisors(): Long {
 
     return this.divisors().count().toLong()
 }
+
+fun Long.factorial(): Long =
+    when {
+        this < 0L -> throw IllegalArgumentException("negative number")
+        this < 2L -> 1L
+        else -> this * (this - 1L).factorial()
+    }
+
+fun Double.factorial(): Double =
+    when {
+        this < 0.0 -> throw IllegalArgumentException("negative number")
+        this < 2.0 -> 1.0
+        else -> this * (this - 1.0).factorial()
+    }

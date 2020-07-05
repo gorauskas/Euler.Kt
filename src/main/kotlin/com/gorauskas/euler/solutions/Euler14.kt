@@ -8,12 +8,11 @@ class Euler14 : IEuler {
     private var len = 0
 
     override fun solve(): Double {
-        var l = arrayListOf<Long>()
         val nums = (1L..999999L)
 
         nums.forEach {
             if (collatzList(it).count() > len) {
-                l = collatzList(it)
+                val l = collatzList(it)
                 len = l.count()
                 num = it
             }
@@ -47,10 +46,6 @@ class Euler14 : IEuler {
         
         The starting number, under one million, producing the longest chain is ${solve()}
     """.trimIndent()
-
-    private fun calcLen(n: Long): Long {
-        return 0L
-    }
 
     private fun collatzList(n: Long): ArrayList<Long> {
         var i = n

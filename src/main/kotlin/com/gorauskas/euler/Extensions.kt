@@ -75,3 +75,5 @@ fun BigInteger.factorial(): BigInteger {
 
     return f
 }
+
+fun Long.sumOfDivisors(): Long = this.divisors().filter { it != this }.sum()

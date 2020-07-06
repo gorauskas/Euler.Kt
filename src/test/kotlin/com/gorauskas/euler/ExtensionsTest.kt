@@ -67,4 +67,10 @@ class ExtensionsTest {
         Assertions.assertEquals(BigInteger("8222838654177922817725562880000000"), BigInteger("31").factorial())
         Assertions.assertEquals(BigInteger("2432902008176640000"), BigInteger("20").factorial())
     }
+
+    @Test
+    fun testSumOfDivisors() {
+        Assertions.assertEquals(6L, 6L.sumOfDivisors())
+        Assertions.assertEquals(117L, 100L.sumOfDivisors())
+    }
 }

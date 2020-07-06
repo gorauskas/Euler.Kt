@@ -1,7 +1,6 @@
 package com.gorauskas.euler.extensions
 
-import java.util.stream.DoubleStream
-import java.util.stream.LongStream
+import java.math.BigInteger
 
 
 fun Long.isPrime(): Boolean {
@@ -66,3 +65,13 @@ fun Double.factorial(): Double =
         this < 2.0 -> 1.0
         else -> this * (this - 1.0).factorial()
     }
+
+fun BigInteger.factorial(): BigInteger {
+    var f = BigInteger.ONE
+
+    for (i in this.longValueExact() downTo 2) {
+        f = f.multiply(BigInteger.valueOf(i))
+    }
+
+    return f
+}

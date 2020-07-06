@@ -3,6 +3,7 @@ package com.gorauskas.euler
 import com.gorauskas.euler.extensions.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import java.math.BigInteger
 
 class ExtensionsTest {
 
@@ -58,5 +59,12 @@ class ExtensionsTest {
         Assertions.assertEquals(120.0, 5.0.factorial())
         Assertions.assertEquals(6227020800.0, 13.0.factorial())
         Assertions.assertEquals(2432902008176640000.0, 20.0.factorial())
+    }
+
+    @Test
+    fun testBigIntegerFactorial() {
+        Assertions.assertEquals(BigInteger("15511210043330985984000000"), BigInteger("25").factorial())
+        Assertions.assertEquals(BigInteger("8222838654177922817725562880000000"), BigInteger("31").factorial())
+        Assertions.assertEquals(BigInteger("2432902008176640000"), BigInteger("20").factorial())
     }
 }

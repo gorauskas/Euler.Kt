@@ -1,6 +1,10 @@
 package com.gorauskas.euler.extensions
 
+import java.io.IOException
 import java.math.BigInteger
+import java.net.URI
+import java.nio.file.*
+import java.util.*
 
 
 fun Long.isPrime(): Boolean {
@@ -20,9 +24,7 @@ fun Long.isPrime(): Boolean {
 }
 
 fun Long.isPalindrome(): Boolean {
-    return this.toString().equals(
-        StringBuilder().append(this.toString()).reverse().toString()
-    )
+    return this.toString().equals(this.toString().reversed())
 }
 
 fun Long.gcd(i: Long): Long {
@@ -77,3 +79,19 @@ fun BigInteger.factorial(): BigInteger {
 }
 
 fun Long.sumOfDivisors(): Long = this.divisors().filter { it != this }.sum()
+
+fun URI.getData(): String? {
+    return try {
+        val path: Path
+        if (this.toString().contains("!")) {
+            val p = this.toString().split("!").toTypedArray()
+            val fs = FileSystems.newFileSystem(URI.create(p[0]), HashMap<String, String>())
+            path = fs.getPath(p[1]);
+        } else {
+            path = Paths.get(this)
+        }
+        Files.readAllLines(path).joinToString("\n")
+    } catch(e: IOException) {
+        e.printStackTrace().toString()
+    }
+}

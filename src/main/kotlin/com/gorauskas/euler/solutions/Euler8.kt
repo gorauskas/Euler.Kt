@@ -40,19 +40,16 @@ class Euler8 : IEuler {
     product is ${solve().toLong()}
     """.trimIndent()
 
-    private fun getNums(): LongArray {
-        return StringBuilder()
-            .append(getStringNums())
-            .toString()
+    private fun getNums(): LongArray =
+        buildString { append(getStringNums()) }
             .replace(" ", "")
             .replace("\n", "")
             .toCharArray()
             .map { it.toLong() - 48L }
             .toLongArray()
-    }
 
-    private fun getStringNums(): String {
-        return """
+    private fun getStringNums(): String =
+        """
             73167176531330624919225119674426574742355349194934
             96983520312774506326239578318016984801869478851843
             85861560789112949495459501737958331952853208805511
@@ -73,7 +70,5 @@ class Euler8 : IEuler {
             84580156166097919133875499200524063689912560717606
             05886116467109405077541002256983155200055935729725
             71636269561882670428252483600823257530420752963450
-    """
-    }
-
+        """
 }

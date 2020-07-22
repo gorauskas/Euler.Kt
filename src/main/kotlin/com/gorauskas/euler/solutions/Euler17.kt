@@ -38,11 +38,11 @@ class Euler17 : IEuler {
     )
 
     override fun solve(): Double {
-        return StringBuilder().also { sb ->
+        return buildString {
             (1L..1000L).forEach {
-                sb.append(spellNumber(it))
+                append(spellNumber(it))
             }
-        }.toString().length.toDouble()
+        }.length.toDouble()
     }
 
     override val problem = """
@@ -68,7 +68,7 @@ class Euler17 : IEuler {
 
     private fun spellNumber(num: Long): String {
 
-        return StringBuilder().also { buff ->
+        return buildString {
             var dec_post_val = 99L
             val nums = num.toString().reversed().chars()
                 .map { (it - 48) }
@@ -76,16 +76,16 @@ class Euler17 : IEuler {
                 .toList()
 
             if (nums.size == 4 && nums[3] != 0L) {
-                buff.append(lookupTable[nums[3]] + " thousand")
+                append(lookupTable[nums[3]] + " thousand")
             }
 
             if (nums.size >= 3 && nums[2] != 0L) {
-                buff.append(lookupTable[nums[2]] + " hundred")
+                append(lookupTable[nums[2]] + " hundred")
 
                 if (nums.size >= 2 && nums[1] != 0L) {
-                    buff.append(" and")
+                    append(" and")
                 } else if (nums.size >= 1 && nums[0] != 0L) {
-                    buff.append(" and")
+                    append(" and")
                 }
             }
 
@@ -93,16 +93,16 @@ class Euler17 : IEuler {
                 dec_post_val = nums[1] * 10L + nums[0]
 
                 if (dec_post_val <= 20L) {
-                    buff.append(" " + lookupTable[dec_post_val])
+                    append(" " + lookupTable[dec_post_val])
                 } else {
-                    buff.append(" " + lookupTable[nums[1] * 10])
+                    append(" " + lookupTable[nums[1] * 10])
                 }
             }
 
             if (nums.size >= 1 && nums[0] != 0L && dec_post_val > 20L) {
-                buff.append(" " + lookupTable[nums[0]])
+                append(" " + lookupTable[nums[0]])
             }
-        }.toString().replace(" ", "")
+        }.replace(" ", "")
 
     }
 

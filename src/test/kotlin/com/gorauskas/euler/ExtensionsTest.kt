@@ -73,4 +73,9 @@ class ExtensionsTest {
         Assertions.assertEquals(6L, 6L.sumOfDivisors())
         Assertions.assertEquals(117L, 100L.sumOfDivisors())
     }
+
+    @Test
+    fun testGetDataFromUri() {
+        Assertions.assertEquals("Jonas Gorauskas", javaClass.getResource("/test.txt").toURI().getData())
+    }
 }

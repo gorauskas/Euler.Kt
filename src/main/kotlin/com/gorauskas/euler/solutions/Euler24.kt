@@ -24,7 +24,7 @@ class Euler24 : IEuler  {
                     remainingPermutations %= (digitCount - currentDigit).factorial()
                     result += numbers[digitPosition.toInt()]
                     numbers.removeAt(digitPosition.toInt())
-                    if (remainingPermutations == 0L) { return@loop }
+                    if (remainingPermutations == 0L) { return@loop } // return@loop = break
                 }
             }
 

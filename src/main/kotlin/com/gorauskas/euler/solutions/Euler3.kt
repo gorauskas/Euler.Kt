@@ -9,7 +9,7 @@ class Euler3 : IEuler {
         val n = 600851475143L
         return (2..775164L)
             .filter { n % it == 0L && it.isPrime() }
-            .max()
+            .maxOrNull()
             ?.toDouble()!!
     }
 

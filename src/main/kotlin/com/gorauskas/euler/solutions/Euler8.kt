@@ -45,7 +45,7 @@ class Euler8 : IEuler {
             .replace(" ", "")
             .replace("\n", "")
             .toCharArray()
-            .map { it.toLong() - 48L }
+            .map { it.code - 48L }
             .toLongArray()
 
     private fun getStringNums(): String =

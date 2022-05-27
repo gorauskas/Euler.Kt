@@ -12,7 +12,7 @@ class Euler4 : IEuler {
             }
         }.filter {
             it.isPalindrome()
-        }.max()!!.toDouble()
+        }.maxOrNull()!!.toDouble()
     }
 
     override val problem = """

@@ -13,13 +13,17 @@ private const val EULER_CLASS = "Euler"
 
 class Euler : CliktCommand() {
 
-    val problem: Int by option("-p", "--problem",
-        help = "Specify the problem/solution number you want to run")
+    val problem: Int by option(
+        "-p", "--problem",
+        help = "Specify the problem/solution number you want to run"
+    )
         .int()
         .default(0)
 
-    val verbose: Boolean by option("-v", "--verbose",
-        help = "Verbose outputs the problem statement and the solution")
+    val verbose: Boolean by option(
+        "-v", "--verbose",
+        help = "Verbose outputs the problem statement and the solution"
+    )
         .flag()
 
     init {
@@ -61,7 +65,8 @@ class Euler : CliktCommand() {
 
                 is UsageError,
                 is BadParameterValue,
-                is MissingParameter,
+                is MissingOption,
+                is MissingArgument,
                 is NoSuchOption,
                 is IncorrectArgumentValueCount,
                 is IncorrectOptionValueCount -> {

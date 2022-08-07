@@ -14,9 +14,7 @@ fun fibonacciSequence(): Sequence<Long> =
 fun primeSequence(): Sequence<Long> {
     var i = 0L
     return sequence {
-        generateSequence { i++ }
-            .filter { n -> n.isPrime() }
-            .forEach { yield(it) }
+        this.yieldAll(generateSequence { i++ }.filter { n -> n.isPrime() })
     }
 }
 

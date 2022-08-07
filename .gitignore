@@ -1,43 +1,21 @@
-# JAVA
-*.class
+/.gradle
+/build
+.DS_Store
+build/
+/buildSrc/.gradle
+/gradlew.bat
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Eclipse
+/bin/
+.project
+.classpath
 
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# JET BRAINS: IntelliJ
-*.iml
-
-## Directory-based project format:
+# Intellij
+out/
+/.settings/
+profile.iml
+profile.ipr
+profile.iws
+/.datastore
 .idea/
-
-## File-based project format:
-*.ipr
-*.iws
-
-## Plugin-specific files:
-
-# IntelliJ
-/out/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
-
-.gradle
-/build/
-
-# Ignore Gradle GUI config
-gradle-app.setting
-
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
-
-# Cache of project
-.gradletasknamecache
-
-# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
-# gradle/wrapper/gradle-wrapper.properties
+*.iml

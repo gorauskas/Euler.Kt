@@ -16,6 +16,10 @@ exceptions:
   TooGenericExceptionCaught:
     active: true
     excludes: ['**/test/**']
+complexity:
+  TooManyFunctions:
+    active: true
+    thresholdInFiles: 25
 style:
   MaxLineLength:
     active: true
@@ -24,11 +28,7 @@ style:
     excludeImportStatements: true
     excludeCommentStatements: false
   MagicNumber:
-    active: true
-    excludes: ['**/test/**']
-    ignoreNumbers: ['-1', '0', '1', '2']
-    ignoreConstantDeclaration: true
-    ignoreNamedArgument: true
+    active: false
   ForbiddenComment:
     active: false
   ThrowsCount:
@@ -37,7 +37,7 @@ style:
     active: true
   ReturnCount:
     active: true
-    max: 2
+    max: 3
     excludeReturnFromLambda: true
   WildcardImport:
     active: true

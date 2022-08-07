@@ -3,7 +3,7 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EulerInterface as IEuler
 
 class Euler8 : IEuler {
-    
+
     override fun solve(): Double {
         val nums = getNums()
         var greatest = 0L
@@ -24,18 +24,18 @@ class Euler8 : IEuler {
 
     override val problem = """
     Project Euler Problem 8:
-    
+
         The four adjacent digits in the 1000-digit number that have the greatest
         product are 9 × 9 × 8 × 9 = 5832.
-        
+
         ${getStringNums()}
-        
-        Find the thirteen adjacent digits in the 1000-digit number that have 
+
+        Find the thirteen adjacent digits in the 1000-digit number that have
         the greatest product. What is the value of this product?
     """.trimIndent()
-    
+
     override val answer = """
-        
+
     The value of the product of 13 adjacent numbers with greatest
     product is ${solve().toLong()}
     """.trimIndent()

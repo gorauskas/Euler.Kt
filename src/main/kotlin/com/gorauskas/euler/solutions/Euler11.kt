@@ -12,7 +12,7 @@ class Euler11 : IEuler {
     override val problem = """
         Project Euler Problem 11:
 
-            In the 20x20 grid below, four numbers along a diagonal line have been 
+            In the 20x20 grid below, four numbers along a diagonal line have been
             marked in red.
 
             08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -38,7 +38,7 @@ class Euler11 : IEuler {
 
             The product of these numbers is 26 x 63 x 78 x 14 = 1788696.
 
-            What is the greatest product of four adjacent numbers in any direction 
+            What is the greatest product of four adjacent numbers in any direction
             (up, down, left, right, or diagonally) in the 20x20 grid?
     """.trimIndent()
 
@@ -143,7 +143,7 @@ class Euler11 : IEuler {
             }
         }
 
-        private fun calculateGreatestProductOfFourAdjacentNumbers() {  //DONE
+        private fun calculateGreatestProductOfFourAdjacentNumbers() {  // DONE
             val js = (3..16).toList()
             val ks = (3..16).toList()
 
@@ -188,5 +188,3 @@ class Euler11 : IEuler {
         }
 
 }
-
-

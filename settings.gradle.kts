@@ -1,2 +1,1 @@
-rootProject.name = 'Euler.Kt'
-
+rootProject.name = "Euler.Kt"

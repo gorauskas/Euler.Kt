@@ -6,7 +6,6 @@ import java.net.URI
 import java.nio.file.*
 import java.util.*
 
-
 fun Long.isPrime(): Boolean {
     if (this and 1 == 0L) {
         return this == 2L

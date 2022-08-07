@@ -12,15 +12,15 @@ class Euler13 : IEuler {
 
     override val problem = """
         Project Euler Problem 13:
-        
+
             Work out the first ten digits of the sum of the following one-hundred
             50-digit numbers.
-            
+
             ${getNums().map { it.toString() }.joinToString(separator = "\n            ")}
     """.trimIndent()
 
     override val answer = """
-        
+
         The first ten digits of the sum of the large numbers is: ${solve().toLong()}
     """.trimIndent()
 

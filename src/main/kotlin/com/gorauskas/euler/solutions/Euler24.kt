@@ -50,6 +50,4 @@ class Euler24 : IEuler  {
     override val answer = """
         The millionth lexicographic permutation of the digits 0 through 9 is ${solve()}
     """.trimIndent()
-
-
 }

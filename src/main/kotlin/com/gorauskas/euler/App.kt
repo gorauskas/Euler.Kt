@@ -1,6 +1,13 @@
 package com.gorauskas.euler
 
-import com.github.ajalt.clikt.core.*
+import com.github.ajalt.clikt.core.BadParameterValue
+import com.github.ajalt.clikt.core.CliktCommand
+import com.github.ajalt.clikt.core.IncorrectArgumentValueCount
+import com.github.ajalt.clikt.core.IncorrectOptionValueCount
+import com.github.ajalt.clikt.core.MissingArgument
+import com.github.ajalt.clikt.core.MissingOption
+import com.github.ajalt.clikt.core.NoSuchOption
+import com.github.ajalt.clikt.core.UsageError
 import com.github.ajalt.clikt.parameters.options.default
 import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
@@ -16,43 +23,32 @@ class Euler : CliktCommand() {
     val problem: Int by option(
         "-p", "--problem",
         help = "Specify the problem/solution number you want to run"
-    )
-        .int()
-        .default(0)
+    ).int().default(0)
 
     val verbose: Boolean by option(
         "-v", "--verbose",
         help = "Verbose outputs the problem statement and the solution"
-    )
-        .flag()
+    ).flag()
 
     init {
-
         versionOption("0.1.0",
             names = setOf("-V", "--version"),
             message = { "Euler.Kt - version $it" })
-
     }
 
+    @Suppress("TooGenericExceptionCaught")
     override fun run() {
-
         try {
-
-            val cl = this.javaClass.classLoader
-            val e = cl.loadClass(EULER_PACKAGE + EULER_CLASS + problem)
+            val classLoader = this.javaClass.classLoader
+            val euler = classLoader.loadClass(EULER_PACKAGE + EULER_CLASS + problem)
                 .getDeclaredConstructor()
                 .newInstance() as EulerInterface
-
             if (verbose) {
-                echo(e.problem)
+                echo(euler.problem)
             }
-
-            echo(e.answer)
-
-        } catch (e: Exception) {
-
-            when (e) {
-
+            echo(euler.answer)
+        } catch (exception: Exception) {
+            when (exception) {
                 is NoSuchMethodException,
                 is InvocationTargetException,
                 is ClassNotFoundException,
@@ -62,25 +58,20 @@ class Euler : CliktCommand() {
                     echo("Enter java -jar euler.jar -h for usage information", err = true)
                     System.exit(1);
                 }
-
-                is UsageError,
                 is BadParameterValue,
                 is MissingOption,
                 is MissingArgument,
                 is NoSuchOption,
                 is IncorrectArgumentValueCount,
-                is IncorrectOptionValueCount -> {
+                is IncorrectOptionValueCount,
+                is UsageError -> {
                     echo("Unable to parse command line parameters", err = true)
                     echo("Enter java -jar euler.jar -h for usage information", err = true)
                     System.exit(1);
                 }
-
             }
-
         }
-
     }
-
 }
 
 fun main(args: Array<String>) = Euler().main(args)

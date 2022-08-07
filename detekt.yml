@@ -1,0 +1,46 @@
+formatting:
+  CommentSpacing:
+    active: true
+    autoCorrect: true
+  FinalNewline:
+    active: true
+    autoCorrect: true
+    insertFinalNewLine: true
+  ImportOrdering:
+    active: false
+    autoCorrect: true
+    layout: 'idea'
+  MaximumLineLength:
+    active: false
+exceptions:
+  TooGenericExceptionCaught:
+    active: true
+    excludes: ['**/test/**']
+complexity:
+  TooManyFunctions:
+    active: true
+    thresholdInFiles: 25
+style:
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+    excludePackageStatements: true
+    excludeImportStatements: true
+    excludeCommentStatements: false
+  MagicNumber:
+    active: false
+  ForbiddenComment:
+    active: false
+  ThrowsCount:
+    max: 5
+  UnusedImports:
+    active: true
+  ReturnCount:
+    active: true
+    max: 3
+    excludeReturnFromLambda: true
+  WildcardImport:
+    active: true
+    excludes: ['**/test/**']
+    excludeImports:
+      - 'java.util.*'

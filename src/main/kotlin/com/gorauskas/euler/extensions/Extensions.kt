@@ -1,17 +1,20 @@
 package com.gorauskas.euler.extensions
 
+import com.gorauskas.euler.LONG_THREE
 import java.io.IOException
 import java.math.BigInteger
 import java.net.URI
-import java.nio.file.*
-import java.util.*
+import java.nio.file.FileSystems
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
 
 fun Long.isPrime(): Boolean {
     if (this and 1 == 0L) {
         return this == 2L
     }
 
-    var k = 3L
+    var k = LONG_THREE
     while (k * k <= this) {
         if (this % k == 0L) {
             return false

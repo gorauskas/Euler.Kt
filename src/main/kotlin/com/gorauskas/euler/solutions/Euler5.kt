@@ -28,16 +28,16 @@ class Euler5 : IEuler {
 
     override val problem = """
     Project Euler Problem 5:
-    
-       2520 is the smallest number that can be divided by each of the 
+
+       2520 is the smallest number that can be divided by each of the
        numbers from 1 to 10 without any remainder.
-    
-       What is the smallest positive number that is evenly divisible 
+
+       What is the smallest positive number that is evenly divisible
        by all of the numbers from 1 to 20?
     """.trimIndent()
 
     override val answer = """
-        
+
     The smallest positive number that is evenly divisible
     by all of the numbers from 1 to 20 is: ${solve().toLong()}
     """.trimIndent()

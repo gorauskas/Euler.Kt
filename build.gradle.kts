@@ -46,7 +46,7 @@ sourceSets {
 tasks {
     jar {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-        archiveBaseName.set("euler.jar")
+        archiveBaseName.set("euler")
         manifest {
             attributes["Main-Class"] = "com.gorauskas.euler.AppKt"
         }

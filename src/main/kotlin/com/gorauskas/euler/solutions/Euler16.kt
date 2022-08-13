@@ -5,13 +5,8 @@ import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
 
 class Euler16 : EulerSolution {
-    override fun solve(): Double {
-        return BigInteger.ONE.shiftLeft(1000)
-            .toString().chars()
-            .map { it - EULER16_CHAR_OFFSET }
-            .sum()
-            .toDouble()
-    }
+    override fun solve(): Long =
+        BigInteger.ONE.shiftLeft(1000).toString().chars().map { it - EULER16_CHAR_OFFSET }.sum().toLong()
 
     override val problem = """
         Project Euler Problem 16:

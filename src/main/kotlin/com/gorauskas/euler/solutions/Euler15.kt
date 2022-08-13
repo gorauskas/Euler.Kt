@@ -19,8 +19,8 @@ class Euler15 : EulerSolution {
      *
      * @return double
      */
-    override fun solve(): Double =
-        EULER15_MOVES.factorial() / ((EULER15_MOVES - EULER15_DIRS).factorial() * EULER15_DIRS.factorial())
+    override fun solve(): Long =
+        (EULER15_MOVES.factorial() / ((EULER15_MOVES - EULER15_DIRS).factorial() * EULER15_DIRS.factorial())).toLong()
 
     override val problem = """
         Project Euler Problem 15:

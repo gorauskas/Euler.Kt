@@ -18,7 +18,7 @@ class Euler30 : EulerSolution {
      * Does the result equals the initial number
      * sum the result
      */
-    override fun solve(): Double =
+    override fun solve(): Long =
         (2L..EULER30_UPPER_BOUND)
             .map { it.toString() }
             .filter { x ->
@@ -28,9 +28,8 @@ class Euler30 : EulerSolution {
                     .sum()
                     .toString()
             }
-            .map { it.toInt() }
+            .map { it.toLong() }
             .sum()
-            .toDouble()
 
     override val problem = """
         Project Euler Problem 30:

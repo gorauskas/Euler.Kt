@@ -7,18 +7,15 @@ class Euler14 : EulerSolution {
     private var num = 0L
     private var len = 0
 
-    override fun solve(): Double {
-        val nums = (1L..999999L)
-
-        nums.forEach {
+    override fun solve(): Long {
+        (1L..999999L).forEach {
             if (collatzList(it).count() > len) {
                 val l = collatzList(it)
                 len = l.count()
                 num = it
             }
         }
-
-        return num.toDouble()
+        return num
     }
 
     override val problem = """

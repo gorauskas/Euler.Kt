@@ -10,7 +10,7 @@ import com.gorauskas.euler.EulerSolution
  * Full reptend prime = https://en.wikipedia.org/wiki/Full_reptend_prime
  */
 class Euler26 : EulerSolution {
-    override fun solve(): Double {
+    override fun solve(): Long {
         val ps = primeSequence(1000).toList().reversed()
         var seqlen = 0
 
@@ -33,7 +33,7 @@ class Euler26 : EulerSolution {
             }
         }
 
-        return seqlen + 1.0
+        return seqlen + 1L
     }
 
     override val problem = """

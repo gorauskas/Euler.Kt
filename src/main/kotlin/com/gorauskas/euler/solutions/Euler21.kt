@@ -5,10 +5,8 @@ import com.gorauskas.euler.EulerSolution
 
 class Euler21 : EulerSolution {
 
-    override fun solve(): Double =
-        (0L..10000L).filter {
-            it.sumOfDivisors().sumOfDivisors() == it && it != it.sumOfDivisors()
-        }.sum().toDouble()
+    override fun solve(): Long =
+        (0L..10000L).filter { it.sumOfDivisors().sumOfDivisors() == it && it != it.sumOfDivisors() }.sum()
 
     override val problem = """
         Project Euler Problem 21:

@@ -20,8 +20,8 @@ class Euler25 : EulerSolution {
      * @see <a href="http://mathworld.wolfram.com/BinetsFibonacciNumberFormula.html">http://mathworld.wolfram.com/BinetsFibonacciNumberFormula.html</a>
      * @see <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Computation_by_rounding">https://en.wikipedia.org/wiki/Fibonacci_number#Computation_by_rounding</a>
      */
-    override fun solve(): Double =
-        ceil((log10(5.0) / 2 + 999) / log10((1 + sqrt(5.0)) / 2 /* phi */))
+    override fun solve(): Long =
+        ceil((log10(5.0) / 2L + 999L) / log10((1L + sqrt(5.0)) / 2L)).toLong()
 
     override val problem = """
         Project Euler Problem 25:

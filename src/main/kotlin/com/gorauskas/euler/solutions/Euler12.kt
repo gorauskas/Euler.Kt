@@ -5,12 +5,7 @@ import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.sequences.triangleSequence
 
 class Euler12 : EulerSolution {
-    override fun solve(): Double {
-        return triangleSequence()
-            .filter { it.numberOfDivisors() > 500 }
-            .first()
-            .toDouble()
-    }
+    override fun solve(): Long = triangleSequence().filter { it.numberOfDivisors() > 500 }.first()
 
     override val problem = """
         Project Euler Problem 12:

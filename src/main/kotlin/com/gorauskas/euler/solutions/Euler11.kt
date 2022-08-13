@@ -4,11 +4,9 @@ import com.gorauskas.euler.EULER11_MATRIX
 import com.gorauskas.euler.EulerSolution
 
 class Euler11 : EulerSolution {
-    private var sm = StringMatrix(EULER11_MATRIX.trimIndent())
+    private val sm by lazy { StringMatrix(EULER11_MATRIX.trimIndent()) }
 
-    override fun solve(): Double {
-        return sm.product.toDouble()
-    }
+    override fun solve(): Long = sm.product
 
     override val problem = """
         Project Euler Problem 11:
@@ -35,16 +33,16 @@ class Euler11 : EulerSolution {
     }
 
     internal inner class StringMatrix(matrix: String) {
-        private val intMatrix = Array(20) { IntArray(20) }
+        private val longMatrix = Array(20) { LongArray(20) }
         private var strMatrix = ""
 
-        var product: Int = 0
+        var product: Long = 0L
             private set
         var x: Int = 0
             private set
         var y: Int = 0
             private set
-        var sequence: List<Int>? = null
+        var sequence: List<Long>? = null
             private set
 
         init {
@@ -53,57 +51,57 @@ class Euler11 : EulerSolution {
             this.calculateGreatestProductOfFourAdjacentNumbers()
         }
 
-        private fun getAdjacentList(orient: Orientation, x: Int, y: Int): List<Int> {
-            val l = ArrayList<Int>()
+        private fun getAdjacentList(orient: Orientation, x: Int, y: Int): List<Long> {
+            val l = ArrayList<Long>()
 
             when (orient) {
                 Orientation.Down -> {
-                    l.add(intMatrix[y][x])
-                    l.add(intMatrix[y + 1][x])
-                    l.add(intMatrix[y + 2][x])
-                    l.add(intMatrix[y + 3][x])
+                    l.add(longMatrix[y][x])
+                    l.add(longMatrix[y + 1][x])
+                    l.add(longMatrix[y + 2][x])
+                    l.add(longMatrix[y + 3][x])
                 }
                 Orientation.DownLeft -> {
-                    l.add(intMatrix[y][x])
-                    l.add(intMatrix[y + 1][x - 1])
-                    l.add(intMatrix[y + 2][x - 2])
-                    l.add(intMatrix[y + 3][x - 3])
+                    l.add(longMatrix[y][x])
+                    l.add(longMatrix[y + 1][x - 1])
+                    l.add(longMatrix[y + 2][x - 2])
+                    l.add(longMatrix[y + 3][x - 3])
                 }
                 Orientation.DownRight -> {
-                    l.add(intMatrix[y][x])
-                    l.add(intMatrix[y + 1][x + 1])
-                    l.add(intMatrix[y + 2][x + 2])
-                    l.add(intMatrix[y + 3][x + 3])
+                    l.add(longMatrix[y][x])
+                    l.add(longMatrix[y + 1][x + 1])
+                    l.add(longMatrix[y + 2][x + 2])
+                    l.add(longMatrix[y + 3][x + 3])
                 }
                 Orientation.Left -> {
-                    l.add(intMatrix[y][x])
-                    l.add(intMatrix[y][x - 1])
-                    l.add(intMatrix[y][x - 2])
-                    l.add(intMatrix[y][x - 3])
+                    l.add(longMatrix[y][x])
+                    l.add(longMatrix[y][x - 1])
+                    l.add(longMatrix[y][x - 2])
+                    l.add(longMatrix[y][x - 3])
                 }
                 Orientation.Right -> {
-                    l.add(intMatrix[y][x])
-                    l.add(intMatrix[y][x + 1])
-                    l.add(intMatrix[y][x + 2])
-                    l.add(intMatrix[y][x + 3])
+                    l.add(longMatrix[y][x])
+                    l.add(longMatrix[y][x + 1])
+                    l.add(longMatrix[y][x + 2])
+                    l.add(longMatrix[y][x + 3])
                 }
                 Orientation.Up -> {
-                    l.add(intMatrix[y][x])
-                    l.add(intMatrix[y - 1][x])
-                    l.add(intMatrix[y - 2][x])
-                    l.add(intMatrix[y - 3][x])
+                    l.add(longMatrix[y][x])
+                    l.add(longMatrix[y - 1][x])
+                    l.add(longMatrix[y - 2][x])
+                    l.add(longMatrix[y - 3][x])
                 }
                 Orientation.UpLeft -> {
-                    l.add(intMatrix[y][x])
-                    l.add(intMatrix[y - 1][x - 1])
-                    l.add(intMatrix[y - 2][x - 2])
-                    l.add(intMatrix[y - 3][x - 3])
+                    l.add(longMatrix[y][x])
+                    l.add(longMatrix[y - 1][x - 1])
+                    l.add(longMatrix[y - 2][x - 2])
+                    l.add(longMatrix[y - 3][x - 3])
                 }
                 Orientation.UpRight -> {
-                    l.add(intMatrix[y][x])
-                    l.add(intMatrix[y - 1][x + 1])
-                    l.add(intMatrix[y - 2][x + 2])
-                    l.add(intMatrix[y - 3][x + 3])
+                    l.add(longMatrix[y][x])
+                    l.add(longMatrix[y - 1][x + 1])
+                    l.add(longMatrix[y - 2][x + 2])
+                    l.add(longMatrix[y - 3][x + 3])
                 }
             }
 
@@ -111,12 +109,12 @@ class Euler11 : EulerSolution {
         }
 
         private fun calculateIntMatrix() {
-            val numbers = strMatrix.split("[ \\n]".toRegex()).map { it.toInt() }
+            val numbers = strMatrix.split("[ \\n]".toRegex()).map { it.toLong() }
             var i = 0
             var j = 0
 
             numbers.forEach { number ->
-                intMatrix[i][j] = number
+                longMatrix[i][j] = number
                 j++
                 if (j == 20) {
                     j = 0

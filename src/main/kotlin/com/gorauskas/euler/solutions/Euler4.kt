@@ -5,15 +5,14 @@ import com.gorauskas.euler.EulerSolution
 
 class Euler4 : EulerSolution {
 
-    override fun solve(): Double {
-        return (100..999L).flatMap { x ->
+    override fun solve(): Long =
+        (100..999L).flatMap { x ->
             (100..999L).map { y ->
                 x * y
             }
         }.filter {
             it.isPalindrome()
-        }.maxOrNull()!!.toDouble()
-    }
+        }.max()
 
     override val problem = """
     Project Euler Problem 4:

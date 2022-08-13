@@ -22,9 +22,8 @@ class Euler5 : EulerSolution {
      *
      * @return double
      */
-    override fun solve(): Double {
-        return (1..20L).reduce { x, y -> x * y / x.gcd(y) }.toDouble()
-    }
+    override fun solve(): Long =
+        (1..20L).reduce { x, y -> x * y / x.gcd(y) }
 
     override val problem = """
     Project Euler Problem 5:

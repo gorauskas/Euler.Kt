@@ -1,7 +1,7 @@
 package com.gorauskas.euler
 
 interface EulerSolution {
-    fun solve(): Double
+    fun solve(): Long
     val problem: String
     val answer: String
 }

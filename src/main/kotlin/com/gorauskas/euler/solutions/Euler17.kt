@@ -4,6 +4,7 @@ import com.gorauskas.euler.EULER17_CHAR_OFFSET
 import com.gorauskas.euler.EULER17_START_INDEX
 import kotlin.streams.toList
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.longLength
 
 class Euler17 : EulerSolution {
 
@@ -39,13 +40,8 @@ class Euler17 : EulerSolution {
         Pair(1000L, "thousand")
     )
 
-    override fun solve(): Double {
-        return buildString {
-            (1L..1000L).forEach {
-                append(spellNumber(it))
-            }
-        }.length.toDouble()
-    }
+    override fun solve(): Long =
+        buildString { (1L..1000L).forEach { append(spellNumber(it)) } }.longLength()
 
     override val problem = """
         Project Euler Problem 17:
@@ -68,6 +64,7 @@ class Euler17 : EulerSolution {
         have ${solve()} letters.
     """.trimIndent()
 
+    @Suppress("ComplexMethod")
     private fun spellNumber(num: Long): String {
         return buildString {
             var ltIndex = EULER17_START_INDEX

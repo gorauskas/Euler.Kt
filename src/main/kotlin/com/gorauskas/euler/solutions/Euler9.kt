@@ -3,15 +3,14 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EulerSolution
 
 class Euler9 : EulerSolution {
-    override fun solve(): Double {
-        return (100..1000).flatMap { a ->
-            (100..1000).flatMap { b ->
-                (100..1000).filter { c ->
-                    a + b + c == 1000 && ((a * a) + (b * b) == (c * c))
+    override fun solve(): Long =
+        (100L..1000L).flatMap { a ->
+            (100L..1000L).flatMap { b ->
+                (100L..1000L).filter { c ->
+                    a + b + c == 1000L && ((a * a) + (b * b) == (c * c))
                 }.map { c -> a * b * c }
             }
-        }.first().toDouble()
-    }
+        }.first()
 
     override val problem = """
     Project Euler Problem 9:

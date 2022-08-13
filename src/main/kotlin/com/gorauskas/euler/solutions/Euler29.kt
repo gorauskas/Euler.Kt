@@ -4,7 +4,7 @@ import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
 
 class Euler29 : EulerSolution {
-    override fun solve(): Double =
+    override fun solve(): Long =
         (2L..100L)
             .map { BigInteger.valueOf(it) }
             .flatMap { i ->
@@ -14,7 +14,7 @@ class Euler29 : EulerSolution {
             }
             .distinct()
             .count()
-            .toDouble()
+            .toLong()
 
     override val problem = """
         Project Euler Problem 29:

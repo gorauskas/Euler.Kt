@@ -5,10 +5,7 @@ import com.gorauskas.euler.sequences.primeSequence
 import com.gorauskas.euler.EulerSolution
 
 class Euler10 : EulerSolution {
-
-    override fun solve(): Double {
-        return primeSequence(EULER10_MAX).sum().toDouble()
-    }
+    override fun solve(): Long = primeSequence(EULER10_MAX).sum()
 
     override val problem = """
     Project Euler Problem 10:
@@ -22,5 +19,4 @@ class Euler10 : EulerSolution {
 
     The sum of all the primes below two million is: ${solve().toLong()}
     """.trimIndent()
-
 }

@@ -55,10 +55,10 @@ class ExtensionsTest {
 
     @Test
     fun testDoubleFactorial() {
-        Assertions.assertEquals(479001600.0, 12.0.factorial())
-        Assertions.assertEquals(120.0, 5.0.factorial())
-        Assertions.assertEquals(6227020800.0, 13.0.factorial())
-        Assertions.assertEquals(2432902008176640000.0, 20.0.factorial())
+        Assertions.assertEquals(479001600L, 12L.factorial())
+        Assertions.assertEquals(120L, 5L.factorial())
+        Assertions.assertEquals(6227020800L, 13L.factorial())
+        Assertions.assertEquals(2432902008176640000L, 20L.factorial())
     }
 
     @Test

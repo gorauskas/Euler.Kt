@@ -31,9 +31,11 @@ class Euler : CliktCommand() {
     ).flag()
 
     init {
-        versionOption("0.1.0",
+        versionOption(
+            "0.1.0",
             names = setOf("-V", "--version"),
-            message = { "Euler.Kt - version $it" })
+            message = { "Euler.Kt - version $it" }
+        )
     }
 
     @Suppress("TooGenericExceptionCaught")
@@ -42,7 +44,7 @@ class Euler : CliktCommand() {
             val classLoader = this.javaClass.classLoader
             val euler = classLoader.loadClass(EULER_PACKAGE + EULER_CLASS + problem)
                 .getDeclaredConstructor()
-                .newInstance() as EulerInterface
+                .newInstance() as EulerSolution
             if (verbose) {
                 echo(euler.problem)
             }
@@ -56,7 +58,8 @@ class Euler : CliktCommand() {
                 is IllegalAccessException -> {
                     echo("Unable to load Euler Problem class", err = true)
                     echo("Enter java -jar euler.jar -h for usage information", err = true)
-                    System.exit(1);
+                    throw java.lang.Exception(exception)
+                    // System.exit(1)
                 }
                 is BadParameterValue,
                 is MissingOption,
@@ -67,7 +70,7 @@ class Euler : CliktCommand() {
                 is UsageError -> {
                     echo("Unable to parse command line parameters", err = true)
                     echo("Enter java -jar euler.jar -h for usage information", err = true)
-                    System.exit(1);
+                    System.exit(1)
                 }
             }
         }

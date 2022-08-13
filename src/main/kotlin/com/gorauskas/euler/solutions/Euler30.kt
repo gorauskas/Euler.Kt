@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 import kotlin.math.pow
 
-class Euler30 : IEuler {
+class Euler30 : EulerSolution {
     /**
      * Find the bounds: Start at 2 because 1 is not a sum
      * 9^5 * 6 = 354294 = upper bound or the highest sum of 5th powers

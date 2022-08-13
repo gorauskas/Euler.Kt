@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import java.math.BigInteger
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler29 : IEuler {
+class Euler29 : EulerSolution {
     override fun solve(): Double {
         return (2L..100L)
             .map { BigInteger.valueOf(it) }

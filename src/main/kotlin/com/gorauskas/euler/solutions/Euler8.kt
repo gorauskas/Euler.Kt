@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler8 : IEuler {
+class Euler8 : EulerSolution {
 
     override fun solve(): Double {
         val nums = getNums()

@@ -2,9 +2,9 @@ package com.gorauskas.euler.solutions
 
 import java.math.BigInteger
 import kotlin.collections.ArrayList
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler13 : IEuler {
+class Euler13 : EulerSolution {
     override fun solve(): Double {
         val sum: BigInteger = getNums().reduce { acc, b -> acc.add(b) }
         return sum.toString().substring(0, 10).toDouble()

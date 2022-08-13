@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.sumOfDivisors
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler21 : IEuler {
+class Euler21 : EulerSolution {
 
     override fun solve(): Double =
         (0L..10000L).filter {

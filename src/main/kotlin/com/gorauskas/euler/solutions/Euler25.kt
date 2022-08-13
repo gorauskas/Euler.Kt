@@ -1,12 +1,12 @@
 @file:Suppress("MaxLineLength")
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 import kotlin.math.ceil
 import kotlin.math.log10
 import kotlin.math.sqrt
 
-class Euler25 : IEuler {
+class Euler25 : EulerSolution {
 
     /**
      * Solving this problem simply comes down to knowing Binet’s formula for finding the nth Fibonacci

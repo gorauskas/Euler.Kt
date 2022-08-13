@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.gcd
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler5 : IEuler {
+class Euler5 : EulerSolution {
 
     /**
      * Solve a simpler version of the problem. The lowest common multiple (LCM) of

@@ -2,9 +2,9 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.factorial
 import java.math.BigInteger
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler20 : IEuler {
+class Euler20 : EulerSolution {
     override fun solve(): Double =
         BigInteger.valueOf(100).factorial()
             .toString().chars()

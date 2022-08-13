@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler6 :IEuler {
+class Euler6 : EulerSolution {
 
     override fun solve(): Double {
         val sumOfSqr = Math.pow((1..100L).sum().toDouble(), 2.0)

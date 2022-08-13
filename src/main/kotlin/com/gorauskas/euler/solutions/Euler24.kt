@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.factorial
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler24 : IEuler  {
+class Euler24 : EulerSolution  {
     /**
      * we want the 999999 permutation of 0123456789 (which is the millionth one using index 0)
      * there are n! permutations for n elements - which is the first digit of the millionth permutation?

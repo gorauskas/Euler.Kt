@@ -1,10 +1,10 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.numberOfDivisors
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.sequences.triangleSequence
 
-class Euler12 : IEuler {
+class Euler12 : EulerSolution {
     override fun solve(): Double {
         return triangleSequence()
             .filter { it.numberOfDivisors() > 500 }

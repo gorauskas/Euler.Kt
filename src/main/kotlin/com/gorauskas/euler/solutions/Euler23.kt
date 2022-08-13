@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.sumOfDivisors
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler23 : IEuler {
+class Euler23 : EulerSolution {
 
     /**
      * According to Wolfram Mathworld’s discussion on Abundant Numbers

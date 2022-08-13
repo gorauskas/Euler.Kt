@@ -2,9 +2,9 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.sequences.fibonacciSequence
 
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler2 : IEuler {
+class Euler2 : EulerSolution {
     override fun solve(): Double {
 
         return fibonacciSequence()

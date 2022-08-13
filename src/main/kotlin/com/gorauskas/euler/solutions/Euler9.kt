@@ -2,9 +2,9 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.INT_ONE_HUNDRED
 import com.gorauskas.euler.INT_ONE_THOUSAND
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler9 : IEuler {
+class Euler9 : EulerSolution {
     override fun solve(): Double {
         return (INT_ONE_HUNDRED..INT_ONE_THOUSAND).flatMap {
                 a -> (INT_ONE_HUNDRED..INT_ONE_THOUSAND).flatMap {

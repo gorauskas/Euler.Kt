@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.sequences.primeSequence
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
 /**
  * Repeating decimal Totient Rule = https://en.wikipedia.org/wiki/Repeating_decimal#Totient_rule
@@ -9,7 +9,7 @@ import com.gorauskas.euler.EulerInterface as IEuler
  * Euler's totient function = https://en.wikipedia.org/wiki/Euler%27s_totient_function
  * Full reptend prime = https://en.wikipedia.org/wiki/Full_reptend_prime
  */
-class Euler26 : IEuler {
+class Euler26 : EulerSolution {
     override fun solve(): Double {
         val ps = primeSequence(1000).toList().reversed()
         var seqlen = 0

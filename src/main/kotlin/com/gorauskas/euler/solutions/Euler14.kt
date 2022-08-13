@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler14 : IEuler {
+class Euler14 : EulerSolution {
 
     private var num = 0L
     private var len = 0

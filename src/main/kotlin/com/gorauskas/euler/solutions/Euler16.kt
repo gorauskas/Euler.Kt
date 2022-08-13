@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import java.math.BigInteger
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler16 : IEuler {
+class Euler16 : EulerSolution {
     override fun solve(): Double {
         return BigInteger.ONE.shiftLeft(1000)
             .toString().chars()

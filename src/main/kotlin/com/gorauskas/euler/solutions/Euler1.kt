@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler1 : IEuler {
+class Euler1 : EulerSolution {
 
     override fun solve(): Double {
         return (1..999).filter { it % 3 == 0 || it % 5 == 0 }.sum().toDouble()

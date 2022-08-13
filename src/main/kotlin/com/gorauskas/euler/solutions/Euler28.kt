@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 import kotlin.math.pow
 
-class Euler28 : IEuler {
+class Euler28 : EulerSolution {
     /**
      * You don't have to actually construct the spiral to solve this problem.
      * This is a simple summation problem and therefore the result can be expressed

@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.factorial
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler15 : IEuler {
+class Euler15 : EulerSolution {
 
     /**
      * This is a combinations problem. on a 20x20 grid to get from top-left to

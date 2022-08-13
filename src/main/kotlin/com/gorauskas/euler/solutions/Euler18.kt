@@ -1,6 +1,6 @@
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
 /**
  * This is a really interesting problem and the solution is really simple an
@@ -10,7 +10,7 @@ import com.gorauskas.euler.EulerInterface as IEuler
  * input data is too large for brute force. I need a clever algorithm...
  */
 
-class Euler18 : IEuler {
+class Euler18 : EulerSolution {
 
     val data = buildString {
         append("75\n")

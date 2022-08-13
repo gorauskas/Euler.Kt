@@ -39,9 +39,9 @@ import com.gorauskas.euler.LONG_TWENTY
 import com.gorauskas.euler.LONG_TWO
 import com.gorauskas.euler.LONG_ZERO
 import kotlin.streams.toList
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler17 : IEuler {
+class Euler17 : EulerSolution {
 
     private val lookupTable = mapOf(
         Pair(LONG_ONE, "one"),

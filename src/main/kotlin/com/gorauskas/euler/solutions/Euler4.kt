@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.isPalindrome
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler4 : IEuler {
+class Euler4 : EulerSolution {
 
     override fun solve(): Double {
         return (100..999L).flatMap { x ->

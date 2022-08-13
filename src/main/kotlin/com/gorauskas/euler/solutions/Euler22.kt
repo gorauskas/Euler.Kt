@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.getData
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler22 : IEuler {
+class Euler22 : EulerSolution {
     override fun solve(): Double =
         javaClass.getResource("/p022_names.txt").toURI()
             .getData()

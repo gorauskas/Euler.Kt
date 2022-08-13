@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.sequences.primeSequence
-import com.gorauskas.euler.EulerInterface as IEuler
+import com.gorauskas.euler.EulerSolution
 
-class Euler10 : IEuler {
+class Euler10 : EulerSolution {
 
     override fun solve(): Double {
         return primeSequence(2000000).sum().toDouble()

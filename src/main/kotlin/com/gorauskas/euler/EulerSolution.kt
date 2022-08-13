@@ -5,3 +5,5 @@ interface EulerInterface {
     val problem: String
     val answer: String
 }
+
+typealias IEuler = EulerInterface

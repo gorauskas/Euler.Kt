@@ -1,4 +1,44 @@
 package com.gorauskas.euler.solutions
 
-class Euler32 {
+import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.isPanDigital
+
+class Euler32 : EulerSolution {
+    override fun solve(): Double =
+        (1L..101L).map { i ->
+            val start = if (i > 9L) { 123L } else { 1234L }
+            (start..(10000L / i) + 1L).map { j ->
+                Triple(i, j, "$i$j${i * j}")
+            }.filter {
+                it.third.toLong().isPanDigital()
+            }.map {
+                it.first * it.second
+            }
+        }.flatMap { it }
+            .toSet()
+            .sum()
+            .toDouble()
+
+    override val problem = """
+        Project Euler Problem 32:
+
+            We shall say that an n-digit number is pandigital if it makes use of all
+            the digits 1 to n exactly once; for example, the 5-digit number, 15234,
+            is 1 through 5 pandigital.
+
+            The product 7254 is unusual, as the identity, 39 × 186 = 7254, containing
+            multiplicand, multiplier, and product is 1 through 9 pandigital.
+
+            Find the sum of all products whose multiplicand/multiplier/product identity
+            can be written as a 1 through 9 pandigital.
+
+            HINT: Some products can be obtained in more than one way so be sure to
+            only include it once in your sum.
+    """.trimIndent()
+
+    override val answer = """
+
+        The sum of all products whose multiplicand/multiplier/product identity can
+        be written as a 1 through 9 pandigital is ${solve()}
+    """.trimIndent()
 }

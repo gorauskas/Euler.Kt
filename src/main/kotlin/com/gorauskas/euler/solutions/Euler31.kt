@@ -4,9 +4,9 @@ import com.gorauskas.euler.EULER31_TARGET
 import com.gorauskas.euler.EulerSolution
 
 class Euler31 : EulerSolution {
-    override fun solve(): Double {
+    override fun solve(): Long {
         val coins = listOf(1, 2, 5, 10, 20, 50, 100, 200)
-        val ways = (mutableListOf(1) + MutableList(EULER31_TARGET) { 0 }).toMutableList()
+        val ways = (mutableListOf(1L) + MutableList(EULER31_TARGET) { 0L }).toMutableList()
 
         coins.forEach { coin ->
             (coin..EULER31_TARGET).forEach { i ->
@@ -14,7 +14,7 @@ class Euler31 : EulerSolution {
             }
         }
 
-        return ways[EULER31_TARGET].toDouble()
+        return ways[EULER31_TARGET]
     }
 
     override val problem = """

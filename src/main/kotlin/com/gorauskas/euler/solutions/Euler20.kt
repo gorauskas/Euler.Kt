@@ -6,11 +6,8 @@ import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
 
 class Euler20 : EulerSolution {
-    override fun solve(): Double =
-        BigInteger.valueOf(100).factorial()
-            .toString().chars()
-            .map { it - EULER20_CHAR_OFFSET }
-            .sum().toDouble()
+    override fun solve(): Long =
+        BigInteger.valueOf(100).factorial().toString().chars().map { it - EULER20_CHAR_OFFSET }.sum().toLong()
 
     override val problem = """
         Project Euler Problem 20:

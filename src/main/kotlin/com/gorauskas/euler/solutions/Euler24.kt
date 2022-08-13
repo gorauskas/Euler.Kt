@@ -14,7 +14,7 @@ class Euler24 : EulerSolution {
      * interval, and thus must start with a 2... we take 2 as the first digit of the result out of
      * numbers and continue and so on and so forth for the 2nd, 3rd, etc digits.
      */
-    override fun solve(): Double =
+    override fun solve(): Long =
         mutableListOf<Long>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9).let { numbers ->
             val digitCount = numbers.size.toLong()
             var remainingPermutations = EULER24_REMAINING_PERMUTATIONS
@@ -29,7 +29,7 @@ class Euler24 : EulerSolution {
                 }
             }
 
-            result.plus(numbers[0]).toDouble()
+            result.plus(numbers[0]).toLong()
         }
 
     override val problem = """

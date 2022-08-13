@@ -4,9 +4,8 @@ import com.gorauskas.euler.EulerSolution
 
 class Euler1 : EulerSolution {
 
-    override fun solve(): Double {
-        return (1..999).filter { it % 3 == 0 || it % 5 == 0 }.sum().toDouble()
-    }
+    override fun solve(): Long =
+        (1L..999L).filter { it % 3L == 0L || it % 5L == 0L }.sum()
 
     override val problem = """
     Project Euler Problem 1:

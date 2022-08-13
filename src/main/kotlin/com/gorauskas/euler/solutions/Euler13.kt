@@ -5,12 +5,8 @@ import com.gorauskas.euler.extensions.getData
 import java.math.BigInteger
 
 class Euler13 : EulerSolution {
-    override fun solve(): Double =
-        getNums().map { BigInteger(it) }
-            .reduce { acc, b -> acc.add(b) }
-            .toString()
-            .substring(0, 10)
-            .toDouble()
+    override fun solve(): Long =
+        getNums().map { BigInteger(it) }.reduce { acc, b -> acc.add(b) }.toString().substring(0, 10).toLong()
 
     override val problem = """
         Project Euler Problem 13:

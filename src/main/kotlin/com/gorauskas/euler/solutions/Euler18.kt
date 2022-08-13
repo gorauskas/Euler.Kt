@@ -4,7 +4,7 @@ import com.gorauskas.euler.EULER18_TRIANGLE
 import com.gorauskas.euler.EulerSolution
 
 /**
- * This is a really interesting problem and the solution is really simple an
+ * This is a fascinating problem and the solution is really simple an
  * clever.  The solution takes from graph theory. See notes below for details.
  * Doing a brute force search on the triangle in this problem works fine but it's
  * not optimal. Problem 67 is basically the same problem as this one, but the
@@ -23,7 +23,7 @@ class Euler18 : EulerSolution {
             line.split(" ").map { it.toLong() }
         }
 
-    override fun solve(): Double = findMaxSum(triangle).toDouble()
+    override fun solve(): Long = findMaxSum(triangle)
 
     override val problem = """
         Project Euler Problem 18:

@@ -4,10 +4,8 @@ import com.gorauskas.euler.EulerSolution
 
 class Euler19 : EulerSolution {
 
-    override fun solve(): Double =
-        (1901L..2000L).flatMap { y ->
-            (1L..12L).filter { m -> dayOfWeek(y, m) == 0L }
-        }.count().toDouble()
+    override fun solve(): Long =
+        (1901L..2000L).flatMap { y -> (1L..12L).filter { m -> dayOfWeek(y, m) == 0L } }.count().toLong()
 
     override val problem = """
         Project Euler Problem 19:

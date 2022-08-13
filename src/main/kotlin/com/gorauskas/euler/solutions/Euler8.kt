@@ -5,7 +5,7 @@ import com.gorauskas.euler.EulerSolution
 
 class Euler8 : EulerSolution {
 
-    override fun solve(): Double {
+    override fun solve(): Long {
         val nums = getNums()
         var greatest = 0L
         var i = 0
@@ -20,7 +20,7 @@ class Euler8 : EulerSolution {
             i++
         }
 
-        return greatest.toDouble()
+        return greatest
     }
 
     override val problem = """

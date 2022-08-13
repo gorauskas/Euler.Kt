@@ -13,14 +13,13 @@ class Euler23 : EulerSolution {
      * So our upper bound lowered to 20161 (+1) from 28123.
      */
 
-    override fun solve(): Double =
+    override fun solve(): Long =
         genSetOfSumOfTwoAbundants((1L..EULER23_MAX)
             .filter { x -> x.sumOfDivisors() > x })
             .let { sumOfTwoSet ->
                 (1L..EULER23_MAX)
                     .filter { !sumOfTwoSet.contains(it) }
                     .sum()
-                    .toDouble()
             }
 
     private fun genSetOfSumOfTwoAbundants(abundants: List<Long>): Set<Long> =

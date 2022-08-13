@@ -5,36 +5,8 @@ import com.gorauskas.euler.sequences.fibonacciSequence
 import com.gorauskas.euler.EulerSolution
 
 class Euler2 : EulerSolution {
-    override fun solve(): Double {
-
-        return fibonacciSequence()
-            .take(35)
-            .filter { it < 4000000 }
-            .filter { it % 2 == 0L }
-            .sum()
-            .toDouble()
-
-        // return loopStrategy()
-    }
-
-    private fun loopStrategy(): Double {
-        var x = 1
-        var y = 1
-        var t = 0
-        var r = 0
-
-        while (t < 4000000) {
-            t = x + y
-            y = x
-            x = t
-
-            if (t % 2 == 0) {
-                r += t
-            }
-        }
-
-        return r.toDouble()
-    }
+    override fun solve(): Long =
+        fibonacciSequence().take(35).filter { it < 4000000 }.filter { it % 2 == 0L }.sum()
 
     override val problem = """
     Project Euler Problem 2:

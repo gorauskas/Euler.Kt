@@ -9,7 +9,7 @@ class Euler31Test {
     @Test
     fun testSolve() {
         val e = Euler31()
-        Assertions.assertEquals(73682.0, e.solve())
+        Assertions.assertEquals(73682L, e.solve())
     }
 
 }

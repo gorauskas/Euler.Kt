@@ -87,6 +87,8 @@ fun Long.isPanDigital(): Boolean =
         .minus(this.toString().map { it.digitToInt() })
         .isEmpty()
 
+fun String.longLength() = this.length.toLong()
+
 fun URI.getData(): String? {
     var path: Path? = null
     return try {

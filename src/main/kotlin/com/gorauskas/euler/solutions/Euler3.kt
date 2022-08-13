@@ -7,13 +7,10 @@ import com.gorauskas.euler.EulerSolution
 
 class Euler3 : EulerSolution {
 
-    override fun solve(): Double {
-        val n = EULER3_PF_NUMBER
-        return (2..EULER3_MAX)
-            .filter { n % it == 0L && it.isPrime() }
-            .maxOrNull()
-            ?.toDouble()!!
-    }
+    override fun solve(): Long =
+        (2..EULER3_MAX)
+            .filter { EULER3_PF_NUMBER % it == 0L && it.isPrime() }
+            .max()
 
     override val problem = """
     Project Euler Problem 3:

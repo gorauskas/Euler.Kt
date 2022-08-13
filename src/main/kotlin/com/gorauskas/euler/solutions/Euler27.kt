@@ -4,7 +4,7 @@ import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
 
 class Euler27 : EulerSolution {
-    override fun solve(): Double {
+    override fun solve(): Long {
         var max = 0L
         var res = 0L
 
@@ -30,7 +30,7 @@ class Euler27 : EulerSolution {
             }
         }
 
-        return res.toDouble()
+        return res
     }
 
     override val problem = """

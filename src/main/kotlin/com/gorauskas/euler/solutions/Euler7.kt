@@ -5,10 +5,7 @@ import com.gorauskas.euler.sequences.primeSequence
 import com.gorauskas.euler.EulerSolution
 
 class Euler7 : EulerSolution {
-
-    override fun solve(): Double {
-        return primeSequence(EULER7_MAX).toList().get(10000).toDouble()
-    }
+    override fun solve(): Long = primeSequence(EULER7_MAX).toList().get(10000)
 
     override val problem = """
     Project Euler Problem 7:
@@ -23,5 +20,4 @@ class Euler7 : EulerSolution {
 
     Prime 10001 is ${solve().toLong()}
     """.trimIndent()
-
 }

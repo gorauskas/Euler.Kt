@@ -1,5 +1,6 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER23_MAX
 import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.EulerSolution
 
@@ -11,8 +12,6 @@ class Euler23 : EulerSolution {
      * greater than 20161 can be expressed as a sum of two abundant numbers."
      * So our upper bound lowered to 20161 (+1) from 28123.
      */
-
-    private val EULER23_MAX: Long = 20162L
 
     override fun solve(): Double =
         genSetOfSumOfTwoAbundants((1L..EULER23_MAX)

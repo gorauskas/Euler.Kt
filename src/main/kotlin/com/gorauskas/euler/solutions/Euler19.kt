@@ -6,9 +6,7 @@ class Euler19 : EulerSolution {
 
     override fun solve(): Double =
         (1901L..2000L).flatMap { y ->
-            (1L..12L).filter { m ->
-                dayOfWeek(y, m, 1L) == 0L
-            }
+            (1L..12L).filter { m -> dayOfWeek(y, m) == 0L }
         }.count().toDouble()
 
     override val problem = """
@@ -41,14 +39,13 @@ class Euler19 : EulerSolution {
      * Zeller's congruence - https://en.wikipedia.org/wiki/Zeller%27s_congruence
      * @param year - The Year
      * @param month - The Month
-     * @param day - The Day
      * @return A number from 0 to 6 representing the day of the week; 0 = Sunday
+     * The day in this case is always 1 for the first
      */
-    private fun dayOfWeek(year: Long, month: Long, day: Long): Long {
-        var m = Math.floorMod(month - 3L, 48000L)
-        val y = Math.floorMod(year + m / 12L, 400L)
-        m %= 12L
-        return ((y + y / 4L - y / 100L + (13L * m + 2L) / 5L + day + 2L) % 7L)
-    }
-
+    private fun dayOfWeek(year: Long, month: Long): Long =
+        Math.floorMod(month - 3L, 48000L).let { m ->
+            Math.floorMod(year + m / 12L, 400L).let { y ->
+                ((y + y / 4L - y / 100L + (13L * (m % 12L) + 2L) / 5L + 1L + 2L) % 7L)
+            }
+        }
 }

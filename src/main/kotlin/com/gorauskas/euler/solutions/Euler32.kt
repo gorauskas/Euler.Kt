@@ -1,12 +1,14 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER32_HIGH_START
+import com.gorauskas.euler.EULER32_LOW_START
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPanDigital
 
 class Euler32 : EulerSolution {
     override fun solve(): Double =
         (1L..101L).map { i ->
-            val start = if (i > 9L) { 123L } else { 1234L }
+            val start = if (i > 9L) { EULER32_LOW_START } else { EULER32_HIGH_START }
             (start..(10000L / i) + 1L).map { j ->
                 Triple(i, j, "$i$j${i * j}")
             }.filter {

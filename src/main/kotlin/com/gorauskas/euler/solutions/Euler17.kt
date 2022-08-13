@@ -1,83 +1,47 @@
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.INT_EIGHT
-import com.gorauskas.euler.INT_FORTY
-import com.gorauskas.euler.INT_FOUR
-import com.gorauskas.euler.INT_ONE
-import com.gorauskas.euler.INT_TEN
-import com.gorauskas.euler.INT_THREE
-import com.gorauskas.euler.INT_TWO
-import com.gorauskas.euler.INT_ZERO
-import com.gorauskas.euler.LONG_EIGHT
-import com.gorauskas.euler.LONG_EIGHTTEEN
-import com.gorauskas.euler.LONG_EIGHTY
-import com.gorauskas.euler.LONG_ELEVEN
-import com.gorauskas.euler.LONG_FIFTEEN
-import com.gorauskas.euler.LONG_FIFTY
-import com.gorauskas.euler.LONG_FIVE
-import com.gorauskas.euler.LONG_FORTY
-import com.gorauskas.euler.LONG_FOUR
-import com.gorauskas.euler.LONG_FOURTEEN
-import com.gorauskas.euler.LONG_NINE
-import com.gorauskas.euler.LONG_NINETEEN
-import com.gorauskas.euler.LONG_NINETY
-import com.gorauskas.euler.LONG_ONE
-import com.gorauskas.euler.LONG_ONE_HUNDRED
-import com.gorauskas.euler.LONG_ONE_THOUSAND
-import com.gorauskas.euler.LONG_SEVEN
-import com.gorauskas.euler.LONG_SEVENTEEN
-import com.gorauskas.euler.LONG_SEVENTY
-import com.gorauskas.euler.LONG_SIX
-import com.gorauskas.euler.LONG_SIXTEEN
-import com.gorauskas.euler.LONG_SIXTY
-import com.gorauskas.euler.LONG_TEN
-import com.gorauskas.euler.LONG_THIRTEEN
-import com.gorauskas.euler.LONG_THIRTY
-import com.gorauskas.euler.LONG_THREE
-import com.gorauskas.euler.LONG_TWELVE
-import com.gorauskas.euler.LONG_TWENTY
-import com.gorauskas.euler.LONG_TWO
-import com.gorauskas.euler.LONG_ZERO
+import com.gorauskas.euler.EULER17_CHAR_OFFSET
+import com.gorauskas.euler.EULER17_START_INDEX
 import kotlin.streams.toList
 import com.gorauskas.euler.EulerSolution
 
 class Euler17 : EulerSolution {
 
     private val lookupTable = mapOf(
-        Pair(LONG_ONE, "one"),
-        Pair(LONG_TWO, "two"),
-        Pair(LONG_THREE, "three"),
-        Pair(LONG_FOUR, "four"),
-        Pair(LONG_FIVE, "five"),
-        Pair(LONG_SIX, "six"),
-        Pair(LONG_SEVEN, "seven"),
-        Pair(LONG_EIGHT, "eight"),
-        Pair(LONG_NINE, "nine"),
-        Pair(LONG_TEN, "ten"),
-        Pair(LONG_ELEVEN, "eleven"),
-        Pair(LONG_TWELVE, "twelve"),
-        Pair(LONG_THIRTEEN, "thirteen"),
-        Pair(LONG_FOURTEEN, "fourteen"),
-        Pair(LONG_FIFTEEN, "fifteen"),
-        Pair(LONG_SIXTEEN, "sixteen"),
-        Pair(LONG_SEVENTEEN, "seventeen"),
-        Pair(LONG_EIGHTTEEN, "eighteen"),
-        Pair(LONG_NINETEEN, "nineteen"),
-        Pair(LONG_TWENTY, "twenty"),
-        Pair(LONG_THIRTY, "thirty"),
-        Pair(LONG_FORTY, "forty"),
-        Pair(LONG_FIFTY, "fifty"),
-        Pair(LONG_SIXTY, "sixty"),
-        Pair(LONG_SEVENTY, "seventy"),
-        Pair(LONG_EIGHTY, "eighty"),
-        Pair(LONG_NINETY, "ninety"),
-        Pair(LONG_ONE_HUNDRED, "hundred"),
-        Pair(LONG_ONE_THOUSAND, "thousand")
+        Pair(1L, "one"),
+        Pair(2L, "two"),
+        Pair(3L, "three"),
+        Pair(4L, "four"),
+        Pair(5L, "five"),
+        Pair(6L, "six"),
+        Pair(7L, "seven"),
+        Pair(8L, "eight"),
+        Pair(9L, "nine"),
+        Pair(10L, "ten"),
+        Pair(11L, "eleven"),
+        Pair(12L, "twelve"),
+        Pair(13L, "thirteen"),
+        Pair(14L, "fourteen"),
+        Pair(15L, "fifteen"),
+        Pair(16L, "sixteen"),
+        Pair(17L, "seventeen"),
+        Pair(18L, "eighteen"),
+        Pair(19L, "nineteen"),
+        Pair(20L, "twenty"),
+        Pair(30L, "thirty"),
+        Pair(40L, "forty"),
+        Pair(50L, "fifty"),
+        Pair(60L, "sixty"),
+        Pair(70L, "seventy"),
+        Pair(80L, "eighty"),
+        Pair(90L, "ninety"),
+        Pair(100L, "hundred"),
+        Pair(1000L, "thousand")
     )
 
     override fun solve(): Double {
         return buildString {
-            (LONG_ONE..LONG_ONE_THOUSAND).forEach {
+            (1L..1000L).forEach {
                 append(spellNumber(it))
             }
         }.length.toDouble()
@@ -106,34 +70,34 @@ class Euler17 : EulerSolution {
 
     private fun spellNumber(num: Long): String {
         return buildString {
-            var decPostVal = LONG_NINETY + LONG_NINE
+            var ltIndex = EULER17_START_INDEX
             val nums = num.toString().reversed().chars()
-                .map { (it - (INT_FORTY + INT_EIGHT)) }
+                .map { (it - EULER17_CHAR_OFFSET) }
                 .mapToLong { it.toLong() }
                 .toList()
-            if (nums.size == INT_FOUR && nums[INT_THREE] != LONG_ZERO) {
-                append(lookupTable[nums[INT_THREE]] + " thousand")
+            if (nums.size == 4 && nums[3] != 0L) {
+                append(lookupTable[nums[3]] + " thousand")
             }
-            if (nums.size >= INT_THREE && nums[INT_TWO] != LONG_ZERO) {
-                append(lookupTable[nums[INT_TWO]] + " hundred")
+            if (nums.size >= 3 && nums[2] != 0L) {
+                append(lookupTable[nums[2]] + " hundred")
 
-                if (nums.size >= INT_TWO && nums[INT_ONE] != LONG_ZERO) {
+                if (nums.size >= 2 && nums[1] != 0L) {
                     append(" and")
-                } else if (nums.size >= INT_ONE && nums[INT_ZERO] != LONG_ZERO) {
+                } else if (nums.size >= 1 && nums[0] != 0L) {
                     append(" and")
                 }
             }
-            if (nums.size >= INT_TWO && nums[INT_ONE] != LONG_ZERO) {
-                decPostVal = nums[INT_ONE] * LONG_TEN + nums[INT_ZERO]
+            if (nums.size >= 2 && nums[1] != 0L) {
+                ltIndex = nums[1] * 10L + nums[0]
 
-                if (decPostVal <= LONG_TWENTY) {
-                    append(" " + lookupTable[decPostVal])
+                if (ltIndex <= 20L) {
+                    append(" " + lookupTable[ltIndex])
                 } else {
-                    append(" " + lookupTable[nums[INT_ONE] * INT_TEN])
+                    append(" " + lookupTable[nums[1] * 10])
                 }
             }
-            if (nums.size >= INT_ONE && nums[INT_ZERO] != LONG_ZERO && decPostVal > LONG_TWENTY) {
-                append(" " + lookupTable[nums[INT_ZERO]])
+            if (nums.size >= 1 && nums[0] != 0L && ltIndex > 20L) {
+                append(" " + lookupTable[nums[0]])
             }
         }.replace(" ", "")
     }

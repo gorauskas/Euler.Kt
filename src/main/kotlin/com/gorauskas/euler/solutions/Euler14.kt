@@ -49,7 +49,7 @@ class Euler14 : EulerSolution {
 
     private fun collatzList(n: Long): ArrayList<Long> {
         var i = n
-        var l = arrayListOf<Long>()
+        val l = arrayListOf<Long>()
 
         while (i > 1) {
             if (i % 2L == 0L) {

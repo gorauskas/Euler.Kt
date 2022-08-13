@@ -1,12 +1,13 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER22_CHAR_OFFSET
 import com.gorauskas.euler.extensions.getData
 import com.gorauskas.euler.EulerSolution
 
 class Euler22 : EulerSolution {
     override fun solve(): Double =
-        javaClass.getResource("/p022_names.txt").toURI()
-            .getData()
+        javaClass.getResource("/p022_names.txt")?.toURI()
+            ?.getData()
             ?.split(",")
             ?.map {
                 it.replace("\"", "")
@@ -39,6 +40,6 @@ class Euler22 : EulerSolution {
     """.trimIndent()
 
     private fun nameScore(name: String, pos: Int): Int =
-        pos * name.chars().map { it - 64 }.sum()
+        pos * name.chars().map { it - EULER22_CHAR_OFFSET }.sum()
 
 }

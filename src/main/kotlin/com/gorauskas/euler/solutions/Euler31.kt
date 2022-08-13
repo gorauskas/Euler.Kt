@@ -1,21 +1,20 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER31_TARGET
 import com.gorauskas.euler.EulerSolution
-
-private const val TARGET = 200
 
 class Euler31 : EulerSolution {
     override fun solve(): Double {
         val coins = listOf(1, 2, 5, 10, 20, 50, 100, 200)
-        val ways = (mutableListOf(1) + MutableList(TARGET) { 0 }).toMutableList()
+        val ways = (mutableListOf(1) + MutableList(EULER31_TARGET) { 0 }).toMutableList()
 
         coins.forEach { coin ->
-            (coin..TARGET).forEach { i ->
+            (coin..EULER31_TARGET).forEach { i ->
                 ways[i] += ways[i - coin]
             }
         }
 
-        return ways[TARGET].toDouble()
+        return ways[EULER31_TARGET].toDouble()
     }
 
     override val problem = """

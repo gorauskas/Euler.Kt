@@ -1,13 +1,15 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER3_MAX
+import com.gorauskas.euler.EULER3_PF_NUMBER
 import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
 
 class Euler3 : EulerSolution {
 
     override fun solve(): Double {
-        val n = 600851475143L
-        return (2..775164L)
+        val n = EULER3_PF_NUMBER
+        return (2..EULER3_MAX)
             .filter { n % it == 0L && it.isPrime() }
             .maxOrNull()
             ?.toDouble()!!

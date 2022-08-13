@@ -1,12 +1,13 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER10_MAX
 import com.gorauskas.euler.sequences.primeSequence
 import com.gorauskas.euler.EulerSolution
 
 class Euler10 : EulerSolution {
 
     override fun solve(): Double {
-        return primeSequence(2000000).sum().toDouble()
+        return primeSequence(EULER10_MAX).sum().toDouble()
     }
 
     override val problem = """

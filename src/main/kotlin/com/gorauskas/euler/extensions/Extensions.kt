@@ -1,7 +1,7 @@
 package com.gorauskas.euler.extensions
 
-import com.gorauskas.euler.LONG_THREE
 import java.io.IOException
+import java.lang.Exception
 import java.math.BigInteger
 import java.net.URI
 import java.nio.file.FileSystems
@@ -14,7 +14,7 @@ fun Long.isPrime(): Boolean {
         return this == 2L
     }
 
-    var k = LONG_THREE
+    var k = 3L
     while (k * k <= this) {
         if (this % k == 0L) {
             return false
@@ -88,8 +88,8 @@ fun Long.isPanDigital(): Boolean =
         .isEmpty()
 
 fun URI.getData(): String? {
+    var path: Path? = null
     return try {
-        val path: Path
         if (this.toString().contains("!")) {
             val p = this.toString().split("!").toTypedArray()
             val fs = FileSystems.newFileSystem(URI.create(p[0]), HashMap<String, String>())
@@ -100,5 +100,6 @@ fun URI.getData(): String? {
         Files.readAllLines(path).joinToString("\n")
     } catch (e: IOException) {
         e.printStackTrace().toString()
+        throw Exception("Could not access resource ${path?.toUri()}")
     }
 }

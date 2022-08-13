@@ -1,5 +1,6 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER16_CHAR_OFFSET
 import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
 
@@ -7,7 +8,8 @@ class Euler16 : EulerSolution {
     override fun solve(): Double {
         return BigInteger.ONE.shiftLeft(1000)
             .toString().chars()
-            .map { it - 48 }.sum()
+            .map { it - EULER16_CHAR_OFFSET }
+            .sum()
             .toDouble()
     }
 

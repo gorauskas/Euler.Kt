@@ -15,7 +15,7 @@ class Euler26 : EulerSolution {
         var seqlen = 0
 
         for (p in ps) {
-            if (seqlen >= p) break;
+            if (seqlen >= p) break
 
             val rems = IntArray(p.toInt())
             var value = 1
@@ -60,6 +60,7 @@ class Euler26 : EulerSolution {
     """.trimIndent()
 
     override val answer = """
+
         The value of d < 1000 for which 1/d contains the longest
         recurring cycle in its decimal fraction part is: ${solve()}
     """.trimIndent()

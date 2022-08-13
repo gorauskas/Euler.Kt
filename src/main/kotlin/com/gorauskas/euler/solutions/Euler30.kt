@@ -1,5 +1,7 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER30_CHAR_OFFSET
+import com.gorauskas.euler.EULER30_UPPER_BOUND
 import com.gorauskas.euler.EulerSolution
 import kotlin.math.pow
 
@@ -16,12 +18,12 @@ class Euler30 : EulerSolution {
      * Does the result equals the initial number
      * sum the result
      */
-    override fun solve(): Double {
-        return (2L..354294L)
+    override fun solve(): Double =
+        (2L..EULER30_UPPER_BOUND)
             .map { it.toString() }
             .filter { x ->
                 x == x.chars()
-                    .map { c -> c - 48 }
+                    .map { c -> c - EULER30_CHAR_OFFSET }
                     .map { y -> y.toDouble().pow(5.0).toInt() }
                     .sum()
                     .toString()
@@ -29,7 +31,6 @@ class Euler30 : EulerSolution {
             .map { it.toInt() }
             .sum()
             .toDouble()
-    }
 
     override val problem = """
         Project Euler Problem 30:

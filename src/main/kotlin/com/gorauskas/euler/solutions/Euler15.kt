@@ -1,5 +1,7 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER15_DIRS
+import com.gorauskas.euler.EULER15_MOVES
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.EulerSolution
 
@@ -17,12 +19,8 @@ class Euler15 : EulerSolution {
      *
      * @return double
      */
-    override fun solve(): Double {
-        val moves = 40.0
-        val dirs = 20.0
-
-        return moves.factorial() / ((moves - dirs).factorial() * dirs.factorial())
-    }
+    override fun solve(): Double =
+        EULER15_MOVES.factorial() / ((EULER15_MOVES - EULER15_DIRS).factorial() * EULER15_DIRS.factorial())
 
     override val problem = """
         Project Euler Problem 15:

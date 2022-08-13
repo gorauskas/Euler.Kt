@@ -1,18 +1,16 @@
 package com.gorauskas.euler.solutions
 
-import com.gorauskas.euler.INT_ONE_HUNDRED
-import com.gorauskas.euler.INT_ONE_THOUSAND
 import com.gorauskas.euler.EulerSolution
 
 class Euler9 : EulerSolution {
     override fun solve(): Double {
-        return (INT_ONE_HUNDRED..INT_ONE_THOUSAND).flatMap {
-                a -> (INT_ONE_HUNDRED..INT_ONE_THOUSAND).flatMap {
-                    b -> (INT_ONE_HUNDRED..INT_ONE_THOUSAND).filter {
-                        c -> a + b + c == INT_ONE_THOUSAND && ((a * a) + (b * b) == (c * c))
-                    }.map { c -> a * b * c }
-                }
-            }.first().toDouble()
+        return (100..1000).flatMap { a ->
+            (100..1000).flatMap { b ->
+                (100..1000).filter { c ->
+                    a + b + c == 1000 && ((a * a) + (b * b) == (c * c))
+                }.map { c -> a * b * c }
+            }
+        }.first().toDouble()
     }
 
     override val problem = """

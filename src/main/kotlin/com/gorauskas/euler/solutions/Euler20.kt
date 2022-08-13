@@ -1,5 +1,6 @@
 package com.gorauskas.euler.solutions
 
+import com.gorauskas.euler.EULER20_CHAR_OFFSET
 import com.gorauskas.euler.extensions.factorial
 import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
@@ -8,7 +9,7 @@ class Euler20 : EulerSolution {
     override fun solve(): Double =
         BigInteger.valueOf(100).factorial()
             .toString().chars()
-            .map { it - 48 }
+            .map { it - EULER20_CHAR_OFFSET }
             .sum().toDouble()
 
     override val problem = """

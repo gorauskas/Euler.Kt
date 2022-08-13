@@ -82,18 +82,23 @@ fun BigInteger.factorial(): BigInteger {
 
 fun Long.sumOfDivisors(): Long = this.divisors().filter { it != this }.sum()
 
+fun Long.isPanDigital(): Boolean =
+    listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+        .minus(this.toString().map { it.digitToInt() })
+        .isEmpty()
+
 fun URI.getData(): String? {
     return try {
         val path: Path
         if (this.toString().contains("!")) {
             val p = this.toString().split("!").toTypedArray()
             val fs = FileSystems.newFileSystem(URI.create(p[0]), HashMap<String, String>())
-            path = fs.getPath(p[1]);
+            path = fs.getPath(p[1])
         } else {
             path = Paths.get(this)
         }
         Files.readAllLines(path).joinToString("\n")
-    } catch(e: IOException) {
+    } catch (e: IOException) {
         e.printStackTrace().toString()
     }
 }

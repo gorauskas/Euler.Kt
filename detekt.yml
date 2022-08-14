@@ -20,6 +20,7 @@ complexity:
   TooManyFunctions:
     active: true
     thresholdInFiles: 25
+    thresholdInClasses: 25
 style:
   MaxLineLength:
     active: true

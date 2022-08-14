@@ -75,7 +75,13 @@ class ExtensionsTest {
     }
 
     @Test
+    fun testIsPanDigital() {
+        Assertions.assertFalse(135587254L.isPanDigital())
+        Assertions.assertTrue(391867254L.isPanDigital())
+    }
+
+    @Test
     fun testGetDataFromUri() {
-        Assertions.assertEquals("Jonas Gorauskas", javaClass.getResource("/test.txt").toURI().getData())
+        Assertions.assertEquals("Jonas Gorauskas", javaClass.getResource("/test.txt")!!.toURI().getData())
     }
 }

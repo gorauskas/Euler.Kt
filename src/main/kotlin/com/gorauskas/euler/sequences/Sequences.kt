@@ -4,10 +4,11 @@ import com.gorauskas.euler.extensions.isPrime
 
 fun fibonacciSequence(): Sequence<Long> =
     sequence {
-        var seed = Pair(0L, 1L)
-        while (true) {
-            yield(seed.first)
-            seed = Pair(seed.second, seed.first + seed.second)
+        generateSequence(
+            Pair(0L, 1L),
+            { Pair(it.second, it.first + it.second) }
+        ).forEach { p ->
+            yield(p.first)
         }
     }
 
@@ -22,16 +23,27 @@ fun primeSequence(max: Int): Sequence<Long> {
     return primeSequence().takeWhile { it < max }
 }
 
-fun triangleSequence(): Sequence<Long> {
-    val i = 1L;
-    return sequence {
-        generateSequence(i, { it + 1 })
+fun triangleSequence(): Sequence<Long> =
+    sequence {
+        generateSequence(1L, { it + 1 })
             .forEach { n ->
                 yield((n * n + n) / 2)
             }
     }
-}
 
 fun triangleSequence(max: Int): Sequence<Long> {
     return triangleSequence().takeWhile { it < max }
 }
+
+fun collatzSequence(n: Long): Sequence<Long> =
+    sequence {
+        yieldAll(
+            generateSequence(n) {
+                when {
+                    it == 1L -> null
+                    it % 2L == 0L -> it / 2L
+                    else -> 3L * it + 1L
+                }
+            }
+        )
+    }

@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.sequences.collatzSequence
 
 class Euler14 : EulerSolution {
 
@@ -8,11 +9,12 @@ class Euler14 : EulerSolution {
     private var len = 0
 
     override fun solve(): Long {
-        (1L..999999L).forEach {
-            if (collatzList(it).count() > len) {
-                val l = collatzList(it)
-                len = l.count()
-                num = it
+        (1L..999999L).forEach { n ->
+            collatzSequence(n).also { cs ->
+                if (cs.count() > len) {
+                    len = cs.count()
+                    num = n
+                }
             }
         }
         return num

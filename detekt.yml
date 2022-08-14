@@ -21,6 +21,9 @@ complexity:
     active: true
     thresholdInFiles: 25
     thresholdInClasses: 25
+  NestedBlockDepth:
+    active: true
+    threshold: 32
 style:
   MaxLineLength:
     active: true

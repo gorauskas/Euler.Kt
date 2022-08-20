@@ -39,5 +39,5 @@ class Euler22 : EulerSolution {
     """.trimIndent()
 
     private fun nameScore(name: String, pos: Int): Long =
-        pos * name.chars().map { it - EULER22_CHAR_OFFSET }.sum().toLong()
+        pos * name.toCharArray().map { it.code - EULER22_CHAR_OFFSET }.sum().toLong()
 }

@@ -2,7 +2,6 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EULER17_CHAR_OFFSET
 import com.gorauskas.euler.EULER17_START_INDEX
-import kotlin.streams.toList
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.longLength
 
@@ -68,10 +67,8 @@ class Euler17 : EulerSolution {
     private fun spellNumber(num: Long): String {
         return buildString {
             var ltIndex = EULER17_START_INDEX
-            val nums = num.toString().reversed().chars()
-                .map { (it - EULER17_CHAR_OFFSET) }
-                .mapToLong { it.toLong() }
-                .toList()
+            val nums = num.toString().reversed().toCharArray()
+                .map { it.code - EULER17_CHAR_OFFSET }
             if (nums.size == 4 && nums[3] != 0L) {
                 append(lookupTable[nums[3]] + " thousand")
             }

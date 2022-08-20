@@ -22,8 +22,8 @@ class Euler30 : EulerSolution {
         (2L..EULER30_UPPER_BOUND)
             .map { it.toString() }
             .filter { x ->
-                x == x.chars()
-                    .map { c -> c - EULER30_CHAR_OFFSET }
+                x == x.toCharArray()
+                    .map { c -> c.code - EULER30_CHAR_OFFSET }
                     .map { y -> y.toDouble().pow(5.0).toInt() }
                     .sum()
                     .toString()

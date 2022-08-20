@@ -7,7 +7,12 @@ import com.gorauskas.euler.EulerSolution
 
 class Euler20 : EulerSolution {
     override fun solve(): Long =
-        BigInteger.valueOf(100).factorial().toString().chars().map { it - EULER20_CHAR_OFFSET }.sum().toLong()
+        BigInteger.valueOf(100)
+            .factorial()
+            .toString()
+            .toCharArray()
+            .map { it.code - EULER20_CHAR_OFFSET }
+            .sum()
 
     override val problem = """
         Project Euler Problem 20:

@@ -3,12 +3,13 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER34_CHAR_OFFSET
 import com.gorauskas.euler.EULER34_HIGH_RANGE
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.factorial
 import kotlin.Long
 
 class Euler34 : EulerSolution {
     override fun solve(): Long {
         // pre-calculated factorials from 1 to 9
-        val fact = listOf(1L, 1L, 2L, 6L, 24L, 120L, 720L, 5040L, 40320L, 362880L)
+        val fact = listOf(1L) + (1L..9L).map { it.factorial() }
         var r = 0L
 
         (10..EULER34_HIGH_RANGE).map { n ->

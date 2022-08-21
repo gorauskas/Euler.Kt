@@ -3,9 +3,10 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER10_MAX
 import com.gorauskas.euler.sequences.primeSequence
 import com.gorauskas.euler.EulerSolution
+import kotlinx.coroutines.runBlocking
 
 class Euler10 : EulerSolution {
-    override fun solve(): Long = primeSequence(EULER10_MAX).sum()
+    override fun solve(): Long = runBlocking { primeSequence(EULER10_MAX).sum() }
 
     override val problem = """
     Project Euler Problem 10:

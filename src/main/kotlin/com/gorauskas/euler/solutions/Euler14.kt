@@ -2,18 +2,25 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.sequences.collatzSequence
+import kotlinx.coroutines.runBlocking
 
 class Euler14 : EulerSolution {
 
     private var num = 0L
     private var len = 0
 
+    /**
+     * Loop starts at 500000 because any number between 1 and 499999 multiplied by 2
+     * (the reverse of i / 2) will equal a number between 500000 to 999999.
+     */
     override fun solve(): Long {
-        (1L..999999L).forEach { n ->
-            collatzSequence(n).also { cs ->
-                if (cs.count() > len) {
-                    len = cs.count()
-                    num = n
+        (500000L..999999L).forEach { n ->
+            runBlocking {
+                collatzSequence(n).also { cs ->
+                    if (cs.count() > len) {
+                        len = cs.count()
+                        num = n
+                    }
                 }
             }
         }

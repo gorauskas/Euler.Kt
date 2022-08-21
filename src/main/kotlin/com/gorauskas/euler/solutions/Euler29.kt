@@ -4,18 +4,6 @@ import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
 
 class Euler29 : EulerSolution {
-    override fun solve(): Long =
-        (2L..100L)
-            .map { BigInteger.valueOf(it) }
-            .flatMap { i ->
-                (2L..100L)
-                    .map { BigInteger.valueOf(it) }
-                    .map { j -> i.pow(j.intValueExact()) }
-            }
-            .distinct()
-            .count()
-            .toLong()
-
     override val problem = """
         Project Euler Problem 29:
 
@@ -39,4 +27,16 @@ class Euler29 : EulerSolution {
 
         There are ${solve()} distinct terms in the sequence.
     """.trimIndent()
+
+    override fun solve(): Long =
+        (2L..100L)
+            .map { BigInteger.valueOf(it) }
+            .flatMap { i ->
+                (2L..100L)
+                    .map { BigInteger.valueOf(it) }
+                    .map { j -> i.pow(j.intValueExact()) }
+            }
+            .distinct()
+            .count()
+            .toLong()
 }

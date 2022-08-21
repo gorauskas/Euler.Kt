@@ -11,32 +11,6 @@ import kotlinx.coroutines.runBlocking
  * Full reptend prime = https://en.wikipedia.org/wiki/Full_reptend_prime
  */
 class Euler26 : EulerSolution {
-    override fun solve(): Long {
-        val ps = runBlocking { primeSequence(1000).toList().reversed() }
-        var seqlen = 0
-
-        for (p in ps) {
-            if (seqlen >= p) break
-
-            val rems = IntArray(p.toInt())
-            var value = 1
-            var position = 0
-
-            while (rems[value] == 0 && value != 0) {
-                rems[value] = position
-                value *= 10
-                value %= p.toInt()
-                position++
-            }
-
-            if (position - rems[value] > seqlen) {
-                seqlen = position - rems[value]
-            }
-        }
-
-        return seqlen + 1L
-    }
-
     override val problem = """
         Project Euler Problem 26:
 
@@ -65,4 +39,30 @@ class Euler26 : EulerSolution {
         The value of d < 1000 for which 1/d contains the longest
         recurring cycle in its decimal fraction part is: ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long {
+        val ps = runBlocking { primeSequence(1000).toList().reversed() }
+        var seqlen = 0
+
+        for (p in ps) {
+            if (seqlen >= p) break
+
+            val rems = IntArray(p.toInt())
+            var value = 1
+            var position = 0
+
+            while (rems[value] == 0 && value != 0) {
+                rems[value] = position
+                value *= 10
+                value %= p.toInt()
+                position++
+            }
+
+            if (position - rems[value] > seqlen) {
+                seqlen = position - rems[value]
+            }
+        }
+
+        return seqlen + 1L
+    }
 }

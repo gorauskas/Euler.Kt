@@ -4,10 +4,6 @@ import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.EulerSolution
 
 class Euler21 : EulerSolution {
-
-    override fun solve(): Long =
-        (0L..10000L).filter { it.sumOfDivisors().sumOfDivisors() == it && it != it.sumOfDivisors() }.sum()
-
     override val problem = """
         Project Euler Problem 21:
 
@@ -29,4 +25,6 @@ class Euler21 : EulerSolution {
         The sum of all the amicable numbers under 10000 is: ${solve()}
     """.trimIndent()
 
+    override fun solve(): Long =
+        (0L..10_000L).filter { it.sumOfDivisors().sumOfDivisors() == it && it != it.sumOfDivisors() }.sum()
 }

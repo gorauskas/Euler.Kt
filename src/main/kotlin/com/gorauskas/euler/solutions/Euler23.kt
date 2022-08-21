@@ -5,31 +5,12 @@ import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.EulerSolution
 
 class Euler23 : EulerSolution {
-
     /**
      * According to Wolfram Mathworld’s discussion on Abundant Numbers
      * [http://mathworld.wolfram.com/AbundantNumber.html]: "Every number
      * greater than 20161 can be expressed as a sum of two abundant numbers."
      * So our upper bound lowered to 20161 (+1) from 28123.
      */
-
-    override fun solve(): Long =
-        genSetOfSumOfTwoAbundants((1L..EULER23_MAX)
-            .filter { x -> x.sumOfDivisors() > x })
-            .let { sumOfTwoSet ->
-                (1L..EULER23_MAX)
-                    .filter { !sumOfTwoSet.contains(it) }
-                    .sum()
-            }
-
-    private fun genSetOfSumOfTwoAbundants(abundants: List<Long>): Set<Long> =
-        (0..abundants.size - 2)
-            .flatMap { x ->
-                (x..abundants.size - 1)
-                    .map { y -> abundants[x] + abundants[y] }
-                    .filter { it <= EULER23_MAX }
-            }.toSet()
-
     override val problem = """
         Project Euler Problem 23:
 
@@ -58,4 +39,18 @@ class Euler23 : EulerSolution {
         two abundant numbers is ${solve()}
     """.trimIndent()
 
+    override fun solve(): Long =
+        genSetOfSumOfTwoAbundants((1L..EULER23_MAX).filter { x -> x.sumOfDivisors() > x })
+            .let { sumOfTwoSet ->
+                (1L..EULER23_MAX)
+                    .filter { !sumOfTwoSet.contains(it) }
+                    .sum()
+            }
+
+    private fun genSetOfSumOfTwoAbundants(abundants: List<Long>): Set<Long> =
+        (0 until abundants.size - 2).flatMap { x ->
+            (x until abundants.size - 1).map { y ->
+                abundants[x] + abundants[y]
+            }.filter { it <= EULER23_MAX }
+        }.toSet()
 }

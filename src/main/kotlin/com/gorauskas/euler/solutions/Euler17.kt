@@ -6,7 +6,6 @@ import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.longLength
 
 class Euler17 : EulerSolution {
-
     private val lookupTable = mapOf(
         Pair(1L, "one"),
         Pair(2L, "two"),
@@ -39,9 +38,6 @@ class Euler17 : EulerSolution {
         Pair(1000L, "thousand")
     )
 
-    override fun solve(): Long =
-        buildString { (1L..1000L).forEach { append(spellNumber(it)) } }.longLength()
-
     override val problem = """
         Project Euler Problem 17:
 
@@ -62,6 +58,9 @@ class Euler17 : EulerSolution {
         The numbers from 1 to 1000, when written out in words,
         have ${solve()} letters.
     """.trimIndent()
+
+    override fun solve(): Long =
+        buildString { (1L..1000L).forEach { append(spellNumber(it)) } }.longLength()
 
     @Suppress("ComplexMethod")
     private fun spellNumber(num: Long): String {

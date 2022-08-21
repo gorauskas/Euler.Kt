@@ -5,8 +5,6 @@ import com.gorauskas.euler.EulerSolution
 import kotlinx.coroutines.runBlocking
 
 class Euler2 : EulerSolution {
-    override fun solve(): Long = runBlocking { fibonacciSequence(4000000L).filter { it % 2L == 0L }.sum() }
-
     override val problem = """
         Project Euler Problem 2:
 
@@ -25,4 +23,6 @@ class Euler2 : EulerSolution {
         The sum of the even-valued terms in a Fibonacci sequence
         not exceeding 4 million is: ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long = runBlocking { fibonacciSequence(4_000_000L).filter { it % 2L == 0L }.sum() }
 }

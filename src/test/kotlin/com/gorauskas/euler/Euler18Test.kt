@@ -5,11 +5,9 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 class Euler18Test {
-
     @Test
     fun testSolve() {
         val e = Euler18()
-        Assertions.assertEquals(1074L, e.solve())
+        Assertions.assertEquals(1_074L, e.solve())
     }
-
 }

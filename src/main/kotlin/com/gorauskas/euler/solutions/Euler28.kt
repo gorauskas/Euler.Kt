@@ -9,9 +9,6 @@ class Euler28 : EulerSolution {
      * This is a simple summation problem and therefore the result can be expressed
      * by a formula which is presented below
      */
-    override fun solve(): Long =
-        500.0.let { n -> ((16L * n.pow(3.0) + 26L * 500L) / 3 + 10 * n.pow(2.0)) + 1 }.toLong()
-
     override val problem = """
         Project Euler Problem 28:
 
@@ -35,4 +32,7 @@ class Euler28 : EulerSolution {
         The sum of the numbers on the diagonals in a 1001 by 1001
         spiral is ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long =
+        500.0.let { n -> (16L * n.pow(3.0) + 26L * 500L) / 3 + 10 * n.pow(2.0) + 1 }.toLong()
 }

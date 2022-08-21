@@ -13,6 +13,7 @@ import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.options.versionOption
 import com.github.ajalt.clikt.parameters.types.int
+import com.gorauskas.euler.exceptions.EulerProblemException
 import java.lang.reflect.InvocationTargetException
 
 private const val EULER_PACKAGE = "com.gorauskas.euler.solutions."
@@ -21,12 +22,14 @@ private const val EULER_CLASS = "Euler"
 class Euler : CliktCommand() {
 
     val problem: Int by option(
-        "-p", "--problem",
+        "-p",
+        "--problem",
         help = "Specify the problem/solution number you want to run"
     ).int().default(0)
 
     val verbose: Boolean by option(
-        "-v", "--verbose",
+        "-v",
+        "--verbose",
         help = "Verbose outputs the problem statement and the solution"
     ).flag()
 
@@ -58,8 +61,7 @@ class Euler : CliktCommand() {
                 is IllegalAccessException -> {
                     echo("Unable to load Euler Problem class", err = true)
                     echo("Enter java -jar euler.jar -h for usage information", err = true)
-                    throw java.lang.Exception(exception)
-                    // System.exit(1)
+                    throw EulerProblemException(problem, exception)
                 }
                 is BadParameterValue,
                 is MissingOption,

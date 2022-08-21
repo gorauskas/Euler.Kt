@@ -6,14 +6,6 @@ import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
 
 class Euler20 : EulerSolution {
-    override fun solve(): Long =
-        BigInteger.valueOf(100)
-            .factorial()
-            .toString()
-            .toCharArray()
-            .map { it.code - EULER20_CHAR_OFFSET }
-            .sum()
-
     override val problem = """
         Project Euler Problem 20:
 
@@ -30,4 +22,11 @@ class Euler20 : EulerSolution {
         The sum of the digits in the number 100! is: ${solve()}
     """.trimIndent()
 
+    override fun solve(): Long =
+        BigInteger.valueOf(100)
+            .factorial()
+            .toString()
+            .toCharArray()
+            .map { it.code - EULER20_CHAR_OFFSET }
+            .sum()
 }

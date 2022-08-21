@@ -5,27 +5,8 @@ import com.gorauskas.euler.sequences.collatzSequence
 import kotlinx.coroutines.runBlocking
 
 class Euler14 : EulerSolution {
-
     private var num = 0L
     private var len = 0
-
-    /**
-     * Loop starts at 500000 because any number between 1 and 499999 multiplied by 2
-     * (the reverse of i / 2) will equal a number between 500000 to 999999.
-     */
-    override fun solve(): Long {
-        (500000L..999999L).forEach { n ->
-            runBlocking {
-                collatzSequence(n).also { cs ->
-                    if (cs.count() > len) {
-                        len = cs.count()
-                        num = n
-                    }
-                }
-            }
-        }
-        return num
-    }
 
     override val problem = """
         Project Euler Problem 14:
@@ -53,20 +34,21 @@ class Euler14 : EulerSolution {
         The starting number, under one million, producing the longest chain is ${solve()}
     """.trimIndent()
 
-    private fun collatzList(n: Long): ArrayList<Long> {
-        var i = n
-        val l = arrayListOf<Long>()
-
-        while (i > 1) {
-            if (i % 2L == 0L) {
-                i = i / 2
-            } else {
-                i = (3 * i) + 1
+    /**
+     * Loop starts at 500000 because any number between 1 and 499999 multiplied by 2
+     * (the reverse of i / 2) will equal a number between 500000 to 999999.
+     */
+    override fun solve(): Long {
+        (500_000L..999_999L).forEach { n ->
+            runBlocking {
+                collatzSequence(n).also { cs ->
+                    if (cs.count() > len) {
+                        len = cs.count()
+                        num = n
+                    }
+                }
             }
-
-            l.add(i)
         }
-
-        return l
+        return num
     }
 }

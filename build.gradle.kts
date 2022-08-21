@@ -1,4 +1,4 @@
-import kotlin.math.max
+import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
     kotlin("jvm") version Versions.kotlin
@@ -31,7 +31,7 @@ dependencies {
 }
 
 sourceSets {
-    main{
+    main {
         java {
             srcDirs("$projectDir/src/main/kotlin/")
         }
@@ -78,12 +78,25 @@ tasks.test {
     }
 }
 
+tasks.withType<Detekt>().configureEach {
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+        txt.required.set(false)
+        sarif.required.set(false)
+        md.required.set(false)
+    }
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
 }
 
 detekt {
+    allRules = true
+    parallel = true
+    buildUponDefaultConfig = true
     toolVersion = Versions.detekt
     config = files("${rootDir.path}/detekt.yml")
     source = files("src/main/kotlin", "src/test/kotlin")

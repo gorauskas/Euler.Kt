@@ -8,6 +8,6 @@ class Euler7Test {
     @Test
     fun testSolve() {
         val e = Euler7()
-        Assertions.assertEquals(104743L, e.solve())
+        Assertions.assertEquals(104_743L, e.solve())
     }
 }

@@ -4,7 +4,6 @@ import com.gorauskas.euler.extensions.gcd
 import com.gorauskas.euler.EulerSolution
 
 class Euler5 : EulerSolution {
-
     /**
      * Solve a simpler version of the problem. The lowest common multiple (LCM) of
      * two numbers x and y, usually denoted as lcm(x, y), is the smallest positive
@@ -22,9 +21,6 @@ class Euler5 : EulerSolution {
      *
      * @return double
      */
-    override fun solve(): Long =
-        (1..20L).reduce { x, y -> x * y / x.gcd(y) }
-
     override val problem = """
     Project Euler Problem 5:
 
@@ -40,4 +36,7 @@ class Euler5 : EulerSolution {
     The smallest positive number that is evenly divisible
     by all of the numbers from 1 to 20 is: ${solve().toLong()}
     """.trimIndent()
+
+    override fun solve(): Long =
+        (1..20L).reduce { x, y -> x * y / x.gcd(y) }
 }

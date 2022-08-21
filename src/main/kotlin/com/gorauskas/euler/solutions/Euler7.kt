@@ -6,8 +6,6 @@ import com.gorauskas.euler.EulerSolution
 import kotlinx.coroutines.runBlocking
 
 class Euler7 : EulerSolution {
-    override fun solve(): Long = runBlocking { primeSequence(EULER7_MAX).toList().get(10000) }
-
     override val problem = """
     Project Euler Problem 7:
 
@@ -21,4 +19,6 @@ class Euler7 : EulerSolution {
 
     Prime 10001 is ${solve().toLong()}
     """.trimIndent()
+
+    override fun solve(): Long = runBlocking { primeSequence(EULER7_MAX).toList().get(10_000) }
 }

@@ -6,18 +6,6 @@ import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPanDigital
 
 class Euler32 : EulerSolution {
-    override fun solve(): Long =
-        (1L..101L).flatMap { i ->
-            val start = if (i > 9L) { EULER32_LOW_START } else { EULER32_HIGH_START }
-            (start..(10000L / i) + 1L).map { j ->
-                Triple(i, j, "$i$j${i * j}")
-            }.filter {
-                it.third.toLong().isPanDigital()
-            }.map {
-                it.first * it.second
-            }
-        }.toSet().sum()
-
     override val problem = """
         Project Euler Problem 32:
 
@@ -40,4 +28,16 @@ class Euler32 : EulerSolution {
         The sum of all products whose multiplicand/multiplier/product identity can
         be written as a 1 through 9 pandigital is ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long =
+        (1L..101L).flatMap { i ->
+            val start = if (i > 9L) { EULER32_LOW_START } else { EULER32_HIGH_START }
+            (start..10_000L / i + 1L).map { j ->
+                Triple(i, j, "$i$j${i * j}")
+            }.filter {
+                it.third.toLong().isPanDigital()
+            }.map {
+                it.first * it.second
+            }
+        }.toSet().sum()
 }

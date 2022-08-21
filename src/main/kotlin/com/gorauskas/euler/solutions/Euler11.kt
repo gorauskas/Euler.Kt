@@ -6,8 +6,6 @@ import com.gorauskas.euler.EulerSolution
 class Euler11 : EulerSolution {
     private val sm by lazy { StringMatrix(EULER11_MATRIX.trimIndent()) }
 
-    override fun solve(): Long = sm.product
-
     override val problem = """
         Project Euler Problem 11:
 
@@ -27,6 +25,8 @@ class Euler11 : EulerSolution {
         The greatest product of four adjacent numbers in the grid is:
         P: ${sm.product}; Loc: ${sm.x},${sm.y}; Seq: ${sm.sequence}
     """.trimIndent()
+
+    override fun solve(): Long = sm.product
 
     enum class Orientation {
         Up, Down, Left, Right, UpLeft, UpRight, DownLeft, DownRight
@@ -48,7 +48,7 @@ class Euler11 : EulerSolution {
         init {
             this.strMatrix = matrix
             this.calculateIntMatrix()
-            this.calculateGreatestProductOfFourAdjacentNumbers()
+            this.calcGreatProdOf4AdjacentNums()
         }
 
         private fun getAdjacentList(orient: Orientation, x: Int, y: Int): List<Long> {
@@ -124,7 +124,7 @@ class Euler11 : EulerSolution {
         }
 
         @Suppress("NestedBlockDepth")
-        private fun calculateGreatestProductOfFourAdjacentNumbers() {
+        private fun calcGreatProdOf4AdjacentNums() {
             val js = (3..16).toList()
             val ks = (3..16).toList()
 

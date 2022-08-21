@@ -4,35 +4,6 @@ import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
 
 class Euler27 : EulerSolution {
-    override fun solve(): Long {
-        var max = 0L
-        var res = 0L
-
-        (-999L..999L).forEach { x ->
-            (-999L..999L).forEach { y ->
-                var done = false
-                var count = 0L
-
-                while (!done) {
-                    val num = count * count + x * count + y
-
-                    if (num > 0 && num.isPrime()) {
-                        count++
-                    } else {
-                        done = true
-                    }
-
-                    if (count > max) {
-                        max = count
-                        res = x * y
-                    }
-                }
-            }
-        }
-
-        return res
-    }
-
     override val problem = """
         Project Euler Problem 27:
 
@@ -66,4 +37,33 @@ class Euler27 : EulerSolution {
         The product of the coefficients, a and b, for the quadratic expression that produces
         the maximum number of primes for consecutive values of n is ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long {
+        var max = 0L
+        var res = 0L
+
+        (-999L..999L).forEach { x ->
+            (-999L..999L).forEach { y ->
+                var done = false
+                var count = 0L
+
+                while (!done) {
+                    val num = count * count + x * count + y
+
+                    if (num > 0 && num.isPrime()) {
+                        count++
+                    } else {
+                        done = true
+                    }
+
+                    if (count > max) {
+                        max = count
+                        res = x * y
+                    }
+                }
+            }
+        }
+
+        return res
+    }
 }

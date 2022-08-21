@@ -1,9 +1,9 @@
 package com.gorauskas.euler
 
 interface EulerSolution {
-    fun solve(): Long
     val problem: String
     val answer: String
+    fun solve(): Long
 }
 
 typealias IEuler = EulerSolution

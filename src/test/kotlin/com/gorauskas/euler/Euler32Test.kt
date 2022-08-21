@@ -8,6 +8,6 @@ class Euler32Test {
     @Test
     fun testSolve() {
         val e = Euler32()
-        Assertions.assertEquals(45228L, e.solve())
+        Assertions.assertEquals(45_228L, e.solve())
     }
 }

@@ -3,10 +3,6 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EulerSolution
 
 class Euler6 : EulerSolution {
-    @Suppress("MaxLineLength")
-    override fun solve(): Long =
-        (Math.pow((1..100).map { it.toDouble() }.sum(), 2.0) - (1..100).map { Math.pow(it.toDouble(), 2.0) }.sum()).toLong()
-
     override val problem = """
     Project Euler Problem 6:
 
@@ -33,4 +29,7 @@ class Euler6 : EulerSolution {
     is: ${solve().toLong()}
     """.trimIndent()
 
+    @Suppress("MaxLineLength")
+    override fun solve(): Long =
+        (Math.pow((1..100).map { it.toDouble() }.sum(), 2.0) - (1..100).map { Math.pow(it.toDouble(), 2.0) }.sum()).toLong()
 }

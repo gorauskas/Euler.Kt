@@ -5,19 +5,6 @@ import com.gorauskas.euler.extensions.getData
 import com.gorauskas.euler.EulerSolution
 
 class Euler22 : EulerSolution {
-    override fun solve(): Long =
-        javaClass.getResource("/p022_names.txt")!!.toURI()
-            .getData()!!
-            .split(",")
-            .map {
-                it.replace("\"", "")
-                    .replace("\n", "")
-            }
-            .sorted()
-            .foldIndexed(0) { index, total, item ->
-                total + nameScore(item, index + 1)
-            }
-
     override val problem = """
         Project Euler Problem 22:
 
@@ -37,6 +24,19 @@ class Euler22 : EulerSolution {
     override val answer = """
         The total of all the name scores in the file is: ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long =
+        javaClass.getResource("/p022_names.txt")!!.toURI()
+            .getData()!!
+            .split(",")
+            .map {
+                it.replace("\"", "")
+                    .replace("\n", "")
+            }
+            .sorted()
+            .foldIndexed(0) { index, total, item ->
+                total + nameScore(item, index + 1)
+            }
 
     private fun nameScore(name: String, pos: Int): Long =
         pos * name.toCharArray().map { it.code - EULER22_CHAR_OFFSET }.sum().toLong()

@@ -4,6 +4,7 @@ import com.gorauskas.euler.EULER24_REMAINING_PERMUTATIONS
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.EulerSolution
 
+@Suppress("LabeledExpression")
 class Euler24 : EulerSolution {
     /**
      * we want the 999999 permutation of 0123456789 (which is the millionth one using index 0)
@@ -14,24 +15,6 @@ class Euler24 : EulerSolution {
      * interval, and thus must start with a 2... we take 2 as the first digit of the result out of
      * numbers and continue and so on and so forth for the 2nd, 3rd, etc digits.
      */
-    override fun solve(): Long =
-        mutableListOf<Long>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9).let { numbers ->
-            val digitCount = numbers.size.toLong()
-            var remainingPermutations = EULER24_REMAINING_PERMUTATIONS
-            var result = ""
-
-            (1L until digitCount).forEach loop@{ currentDigit ->
-                (remainingPermutations / (digitCount - currentDigit).factorial()).also { digitPosition ->
-                    remainingPermutations %= (digitCount - currentDigit).factorial()
-                    result += numbers[digitPosition.toInt()]
-                    numbers.removeAt(digitPosition.toInt())
-                    if (remainingPermutations == 0L) { return@loop } // return@loop = break
-                }
-            }
-
-            result.plus(numbers[0]).toLong()
-        }
-
     override val problem = """
         Project Euler Problem 24
 
@@ -50,4 +33,22 @@ class Euler24 : EulerSolution {
     override val answer = """
         The millionth lexicographic permutation of the digits 0 through 9 is ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long =
+        mutableListOf<Long>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9).let { numbers ->
+            val digitCount = numbers.size.toLong()
+            var remainingPermutations = EULER24_REMAINING_PERMUTATIONS
+            var result = ""
+
+            (1L until digitCount).forEach loop@{ currentDigit ->
+                (remainingPermutations / (digitCount - currentDigit).factorial()).also { digitPosition ->
+                    remainingPermutations %= (digitCount - currentDigit).factorial()
+                    result += numbers[digitPosition.toInt()]
+                    numbers.removeAt(digitPosition.toInt())
+                    if (remainingPermutations == 0L) { return@loop } // return@loop = break
+                }
+            }
+
+            result.plus(numbers[0]).toLong()
+        }
 }

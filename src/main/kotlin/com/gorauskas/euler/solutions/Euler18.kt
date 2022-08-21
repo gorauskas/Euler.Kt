@@ -4,26 +4,25 @@ import com.gorauskas.euler.EULER18_TRIANGLE
 import com.gorauskas.euler.EulerSolution
 
 /**
- * This is a fascinating problem and the solution is really simple an
- * clever.  The solution takes from graph theory. See notes below for details.
- * Doing a brute force search on the triangle in this problem works fine but it's
+ * This is a fascinating problem and the solution is really simple and clever.
+ * The solution takes from graph theory. See notes below for details. Doing a
+ * brute force search on the triangle in this problem works fine but it's
  * not optimal. Problem 67 is basically the same problem as this one, but the
  * input data is too large for brute force. I need a clever algorithm...
  */
-
+@Suppress("CommentOverPrivateFunction")
 class Euler18 : EulerSolution {
     /**
-     * I want to represent the data as a List of List of Long so I break the data
-     * down by line and then by space and convert it to Long and return the data
-     * structure: List<List<Long>>
+     * I want to represent the data as a List of List of Long.
+     * So I break the data down by line and then by space and
+     * convert it to Long and return the data structure:
+     * List<List<Long>>
      */
     val triangle = EULER18_TRIANGLE.trimIndent()
         .split("\n")
         .map { line ->
             line.split(" ").map { it.toLong() }
         }
-
-    override fun solve(): Long = findMaxSum(triangle)
 
     override val problem = """
         Project Euler Problem 18:
@@ -48,6 +47,8 @@ class Euler18 : EulerSolution {
         The maximum sum travelling from the top of the triangle to
         the base is: ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long = findMaxSum(triangle)
 
     /**
      * We keep accumulating and reducing the triangle until there is only one item left
@@ -87,7 +88,7 @@ class Euler18 : EulerSolution {
      * @return a new triangle data structure with one less row.
      */
     private fun reduceTriangle(tri: MutableList<MutableList<Long>>): MutableList<MutableList<Long>> {
-        for (i in 0..tri[tri.size - 2].size - 1) {
+        for (i in 0 until tri[tri.size - 2].size) {
             tri[tri.size - 2]
                 .set(
                     i,

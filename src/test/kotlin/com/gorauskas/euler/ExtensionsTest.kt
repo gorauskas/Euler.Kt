@@ -1,6 +1,14 @@
 package com.gorauskas.euler
 
-import com.gorauskas.euler.extensions.*
+import com.gorauskas.euler.extensions.factorial
+import com.gorauskas.euler.extensions.gcd
+import com.gorauskas.euler.extensions.getData
+import com.gorauskas.euler.extensions.isMultipleOf
+import com.gorauskas.euler.extensions.isPalindrome
+import com.gorauskas.euler.extensions.isPanDigital
+import com.gorauskas.euler.extensions.isPrime
+import com.gorauskas.euler.extensions.numberOfDivisors
+import com.gorauskas.euler.extensions.sumOfDivisors
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.math.BigInteger
@@ -9,17 +17,17 @@ class ExtensionsTest {
 
     @Test
     fun testIsPrime() {
-        Assertions.assertTrue(1217L.isPrime())
-        Assertions.assertTrue(65867L.isPrime())
+        Assertions.assertTrue(1_217L.isPrime())
+        Assertions.assertTrue(65_867L.isPrime())
         Assertions.assertFalse(4L.isPrime())
-        Assertions.assertFalse(6005L.isPrime())
+        Assertions.assertFalse(6_005L.isPrime())
     }
 
     @Test
     fun testIsPalindrome() {
-        Assertions.assertTrue(2442L.isPalindrome())
-        Assertions.assertTrue(12321L.isPalindrome())
-        Assertions.assertFalse(123456L.isPalindrome())
+        Assertions.assertTrue(2_442L.isPalindrome())
+        Assertions.assertTrue(12_321L.isPalindrome())
+        Assertions.assertFalse(123_456L.isPalindrome())
     }
 
     @Test
@@ -47,18 +55,18 @@ class ExtensionsTest {
 
     @Test
     fun testLongFactorial() {
-        Assertions.assertEquals(479001600L, 12L.factorial())
+        Assertions.assertEquals(479_001_600L, 12L.factorial())
         Assertions.assertEquals(120L, 5L.factorial())
-        Assertions.assertEquals(6227020800L, 13L.factorial())
-        Assertions.assertEquals(2432902008176640000L, 20L.factorial())
+        Assertions.assertEquals(6_227_020_800L, 13L.factorial())
+        Assertions.assertEquals(2_432_902_008_176_640_000L, 20L.factorial())
     }
 
     @Test
     fun testDoubleFactorial() {
-        Assertions.assertEquals(479001600L, 12L.factorial())
+        Assertions.assertEquals(479_001_600L, 12L.factorial())
         Assertions.assertEquals(120L, 5L.factorial())
-        Assertions.assertEquals(6227020800L, 13L.factorial())
-        Assertions.assertEquals(2432902008176640000L, 20L.factorial())
+        Assertions.assertEquals(6_227_020_800L, 13L.factorial())
+        Assertions.assertEquals(2_432_902_008_176_640_000L, 20L.factorial())
     }
 
     @Test
@@ -76,8 +84,8 @@ class ExtensionsTest {
 
     @Test
     fun testIsPanDigital() {
-        Assertions.assertFalse(135587254L.isPanDigital())
-        Assertions.assertTrue(391867254L.isPanDigital())
+        Assertions.assertFalse(135_587_254L.isPanDigital())
+        Assertions.assertTrue(391_867_254L.isPanDigital())
     }
 
     @Test

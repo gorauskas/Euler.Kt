@@ -1,15 +1,15 @@
 package com.gorauskas.euler
 
 /**
- * This program is full of magic numbers everywhere
- * I use these constants when I have to assign an `odd` value to a variable
- * I use magic numbers for numbers less than 10 or simple things like 20, 100, 1000
+ * This program is full of magic numbers everywhere.
+ * I use these constants when I have to assign an `odd` value to a variable.
+ * I use magic numbers for numbers less than 10 or simple things like 20, 100, 1000.
  */
 
-const val EULER3_PF_NUMBER = 600851475143L
-const val EULER3_MAX = 775164L
-const val EULER7_MAX = 105000
-const val EULER10_MAX = 2000000
+const val EULER3_PF_NUMBER = 600_851_475_143L
+const val EULER3_MAX = 775_164L
+const val EULER7_MAX = 105_000
+const val EULER10_MAX = 2_000_000
 const val EULER15_MOVES = 40.0
 const val EULER15_DIRS = 20.0
 const val EULER16_CHAR_OFFSET = 48L
@@ -17,14 +17,14 @@ const val EULER17_CHAR_OFFSET = 48L
 const val EULER17_START_INDEX = 99L
 const val EULER20_CHAR_OFFSET = 48L
 const val EULER22_CHAR_OFFSET = 64L
-const val EULER23_MAX: Long = 20162L
-const val EULER24_REMAINING_PERMUTATIONS = 999999L
-const val EULER30_UPPER_BOUND = 354294L
+const val EULER23_MAX: Long = 20_162L
+const val EULER24_REMAINING_PERMUTATIONS = 999_999L
+const val EULER30_UPPER_BOUND = 354_294L
 const val EULER30_CHAR_OFFSET = 48L
 const val EULER31_TARGET = 200
 const val EULER32_LOW_START = 123L
-const val EULER32_HIGH_START = 1234L
-const val EULER34_HIGH_RANGE = 49989L
+const val EULER32_HIGH_START = 1_234L
+const val EULER34_HIGH_RANGE = 49_989L
 const val EULER34_CHAR_OFFSET = 48
 
 const val EULER8_NUMS =

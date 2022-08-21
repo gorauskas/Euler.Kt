@@ -3,24 +3,6 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EulerSolution
 
 class Euler33 : EulerSolution {
-    override fun solve(): Long {
-        var d = 1.0
-
-        for (i in 1..9) {
-            for (j in 1 until i) {
-                for (k in 1 until j) {
-                    val ki = k * 10 + i
-                    val ij = (i * 10 + j).toDouble()
-                    if (k * ij == (ki * j).toDouble()) {
-                        d *= (ij / ki)
-                    }
-                }
-            }
-        }
-
-        return d.toLong()
-    }
-
     override val problem = """
         Project Euler Problem 33:
 
@@ -41,4 +23,22 @@ class Euler33 : EulerSolution {
 
         The value of the denominator is: ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long {
+        var d = 1.0
+
+        for (i in 1..9) {
+            for (j in 1 until i) {
+                for (k in 1 until j) {
+                    val ki = k * 10 + i
+                    val ij = (i * 10 + j).toDouble()
+                    if (k * ij == (ki * j).toDouble()) {
+                        d *= ij / ki
+                    }
+                }
+            }
+        }
+
+        return d.toLong()
+    }
 }

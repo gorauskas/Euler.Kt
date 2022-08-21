@@ -18,19 +18,6 @@ class Euler30 : EulerSolution {
      * Does the result equals the initial number
      * sum the result
      */
-    override fun solve(): Long =
-        (2L..EULER30_UPPER_BOUND)
-            .map { it.toString() }
-            .filter { x ->
-                x == x.toCharArray()
-                    .map { c -> c.code - EULER30_CHAR_OFFSET }
-                    .map { y -> y.toDouble().pow(5.0).toInt() }
-                    .sum()
-                    .toString()
-            }
-            .map { it.toLong() }
-            .sum()
-
     override val problem = """
         Project Euler Problem 30:
 
@@ -54,4 +41,17 @@ class Euler30 : EulerSolution {
         The sum of all the numbers that can be written as the sum of fifth
         powers of their digits is ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long =
+        (2L..EULER30_UPPER_BOUND)
+            .map { it.toString() }
+            .filter { x ->
+                x == x.toCharArray()
+                    .map { c -> c.code - EULER30_CHAR_OFFSET }
+                    .map { y -> y.toDouble().pow(5.0).toInt() }
+                    .sum()
+                    .toString()
+            }
+            .map { it.toLong() }
+            .sum()
 }

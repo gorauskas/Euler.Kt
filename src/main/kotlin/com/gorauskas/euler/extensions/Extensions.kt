@@ -1,7 +1,7 @@
 package com.gorauskas.euler.extensions
 
+import com.gorauskas.euler.exceptions.EulerResourceException
 import java.io.IOException
-import java.lang.Exception
 import java.math.BigInteger
 import java.net.URI
 import java.nio.file.FileSystems
@@ -25,17 +25,11 @@ fun Long.isPrime(): Boolean {
     return this != 1L
 }
 
-fun Long.isPalindrome(): Boolean {
-    return this.toString().equals(this.toString().reversed())
-}
+fun Long.isPalindrome(): Boolean = this.toString().equals(this.toString().reversed())
 
-fun Long.gcd(i: Long): Long {
-    return if (i == 0L) this else i.gcd(this % i)
-}
+fun Long.gcd(i: Long): Long = if (i == 0L) this else i.gcd(this % i)
 
-fun Long.isMultipleOf(multiple: Long): Boolean {
-    return if (this == 0L || multiple == 0L) false else this % multiple == 0L
-}
+fun Long.isMultipleOf(multiple: Long): Boolean = if (this == 0L || multiple == 0L) false else this % multiple == 0L
 
 fun Long.divisors(): List<Long> {
     val factors = mutableSetOf<Long>()
@@ -50,9 +44,7 @@ fun Long.divisors(): List<Long> {
 }
 
 fun Long.numberOfDivisors(): Long {
-    if (this == 1L)
-        return this
-
+    if (this == 1L) return this
     return this.divisors().count().toLong()
 }
 
@@ -101,7 +93,6 @@ fun URI.getData(): String? {
         }
         Files.readAllLines(path).joinToString("\n")
     } catch (e: IOException) {
-        e.printStackTrace().toString()
-        throw Exception("Could not access resource ${path?.toUri()}")
+        throw EulerResourceException(path?.toUri()!!, e)
     }
 }

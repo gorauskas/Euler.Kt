@@ -6,7 +6,6 @@ import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.EulerSolution
 
 class Euler15 : EulerSolution {
-
     /**
      * This is a combinations problem. on a 20x20 grid to get from top-left to
      * bottom-right there are 40 moves (20 down and 20 right). The problem can be
@@ -19,9 +18,6 @@ class Euler15 : EulerSolution {
      *
      * @return double
      */
-    override fun solve(): Long =
-        (EULER15_MOVES.factorial() / ((EULER15_MOVES - EULER15_DIRS).factorial() * EULER15_DIRS.factorial())).toLong()
-
     override val problem = """
         Project Euler Problem 15:
 
@@ -35,4 +31,7 @@ class Euler15 : EulerSolution {
 
         There are ${solve().toLong()} routes through a 20x20 grid
     """.trimIndent()
+
+    override fun solve(): Long =
+        (EULER15_MOVES.factorial() / ((EULER15_MOVES - EULER15_DIRS).factorial() * EULER15_DIRS.factorial())).toLong()
 }

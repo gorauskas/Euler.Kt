@@ -6,12 +6,6 @@ import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
 
 class Euler3 : EulerSolution {
-
-    override fun solve(): Long =
-        (2..EULER3_MAX)
-            .filter { EULER3_PF_NUMBER % it == 0L && it.isPrime() }
-            .max()
-
     override val problem = """
     Project Euler Problem 3:
 
@@ -25,4 +19,8 @@ class Euler3 : EulerSolution {
     The largest prime factor of the number 600851475143 is: ${solve()}
     """.trimIndent()
 
+    override fun solve(): Long =
+        (2..EULER3_MAX)
+            .filter { EULER3_PF_NUMBER % it == 0L && it.isPrime() }
+            .max()
 }

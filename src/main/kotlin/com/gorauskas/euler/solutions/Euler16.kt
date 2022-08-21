@@ -5,14 +5,6 @@ import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
 
 class Euler16 : EulerSolution {
-    override fun solve(): Long =
-        BigInteger.ONE
-            .shiftLeft(1000)
-            .toString()
-            .toCharArray()
-            .map { it.code - EULER16_CHAR_OFFSET }
-            .sum()
-
     override val problem = """
         Project Euler Problem 16:
 
@@ -25,4 +17,12 @@ class Euler16 : EulerSolution {
 
         The sum of the digits of the number 2^1000 is: ${solve()}
     """.trimIndent()
+
+    override fun solve(): Long =
+        BigInteger.ONE
+            .shiftLeft(1000)
+            .toString()
+            .toCharArray()
+            .map { it.code - EULER16_CHAR_OFFSET }
+            .sum()
 }

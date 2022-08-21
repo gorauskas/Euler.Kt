@@ -5,9 +5,6 @@ import com.gorauskas.euler.extensions.getData
 import java.math.BigInteger
 
 class Euler13 : EulerSolution {
-    override fun solve(): Long =
-        getNums().map { BigInteger(it) }.reduce { acc, b -> acc.add(b) }.toString().substring(0, 10).toLong()
-
     override val problem = """
         Project Euler Problem 13:
 
@@ -21,6 +18,9 @@ class Euler13 : EulerSolution {
 
         The first ten digits of the sum of the large numbers is: ${solve().toLong()}
     """.trimIndent()
+
+    override fun solve(): Long =
+        getNums().map { BigInteger(it) }.reduce { acc, b -> acc.add(b) }.toString().substring(0, 10).toLong()
 
     private fun getNums(): List<String> =
         javaClass.getResource("/p013_nums.txt")

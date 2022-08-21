@@ -3,9 +3,10 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER7_MAX
 import com.gorauskas.euler.sequences.primeSequence
 import com.gorauskas.euler.EulerSolution
+import kotlinx.coroutines.runBlocking
 
 class Euler7 : EulerSolution {
-    override fun solve(): Long = primeSequence(EULER7_MAX).toList().get(10000)
+    override fun solve(): Long = runBlocking { primeSequence(EULER7_MAX).toList().get(10000) }
 
     override val problem = """
     Project Euler Problem 7:

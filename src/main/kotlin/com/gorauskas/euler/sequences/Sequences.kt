@@ -2,40 +2,28 @@ package com.gorauskas.euler.sequences
 
 import com.gorauskas.euler.extensions.isPrime
 
-fun fibonacciSequence(): Sequence<Long> =
+suspend fun fibonacciSequence(): Sequence<Long> =
     sequence {
-        generateSequence(
-            Pair(0L, 1L),
-            { Pair(it.second, it.first + it.second) }
-        ).forEach { p ->
-            yield(p.first)
-        }
+        yieldAll(generateSequence(Pair(0L, 1L)) { Pair(it.second, it.first + it.second) }.map { p -> p.first })
     }
 
-fun primeSequence(): Sequence<Long> {
-    var i = 0L
-    return sequence {
-        this.yieldAll(generateSequence { i++ }.filter { n -> n.isPrime() })
-    }
-}
+suspend fun fibonacciSequence(max: Long) = fibonacciSequence().takeWhile { it < max }
 
-fun primeSequence(max: Int): Sequence<Long> {
-    return primeSequence().takeWhile { it < max }
-}
-
-fun triangleSequence(): Sequence<Long> =
+suspend fun primeSequence(): Sequence<Long> =
     sequence {
-        generateSequence(1L, { it + 1 })
-            .forEach { n ->
-                yield((n * n + n) / 2)
-            }
+        yieldAll(generateSequence(0L) { it + 1 }.filter { n -> n.isPrime() })
     }
 
-fun triangleSequence(max: Int): Sequence<Long> {
-    return triangleSequence().takeWhile { it < max }
-}
+suspend fun primeSequence(max: Int) = primeSequence().takeWhile { it < max }
 
-fun collatzSequence(n: Long): Sequence<Long> =
+suspend fun triangleSequence(): Sequence<Long> =
+    sequence {
+        yieldAll(generateSequence(1L) { it + 1 }.map { n -> (n * n + n) / 2 })
+    }
+
+suspend fun triangleSequence(max: Int) = triangleSequence().takeWhile { it < max }
+
+suspend fun collatzSequence(n: Long): Sequence<Long> =
     sequence {
         yieldAll(
             generateSequence(n) {

@@ -3,9 +3,11 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.extensions.numberOfDivisors
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.sequences.triangleSequence
+import kotlinx.coroutines.runBlocking
 
 class Euler12 : EulerSolution {
-    override fun solve(): Long = triangleSequence().filter { it.numberOfDivisors() > 500 }.first()
+    override fun solve(): Long =
+        runBlocking { triangleSequence().filter { it.numberOfDivisors() > 500 }.first() }
 
     override val problem = """
         Project Euler Problem 12:

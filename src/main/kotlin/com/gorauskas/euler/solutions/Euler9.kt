@@ -4,12 +4,11 @@ import com.gorauskas.euler.EulerSolution
 
 class Euler9 : EulerSolution {
     override fun solve(): Long =
-        (100L..1000L).flatMap { a ->
-            (100L..1000L).flatMap { b ->
-                (100L..1000L).filter { c ->
-                    a + b + c == 1000L && ((a * a) + (b * b) == (c * c))
-                }.map { c -> a * b * c }
-            }
+        (1L..500L).flatMap { a ->
+            (1L..500L).filter { b ->
+                a + b + (1000L - a - b) == 1000L &&
+                    a * a + b * b == (1000L - a - b) * (1000L - a - b)
+            }.map { b -> a * b * (1000L - a - b) }
         }.first()
 
     override val problem = """
@@ -27,6 +26,6 @@ class Euler9 : EulerSolution {
     override val answer = """
 
     The product of the pythagorean triple whose
-    sum equals 1000 is: ${solve().toLong()}
+    sum equals 1000 is: ${solve()}
     """.trimIndent()
 }

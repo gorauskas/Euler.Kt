@@ -3,6 +3,7 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER24_REMAINING_PERMUTATIONS
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 @Suppress("LabeledExpression")
 class Euler24 : EulerSolution {
@@ -31,7 +32,7 @@ class Euler24 : EulerSolution {
     """.trimIndent()
 
     override val answer = """
-        The millionth lexicographic permutation of the digits 0 through 9 is ${solve()}
+        The millionth lexicographic permutation of the digits 0 through 9 is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

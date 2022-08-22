@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler33 : EulerSolution {
     override val problem = """
@@ -21,7 +22,7 @@ class Euler33 : EulerSolution {
 
     override val answer = """
 
-        The value of the denominator is: ${solve()}
+        The value of the denominator is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long {

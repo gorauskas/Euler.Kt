@@ -2,8 +2,9 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EULER20_CHAR_OFFSET
 import com.gorauskas.euler.extensions.factorial
-import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
+import java.math.BigInteger
 
 class Euler20 : EulerSolution {
     override val problem = """
@@ -19,7 +20,7 @@ class Euler20 : EulerSolution {
 
     override val answer = """
 
-        The sum of the digits in the number 100! is: ${solve()}
+        The sum of the digits in the number 100! is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

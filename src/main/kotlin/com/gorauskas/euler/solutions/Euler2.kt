@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.sequences.fibonacciSequence
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import kotlinx.coroutines.runBlocking
 
 class Euler2 : EulerSolution {
@@ -21,7 +22,7 @@ class Euler2 : EulerSolution {
     override val answer: String = """
 
         The sum of the even-valued terms in a Fibonacci sequence
-        not exceeding 4 million is: ${solve()}
+        not exceeding 4 million is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long = runBlocking { fibonacciSequence(4_000_000L).filter { it % 2L == 0L }.sum() }

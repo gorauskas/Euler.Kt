@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler29 : EulerSolution {
     override val problem = """
@@ -25,7 +26,7 @@ class Euler29 : EulerSolution {
 
     override val answer = """
 
-        There are ${solve()} distinct terms in the sequence.
+        There are ${timer { solve() }} distinct terms in the sequence.
     """.trimIndent()
 
     override fun solve(): Long =

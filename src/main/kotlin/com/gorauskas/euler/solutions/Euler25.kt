@@ -3,6 +3,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import kotlin.math.ceil
 import kotlin.math.log10
 import kotlin.math.sqrt
@@ -48,7 +49,7 @@ class Euler25 : EulerSolution {
     """.trimIndent()
 
     override val answer = """
-        The first number in the Fibonacci sequence to contain 1000 digits is: ${solve()}
+        The first number in the Fibonacci sequence to contain 1000 digits is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

@@ -3,6 +3,7 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER23_MAX
 import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler23 : EulerSolution {
     /**
@@ -36,7 +37,7 @@ class Euler23 : EulerSolution {
 
     override val answer = """
         The sum of all the positive integers which cannot be written as the sum of
-        two abundant numbers is ${solve()}
+        two abundant numbers is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

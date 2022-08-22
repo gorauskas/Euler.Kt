@@ -4,6 +4,7 @@ import com.gorauskas.euler.EULER15_DIRS
 import com.gorauskas.euler.EULER15_MOVES
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler15 : EulerSolution {
     /**
@@ -29,7 +30,7 @@ class Euler15 : EulerSolution {
 
     override val answer = """
 
-        There are ${solve().toLong()} routes through a 20x20 grid
+        There are ${timer { solve() }} routes through a 20x20 grid
     """.trimIndent()
 
     override fun solve(): Long =

@@ -2,9 +2,11 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPrime
+import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.primeSequence
 import kotlinx.coroutines.runBlocking
 
+@Suppress("CommentOverPrivateFunction")
 class Euler35 : EulerSolution {
     override val problem = """
         Project Euler Problem 35:
@@ -21,7 +23,7 @@ class Euler35 : EulerSolution {
 
     override val answer = """
 
-        There are ${solve()} circular primes below 1 million.
+        There are ${timer { solve() }} circular primes below 1 million.
     """.trimIndent()
 
     override fun solve(): Long =

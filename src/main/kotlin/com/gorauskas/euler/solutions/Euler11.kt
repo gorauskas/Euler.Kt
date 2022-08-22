@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EULER11_MATRIX
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler11 : EulerSolution {
     private val sm by lazy { StringMatrix(EULER11_MATRIX.trimIndent()) }
@@ -23,7 +24,7 @@ class Euler11 : EulerSolution {
     override val answer = """
 
         The greatest product of four adjacent numbers in the grid is:
-        P: ${sm.product}; Loc: ${sm.x},${sm.y}; Seq: ${sm.sequence}
+        P: ${timer { sm.product }}; Loc: ${sm.x},${sm.y}; Seq: ${sm.sequence}
     """.trimIndent()
 
     override fun solve(): Long = sm.product

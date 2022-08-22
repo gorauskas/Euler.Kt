@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.sequences.primeSequence
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -37,7 +38,7 @@ class Euler26 : EulerSolution {
     override val answer = """
 
         The value of d < 1000 for which 1/d contains the longest
-        recurring cycle in its decimal fraction part is: ${solve()}
+        recurring cycle in its decimal fraction part is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long {

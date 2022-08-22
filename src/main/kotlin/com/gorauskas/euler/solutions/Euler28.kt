@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import kotlin.math.pow
 
 class Euler28 : EulerSolution {
@@ -30,7 +31,7 @@ class Euler28 : EulerSolution {
     override val answer = """
 
         The sum of the numbers on the diagonals in a 1001 by 1001
-        spiral is ${solve()}
+        spiral is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

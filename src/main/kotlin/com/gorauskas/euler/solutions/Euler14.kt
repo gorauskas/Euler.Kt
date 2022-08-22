@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.collatzSequence
 import kotlinx.coroutines.runBlocking
 
@@ -31,7 +32,7 @@ class Euler14 : EulerSolution {
 
     override val answer = """
 
-        The starting number, under one million, producing the longest chain is ${solve()}
+        The starting number, under one million, producing the longest chain is ${timer { solve() }}
     """.trimIndent()
 
     /**

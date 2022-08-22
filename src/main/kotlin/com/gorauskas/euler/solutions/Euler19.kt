@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 @Suppress("CommentOverPrivateFunction")
 class Euler19 : EulerSolution {
@@ -26,7 +27,7 @@ class Euler19 : EulerSolution {
 
     override val answer = """
 
-        There were ${solve()} Sundays falling on the first of the month in
+        There were ${timer { solve() }} Sundays falling on the first of the month in
         the twentieth century.
     """.trimIndent()
 

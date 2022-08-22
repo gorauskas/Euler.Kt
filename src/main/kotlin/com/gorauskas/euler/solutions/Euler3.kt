@@ -4,6 +4,7 @@ import com.gorauskas.euler.EULER3_MAX
 import com.gorauskas.euler.EULER3_PF_NUMBER
 import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler3 : EulerSolution {
     override val problem = """
@@ -16,7 +17,7 @@ class Euler3 : EulerSolution {
 
     override val answer = """
 
-    The largest prime factor of the number 600851475143 is: ${solve()}
+    The largest prime factor of the number 600851475143 is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

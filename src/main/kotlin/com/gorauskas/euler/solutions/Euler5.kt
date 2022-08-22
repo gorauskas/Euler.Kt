@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.gcd
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler5 : EulerSolution {
     /**
@@ -34,7 +35,7 @@ class Euler5 : EulerSolution {
     override val answer = """
 
     The smallest positive number that is evenly divisible
-    by all of the numbers from 1 to 20 is: ${solve().toLong()}
+    by all of the numbers from 1 to 20 is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler9 : EulerSolution {
     override val problem = """
@@ -18,7 +19,7 @@ class Euler9 : EulerSolution {
     override val answer = """
 
     The product of the pythagorean triple whose
-    sum equals 1000 is: ${solve()}
+    sum equals 1000 is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

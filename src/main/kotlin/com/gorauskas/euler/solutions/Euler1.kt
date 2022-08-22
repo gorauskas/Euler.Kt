@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler1 : EulerSolution {
     override val problem = """
@@ -15,7 +16,7 @@ class Euler1 : EulerSolution {
 
     override val answer = """
 
-    The sum of all the multiples of 3 or 5 below 1000 is: ${solve()}
+    The sum of all the multiples of 3 or 5 below 1000 is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

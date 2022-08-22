@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EULER18_TRIANGLE
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 /**
  * This is a fascinating problem and the solution is really simple and clever.
@@ -45,7 +46,7 @@ class Euler18 : EulerSolution {
     override val answer = """
 
         The maximum sum travelling from the top of the triangle to
-        the base is: ${solve()}
+        the base is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long = findMaxSum(triangle)

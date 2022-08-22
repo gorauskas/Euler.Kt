@@ -3,6 +3,7 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER7_MAX
 import com.gorauskas.euler.sequences.primeSequence
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import kotlinx.coroutines.runBlocking
 
 class Euler7 : EulerSolution {
@@ -17,7 +18,7 @@ class Euler7 : EulerSolution {
 
     override val answer = """
 
-    Prime 10001 is ${solve().toLong()}
+    Prime 10001 is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long = runBlocking { primeSequence(EULER7_MAX).toList().get(10_000) }

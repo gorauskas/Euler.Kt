@@ -3,6 +3,7 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER30_CHAR_OFFSET
 import com.gorauskas.euler.EULER30_UPPER_BOUND
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import kotlin.math.pow
 
 class Euler30 : EulerSolution {
@@ -39,7 +40,7 @@ class Euler30 : EulerSolution {
     override val answer = """
 
         The sum of all the numbers that can be written as the sum of fifth
-        powers of their digits is ${solve()}
+        powers of their digits is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

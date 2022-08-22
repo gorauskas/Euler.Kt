@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler21 : EulerSolution {
     override val problem = """
@@ -22,7 +23,7 @@ class Euler21 : EulerSolution {
 
     override val answer = """
 
-        The sum of all the amicable numbers under 10000 is: ${solve()}
+        The sum of all the amicable numbers under 10000 is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

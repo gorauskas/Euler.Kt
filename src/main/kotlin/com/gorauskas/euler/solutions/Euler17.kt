@@ -3,6 +3,7 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER17_CHAR_OFFSET
 import com.gorauskas.euler.EULER17_START_INDEX
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.extensions.longLength
 
 class Euler17 : EulerSolution {
@@ -56,7 +57,7 @@ class Euler17 : EulerSolution {
     override val answer = """
 
         The numbers from 1 to 1000, when written out in words,
-        have ${solve()} letters.
+        have ${timer { solve() }} letters.
     """.trimIndent()
 
     override fun solve(): Long =

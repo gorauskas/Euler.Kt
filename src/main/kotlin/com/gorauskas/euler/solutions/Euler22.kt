@@ -3,6 +3,7 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER22_CHAR_OFFSET
 import com.gorauskas.euler.extensions.getData
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler22 : EulerSolution {
     override val problem = """
@@ -22,7 +23,8 @@ class Euler22 : EulerSolution {
     """.trimIndent()
 
     override val answer = """
-        The total of all the name scores in the file is: ${solve()}
+
+        The total of all the name scores in the file is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

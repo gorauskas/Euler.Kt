@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler27 : EulerSolution {
     override val problem = """
@@ -35,7 +36,7 @@ class Euler27 : EulerSolution {
     override val answer = """
 
         The product of the coefficients, a and b, for the quadratic expression that produces
-        the maximum number of primes for consecutive values of n is ${solve()}
+        the maximum number of primes for consecutive values of n is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long {

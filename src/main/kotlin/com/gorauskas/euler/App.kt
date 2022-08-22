@@ -19,8 +19,7 @@ import java.lang.reflect.InvocationTargetException
 private const val EULER_PACKAGE = "com.gorauskas.euler.solutions."
 private const val EULER_CLASS = "Euler"
 
-class Euler : CliktCommand() {
-
+class Euler : CliktCommand(help = "Project euler solutions written in Kotlin") {
     val problem: Int by option(
         "-p",
         "--problem",
@@ -35,7 +34,7 @@ class Euler : CliktCommand() {
 
     init {
         versionOption(
-            "0.1.0",
+            "1.2.0",
             names = setOf("-V", "--version"),
             message = { "Euler.Kt - version $it" }
         )

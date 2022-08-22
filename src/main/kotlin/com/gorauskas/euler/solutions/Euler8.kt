@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EULER8_NUMS
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler8 : EulerSolution {
     override val problem = """
@@ -19,7 +20,7 @@ class Euler8 : EulerSolution {
     override val answer = """
 
     The value of the product of 13 adjacent numbers with greatest
-    product is ${solve().toLong()}
+    product is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long {

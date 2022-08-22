@@ -3,8 +3,8 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER34_CHAR_OFFSET
 import com.gorauskas.euler.EULER34_HIGH_RANGE
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.extensions.factorial
-import kotlin.Long
 
 class Euler34 : EulerSolution {
     override val problem = """
@@ -21,7 +21,7 @@ class Euler34 : EulerSolution {
     override val answer = """
 
         The sum of all numbers which are equal to the sum of the factorial of
-        their digits is ${solve()}
+        their digits is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long {

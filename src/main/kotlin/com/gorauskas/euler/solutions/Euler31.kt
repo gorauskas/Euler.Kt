@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EULER31_TARGET
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler31 : EulerSolution {
     override val problem = """
@@ -21,7 +22,7 @@ class Euler31 : EulerSolution {
 
     override val answer = """
 
-        There are ${solve()} different ways to get £2 using any number of coins.
+        There are ${timer { solve() }} different ways to get £2 using any number of coins.
     """.trimIndent()
 
     override fun solve(): Long {

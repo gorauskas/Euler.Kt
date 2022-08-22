@@ -3,6 +3,7 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER16_CHAR_OFFSET
 import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler16 : EulerSolution {
     override val problem = """
@@ -15,7 +16,7 @@ class Euler16 : EulerSolution {
 
     override val answer = """
 
-        The sum of the digits of the number 2^1000 is: ${solve()}
+        The sum of the digits of the number 2^1000 is: ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

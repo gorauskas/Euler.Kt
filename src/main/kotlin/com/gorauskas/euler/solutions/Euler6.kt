@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler6 : EulerSolution {
     override val problem = """
@@ -26,7 +27,7 @@ class Euler6 : EulerSolution {
 
     The difference between the sum of the squares
     and the square of the sum of the first 100 numbers
-    is: ${solve().toLong()}
+    is: ${timer { solve() }}
     """.trimIndent()
 
     @Suppress("MaxLineLength")

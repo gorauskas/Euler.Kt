@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions
 
 import com.gorauskas.euler.extensions.isPalindrome
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 
 class Euler4 : EulerSolution {
     override val problem = """
@@ -15,7 +16,7 @@ class Euler4 : EulerSolution {
 
     override val answer = """
 
-        The largest palindrome made of the product of two 3 digit numbers is ${solve()}
+        The largest palindrome made of the product of two 3 digit numbers is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

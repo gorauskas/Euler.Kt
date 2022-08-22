@@ -3,6 +3,7 @@ package com.gorauskas.euler.solutions
 import com.gorauskas.euler.EULER32_HIGH_START
 import com.gorauskas.euler.EULER32_LOW_START
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.extensions.isPanDigital
 
 class Euler32 : EulerSolution {
@@ -26,7 +27,7 @@ class Euler32 : EulerSolution {
     override val answer = """
 
         The sum of all products whose multiplicand/multiplier/product identity can
-        be written as a 1 through 9 pandigital is ${solve()}
+        be written as a 1 through 9 pandigital is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long =

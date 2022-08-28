@@ -14,6 +14,7 @@ import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.options.versionOption
 import com.github.ajalt.clikt.parameters.types.int
 import com.gorauskas.euler.exceptions.EulerProblemException
+import com.gorauskas.euler.functions.findPackage
 import java.lang.reflect.InvocationTargetException
 
 private const val EULER_PACKAGE = "com.gorauskas.euler.solutions."
@@ -44,7 +45,8 @@ class Euler : CliktCommand(help = "Project euler solutions written in Kotlin") {
     override fun run() {
         try {
             val classLoader = this.javaClass.classLoader
-            val euler = classLoader.loadClass(EULER_PACKAGE + EULER_CLASS + problem)
+            val euler = classLoader
+                .loadClass(EULER_PACKAGE + findPackage(problem) + EULER_CLASS + problem)
                 .getDeclaredConstructor()
                 .newInstance() as EulerSolution
             if (verbose) {

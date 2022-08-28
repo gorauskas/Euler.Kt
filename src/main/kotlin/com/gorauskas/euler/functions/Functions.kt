@@ -10,3 +10,12 @@ inline fun <T> timer(display: Boolean? = true, fn: () -> T): T {
     if (display == true) println("Executed in ${end - start} milliseconds")
     return result
 }
+
+fun findPackage(problem: Int): String? =
+    when (problem) {
+        in (1..10) -> "onetoten."
+        in (11..20) -> "eleventotwenty."
+        in (21..30) -> "twentyonetothirty."
+        in (31..40) -> "thirtyonetoforty."
+        else -> null
+    }

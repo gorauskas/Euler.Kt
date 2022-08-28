@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.onetoten
 
 import com.gorauskas.euler.extensions.gcd
 import com.gorauskas.euler.EulerSolution

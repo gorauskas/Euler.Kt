@@ -1,6 +1,6 @@
-package com.gorauskas.euler
+package com.gorauskas.euler.test.eleventotwenty
 
-import com.gorauskas.euler.solutions.Euler16
+import com.gorauskas.euler.solutions.eleventotwenty.Euler16
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

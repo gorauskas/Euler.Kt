@@ -1,6 +1,6 @@
 @file:Suppress("MaxLineLength")
 
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.twentyonetothirty
 
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer

@@ -1,6 +1,6 @@
-package com.gorauskas.euler
+package com.gorauskas.euler.test.onetoten
 
-import com.gorauskas.euler.solutions.Euler3
+import com.gorauskas.euler.solutions.onetoten.Euler3
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

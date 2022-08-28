@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.thirtyonetoforty
 
 import com.gorauskas.euler.EULER31_TARGET
 import com.gorauskas.euler.EulerSolution

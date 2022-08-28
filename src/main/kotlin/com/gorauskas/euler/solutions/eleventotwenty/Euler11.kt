@@ -1,8 +1,16 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.eleventotwenty
 
 import com.gorauskas.euler.EULER11_MATRIX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
+import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.Down
+import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.DownLeft
+import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.DownRight
+import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.Left
+import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.Right
+import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.Up
+import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.UpLeft
+import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.UpRight
 
 class Euler11 : EulerSolution {
     private val sm by lazy { StringMatrix(EULER11_MATRIX.trimIndent()) }
@@ -56,49 +64,49 @@ class Euler11 : EulerSolution {
             val l = ArrayList<Long>()
 
             when (orient) {
-                Orientation.Down -> {
+                Down -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y + 1][x])
                     l.add(longMatrix[y + 2][x])
                     l.add(longMatrix[y + 3][x])
                 }
-                Orientation.DownLeft -> {
+                DownLeft -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y + 1][x - 1])
                     l.add(longMatrix[y + 2][x - 2])
                     l.add(longMatrix[y + 3][x - 3])
                 }
-                Orientation.DownRight -> {
+                DownRight -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y + 1][x + 1])
                     l.add(longMatrix[y + 2][x + 2])
                     l.add(longMatrix[y + 3][x + 3])
                 }
-                Orientation.Left -> {
+                Left -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y][x - 1])
                     l.add(longMatrix[y][x - 2])
                     l.add(longMatrix[y][x - 3])
                 }
-                Orientation.Right -> {
+                Right -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y][x + 1])
                     l.add(longMatrix[y][x + 2])
                     l.add(longMatrix[y][x + 3])
                 }
-                Orientation.Up -> {
+                Up -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y - 1][x])
                     l.add(longMatrix[y - 2][x])
                     l.add(longMatrix[y - 3][x])
                 }
-                Orientation.UpLeft -> {
+                UpLeft -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y - 1][x - 1])
                     l.add(longMatrix[y - 2][x - 2])
                     l.add(longMatrix[y - 3][x - 3])
                 }
-                Orientation.UpRight -> {
+                UpRight -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y - 1][x + 1])
                     l.add(longMatrix[y - 2][x + 2])

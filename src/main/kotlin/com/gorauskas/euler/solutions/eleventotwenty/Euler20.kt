@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.eleventotwenty
 
 import com.gorauskas.euler.EULER20_CHAR_OFFSET
 import com.gorauskas.euler.extensions.factorial

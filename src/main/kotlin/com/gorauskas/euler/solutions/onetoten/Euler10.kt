@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.onetoten
 
 import com.gorauskas.euler.EULER10_MAX
 import com.gorauskas.euler.sequences.primeSequence

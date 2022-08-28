@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.twentyonetothirty
 
 import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution

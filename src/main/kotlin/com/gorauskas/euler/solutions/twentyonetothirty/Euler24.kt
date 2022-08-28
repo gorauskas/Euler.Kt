@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.twentyonetothirty
 
 import com.gorauskas.euler.EULER24_REMAINING_PERMUTATIONS
 import com.gorauskas.euler.extensions.factorial

@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.onetoten
 
 import com.gorauskas.euler.sequences.fibonacciSequence
 import com.gorauskas.euler.EulerSolution

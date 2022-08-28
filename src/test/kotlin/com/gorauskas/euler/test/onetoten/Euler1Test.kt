@@ -1,6 +1,6 @@
-package com.gorauskas.euler
+package com.gorauskas.euler.test.onetoten
 
-import com.gorauskas.euler.solutions.Euler1
+import com.gorauskas.euler.solutions.onetoten.Euler1
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

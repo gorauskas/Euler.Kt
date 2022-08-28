@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.eleventotwenty
 
 import com.gorauskas.euler.EULER16_CHAR_OFFSET
 import java.math.BigInteger

@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.twentyonetothirty
 
 import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.EulerSolution

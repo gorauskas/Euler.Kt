@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions
+package com.gorauskas.euler.solutions.eleventotwenty
 
 import com.gorauskas.euler.EULER17_CHAR_OFFSET
 import com.gorauskas.euler.EULER17_START_INDEX

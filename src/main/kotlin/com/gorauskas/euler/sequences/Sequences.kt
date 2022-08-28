@@ -16,6 +16,8 @@ suspend fun primeSequence(): Sequence<Long> =
 
 suspend fun primeSequence(max: Int) = primeSequence().takeWhile { it < max }
 
+suspend fun primeSequence(min: Int, max: Int) = primeSequence().dropWhile { it < min }.takeWhile { it < max }
+
 suspend fun triangleSequence(): Sequence<Long> =
     sequence {
         yieldAll(generateSequence(1L) { it + 1 }.map { n -> (n * n + n) / 2 })

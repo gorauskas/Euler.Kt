@@ -26,6 +26,7 @@ const val EULER32_LOW_START = 123L
 const val EULER32_HIGH_START = 1_234L
 const val EULER34_HIGH_RANGE = 49_989L
 const val EULER34_CHAR_OFFSET = 48
+const val EULER40_CHAR_OFFSET = 48
 
 const val EULER8_NUMS =
     """

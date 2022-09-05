@@ -5,6 +5,8 @@ import com.gorauskas.euler.EULER17_START_INDEX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.extensions.longLength
+import com.gorauskas.euler.functions.ifFalse
+import com.gorauskas.euler.functions.ifTrue
 
 class Euler17 : EulerSolution {
     private val lookupTable = mapOf(
@@ -69,10 +71,10 @@ class Euler17 : EulerSolution {
             var ltIndex = EULER17_START_INDEX
             val nums = num.toString().reversed().toCharArray()
                 .map { it.code - EULER17_CHAR_OFFSET }
-            if (nums.size == 4 && nums[3] != 0L) {
+            (nums.size == 4 && nums[3] != 0L).ifTrue {
                 append(lookupTable[nums[3]] + " thousand")
             }
-            if (nums.size >= 3 && nums[2] != 0L) {
+            (nums.size >= 3 && nums[2] != 0L).ifTrue {
                 append(lookupTable[nums[2]] + " hundred")
 
                 if (nums.size >= 2 && nums[1] != 0L) {
@@ -81,16 +83,16 @@ class Euler17 : EulerSolution {
                     append(" and")
                 }
             }
-            if (nums.size >= 2 && nums[1] != 0L) {
+            (nums.size >= 2 && nums[1] != 0L).ifTrue {
                 ltIndex = nums[1] * 10L + nums[0]
 
-                if (ltIndex <= 20L) {
+                (ltIndex <= 20L).ifTrue {
                     append(" " + lookupTable[ltIndex])
-                } else {
+                }.ifFalse {
                     append(" " + lookupTable[nums[1] * 10])
                 }
             }
-            if (nums.size >= 1 && nums[0] != 0L && ltIndex > 20L) {
+            (nums.size >= 1 && nums[0] != 0L && ltIndex > 20L).ifTrue {
                 append(" " + lookupTable[nums[0]])
             }
         }.replace(" ", "")

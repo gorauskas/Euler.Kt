@@ -2,6 +2,8 @@ package com.gorauskas.euler.solutions.twentyonetothirty
 
 import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.ifFalse
+import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 
 class Euler27 : EulerSolution {
@@ -51,13 +53,13 @@ class Euler27 : EulerSolution {
                 while (!done) {
                     val num = count * count + x * count + y
 
-                    if (num > 0 && num.isPrime()) {
+                    (num > 0 && num.isPrime()).ifTrue {
                         count++
-                    } else {
+                    }.ifFalse {
                         done = true
                     }
 
-                    if (count > max) {
+                    (count > max).ifTrue {
                         max = count
                         res = x * y
                     }

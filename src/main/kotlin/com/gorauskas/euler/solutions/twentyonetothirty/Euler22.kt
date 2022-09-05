@@ -41,5 +41,5 @@ class Euler22 : EulerSolution {
             }
 
     private fun nameScore(name: String, pos: Int): Long =
-        pos * name.toCharArray().map { it.code - EULER22_CHAR_OFFSET }.sum().toLong()
+        pos * name.toCharArray().map { it.code - EULER22_CHAR_OFFSET }.sum()
 }

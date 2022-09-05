@@ -11,6 +11,20 @@ inline fun <T> timer(display: Boolean? = true, fn: () -> T): T {
     return result
 }
 
+inline fun Boolean?.ifTrue(fn: Boolean.() -> Unit): Boolean? {
+    if (this == true) {
+        fn()
+    }
+    return this
+}
+
+inline fun Boolean?.ifFalse(fn: Boolean?.() -> Unit): Boolean? {
+    if (null == this || !this) {
+        fn()
+    }
+    return this
+}
+
 fun findPackage(problem: Int): String? =
     when (problem) {
         in (1..10) -> "onetoten."

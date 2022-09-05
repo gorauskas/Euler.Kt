@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions.eleventotwenty
 
 import com.gorauskas.euler.EULER11_MATRIX
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.Down
 import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.DownLeft
@@ -125,7 +126,7 @@ class Euler11 : EulerSolution {
             numbers.forEach { number ->
                 longMatrix[i][j] = number
                 j++
-                if (j == 20) {
+                (j == 20).ifTrue {
                     j = 0
                     i++
                 }
@@ -141,7 +142,7 @@ class Euler11 : EulerSolution {
                 ks.forEach { k ->
                     Orientation.values().forEach { o ->
                         val l = getAdjacentList(o, j, k)
-                        if (l.toList().reduce { acc, i -> acc * i } > product) {
+                        (l.toList().reduce { acc, i -> acc * i } > product).ifTrue {
                             product = l.toList().reduce { acc, i -> acc * i }
                             sequence = l
                             x = j

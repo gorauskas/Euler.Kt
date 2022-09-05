@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions.onetoten
 
 import com.gorauskas.euler.EULER8_NUMS
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 
 class Euler8 : EulerSolution {
@@ -31,7 +32,7 @@ class Euler8 : EulerSolution {
         while (i + 13 <= nums.size) {
             val x = nums.drop(i).take(13).reduce { acc, l -> acc * l }.toLong()
 
-            if (greatest < x) {
+            (greatest < x).ifTrue {
                 greatest = x
             }
 

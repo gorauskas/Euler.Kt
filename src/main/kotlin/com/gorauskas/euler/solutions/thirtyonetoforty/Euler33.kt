@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions.thirtyonetoforty
 
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 
 class Euler33 : EulerSolution {
@@ -33,7 +34,7 @@ class Euler33 : EulerSolution {
                 for (k in 1 until j) {
                     val ki = k * 10 + i
                     val ij = (i * 10 + j).toDouble()
-                    if (k * ij == (ki * j).toDouble()) {
+                    (k * ij == (ki * j).toDouble()).ifTrue {
                         d *= ij / ki
                     }
                 }

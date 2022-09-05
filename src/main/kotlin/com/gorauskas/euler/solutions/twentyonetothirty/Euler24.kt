@@ -3,6 +3,7 @@ package com.gorauskas.euler.solutions.twentyonetothirty
 import com.gorauskas.euler.EULER24_REMAINING_PERMUTATIONS
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 
 @Suppress("LabeledExpression")
@@ -46,7 +47,7 @@ class Euler24 : EulerSolution {
                     remainingPermutations %= (digitCount - currentDigit).factorial()
                     result += numbers[digitPosition.toInt()]
                     numbers.removeAt(digitPosition.toInt())
-                    if (remainingPermutations == 0L) { return@loop } // return@loop = break
+                    (remainingPermutations == 0L).ifTrue { return@loop } // return@loop = break
                 }
             }
 

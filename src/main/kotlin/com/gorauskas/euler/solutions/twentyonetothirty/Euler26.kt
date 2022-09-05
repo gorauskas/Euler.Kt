@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions.twentyonetothirty
 
 import com.gorauskas.euler.sequences.primeSequence
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 import kotlinx.coroutines.runBlocking
 
@@ -59,7 +60,7 @@ class Euler26 : EulerSolution {
                 position++
             }
 
-            if (position - rems[value] > seqlen) {
+            (position - rems[value] > seqlen).ifTrue {
                 seqlen = position - rems[value]
             }
         }

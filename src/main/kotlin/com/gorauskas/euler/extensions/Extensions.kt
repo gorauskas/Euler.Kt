@@ -74,8 +74,9 @@ fun BigInteger.factorial(): BigInteger {
 
 fun Long.sumOfDivisors(): Long = this.divisors().filter { it != this }.sum()
 
-fun Long.isPanDigital(): Boolean =
+fun Long.isPanDigital(length: Int = 9): Boolean =
     listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+        .take(length)
         .minus(this.toString().map { it.digitToInt() })
         .isEmpty()
 

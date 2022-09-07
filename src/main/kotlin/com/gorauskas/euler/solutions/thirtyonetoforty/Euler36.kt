@@ -25,5 +25,6 @@ class Euler36 : EulerSolution {
             .filter {
                 it.isPalindrome() &&
                     it.toString(2).equals(it.toString(2).reversed())
-            }.sum()
+            }
+            .sum()
 }

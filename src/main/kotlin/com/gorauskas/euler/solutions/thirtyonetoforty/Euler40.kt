@@ -25,14 +25,14 @@ class Euler40 : EulerSolution {
     """.trimIndent()
 
     override fun solve(): Long {
-        val ls = (0L..1000000L).joinToString("")
+        val ls = (0L..1_000_000L).joinToString("")
         var result = (ls.get(1).code - EULER40_CHAR_OFFSET).toLong()
         result *= (ls.get(10).code - EULER40_CHAR_OFFSET).toLong()
         result *= (ls.get(100).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(1000).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(10000).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(100000).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(1000000).code - EULER40_CHAR_OFFSET).toLong()
+        result *= (ls.get(1_000).code - EULER40_CHAR_OFFSET).toLong()
+        result *= (ls.get(10_000).code - EULER40_CHAR_OFFSET).toLong()
+        result *= (ls.get(100_000).code - EULER40_CHAR_OFFSET).toLong()
+        result *= (ls.get(1_000_000).code - EULER40_CHAR_OFFSET).toLong()
         return result
     }
 }

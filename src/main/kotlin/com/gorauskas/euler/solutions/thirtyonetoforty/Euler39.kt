@@ -27,7 +27,7 @@ class Euler39 : EulerSolution {
 
         (2L..1000L step 2).forEach { p ->
             var numberOfSolutions = 0L
-            (2L..(p / 3L)).forEach { a ->
+            (2L..p / 3L).forEach { a ->
                 (p * (p - 2L * a) % (2L * (p - a)) == 0L).ifTrue {
                     numberOfSolutions++
                 }

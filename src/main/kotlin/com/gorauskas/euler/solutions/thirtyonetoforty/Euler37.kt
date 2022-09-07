@@ -29,7 +29,7 @@ class Euler37 : EulerSolution {
         runBlocking { primeSequence(10, 740_000).filter { isTruncatable(it) }.sum() }
 
     private fun isTruncatable(n: Long): Boolean =
-        (1..n.toString().length - 1).filter { d ->
+        (1 until n.toString().length).filter { d ->
             n.toString().drop(d).toLong().isPrime() &&
                 n.toString().dropLast(d).toLong().isPrime()
         }.count() == n.toString().length - 1

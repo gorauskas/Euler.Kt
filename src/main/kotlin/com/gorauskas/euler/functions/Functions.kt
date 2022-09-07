@@ -27,9 +27,10 @@ inline fun Boolean?.ifFalse(fn: Boolean?.() -> Unit): Boolean? {
 
 fun findPackage(problem: Int): String? =
     when (problem) {
-        in (1..10) -> "onetoten."
-        in (11..20) -> "eleventotwenty."
-        in (21..30) -> "twentyonetothirty."
-        in (31..40) -> "thirtyonetoforty."
+        in 1..10 -> "onetoten."
+        in 11..20 -> "eleventotwenty."
+        in 21..30 -> "twentyonetothirty."
+        in 31..40 -> "thirtyonetoforty."
+        in 41..50 -> "fortyonetofifty."
         else -> null
     }

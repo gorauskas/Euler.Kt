@@ -14,6 +14,7 @@ jobs:
     steps:
     - name: testing run 
       run: |
+        export DEPLOYMENT_ENVIRONMENT=$([[ $GITHUB_REF = 'refs/heads/main' || $GITHUB_REF = 'refs/heads/master' ]] && echo "production" || echo "development"
         echo "DEPLOYMENT_ENVIRONMENT=$([[ $GITHUB_REF = 'refs/heads/main' || $GITHUB_REF = 'refs/heads/master' ]] && echo "production" || echo "development")" >> $GITHUB_ENV
         echo "REPO=$(echo ${GITHUB_REPOSITORY#*/} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
         echo "DEPLOYMENT_CLUSTER=$([[ $DEPLOYMENT_ENVIRONMENT = "production" ]] && echo "figure-prod" || echo "figure-dev")" >> $GITHUB_ENV

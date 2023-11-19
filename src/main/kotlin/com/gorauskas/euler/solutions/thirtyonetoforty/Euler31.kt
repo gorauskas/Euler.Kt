@@ -29,8 +29,8 @@ class Euler31 : EulerSolution {
         val coins = listOf(1, 2, 5, 10, 20, 50, 100, 200)
         val ways = (mutableListOf(1L) + MutableList(EULER31_TARGET) { 0L }).toMutableList()
 
-        coins.forEach { coin ->
-            (coin..EULER31_TARGET).forEach { i ->
+        for (coin in coins) {
+            for (i in coin..EULER31_TARGET) {
                 ways[i] += ways[i - coin]
             }
         }

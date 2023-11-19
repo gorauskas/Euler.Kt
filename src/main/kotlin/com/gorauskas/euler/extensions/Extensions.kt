@@ -85,12 +85,12 @@ fun String.longLength() = this.length.toLong()
 fun URI.getData(): String? {
     var path: Path? = null
     return try {
-        if (this.toString().contains("!")) {
+        path = if (this.toString().contains("!")) {
             val p = this.toString().split("!").toTypedArray()
             val fs = FileSystems.newFileSystem(URI.create(p[0]), HashMap<String, String>())
-            path = fs.getPath(p[1])
+            fs.getPath(p[1])
         } else {
-            path = Paths.get(this)
+            Paths.get(this)
         }
         Files.readAllLines(path).joinToString("\n")
     } catch (e: IOException) {

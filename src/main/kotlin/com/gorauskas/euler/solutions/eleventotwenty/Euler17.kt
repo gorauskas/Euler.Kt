@@ -63,7 +63,11 @@ class Euler17 : EulerSolution {
     """.trimIndent()
 
     override fun solve(): Long =
-        buildString { (1L..1000L).forEach { append(spellNumber(it)) } }.longLength()
+        buildString {
+            for (idx in 1L..1000L) {
+                append((spellNumber(idx)))
+            }
+        }.longLength()
 
     @Suppress("ComplexMethod")
     private fun spellNumber(num: Long): String {

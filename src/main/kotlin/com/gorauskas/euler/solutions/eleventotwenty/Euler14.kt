@@ -40,7 +40,7 @@ class Euler14 : EulerSolution {
      * (the reverse of i / 2) will equal a number between 500000 to 999999.
      */
     override fun solve(): Long {
-        (500_000L..999_999L).forEach { n ->
+        for (n in 500_000L..999_999L) {
             runBlocking {
                 collatzSequence(n).also { cs ->
                     if (cs.count() > len) {

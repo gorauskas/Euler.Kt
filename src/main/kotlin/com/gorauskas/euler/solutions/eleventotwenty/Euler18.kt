@@ -89,7 +89,7 @@ class Euler18 : EulerSolution {
      * @return a new triangle data structure with one less row.
      */
     private fun reduceTriangle(tri: MutableList<MutableList<Long>>): MutableList<MutableList<Long>> {
-        (0 until tri[tri.size - 2].size).forEach { i ->
+        for (i in 0 until tri[tri.size - 2].size) {
             tri[tri.size - 2]
                 .set(
                     i,

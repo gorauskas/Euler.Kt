@@ -42,13 +42,12 @@ class Euler24 : EulerSolution {
             var remainingPermutations = EULER24_REMAINING_PERMUTATIONS
             var result = ""
 
-            (1L until digitCount).forEach loop@{ currentDigit ->
-                (remainingPermutations / (digitCount - currentDigit).factorial()).also { digitPosition ->
-                    remainingPermutations %= (digitCount - currentDigit).factorial()
-                    result += numbers[digitPosition.toInt()]
-                    numbers.removeAt(digitPosition.toInt())
-                    (remainingPermutations == 0L).ifTrue { return@loop } // return@loop = break
-                }
+            for (currentDigit in 1L until digitCount) {
+                val digitPosition = remainingPermutations / (digitCount - currentDigit).factorial()
+                remainingPermutations %= (digitCount - currentDigit).factorial()
+                result += numbers[digitPosition.toInt()]
+                numbers.removeAt(digitPosition.toInt())
+                if (remainingPermutations == 0L) { break }
             }
 
             result.plus(numbers[0]).toLong()

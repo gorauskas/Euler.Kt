@@ -17,17 +17,17 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", Versions.kotlin)
-    implementation("org.jetbrains.kotlin", "kotlin-stdlib", Versions.kotlin)
-    implementation("com.github.ajalt.clikt", "clikt", Versions.clikt)
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core-jvm", Versions.kotlinCoroutines)
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", Versions.kotlinCoroutines)
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", Versions.kotlinCoroutines)
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-test", Versions.kotlinCoroutines)
-    testImplementation("org.junit.jupiter", "junit-jupiter", Versions.junit)
-    testImplementation("org.junit.jupiter", "junit-jupiter-api", Versions.junit)
-    testImplementation("org.junit.jupiter", "junit-jupiter-engine", Versions.junit)
-    detektPlugins("io.gitlab.arturbosch.detekt", "detekt-formatting", Versions.detekt)
+    implementation("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", "1.7.10")
+    implementation("org.jetbrains.kotlin", "kotlin-stdlib", "1.7.10")
+    implementation("com.github.ajalt.clikt", "clikt", "3.5.0")
+    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core-jvm", "1.6.4")
+    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", "1.6.4")
+    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", "1.6.4")
+    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-test", "1.6.4")
+    testImplementation("org.junit.jupiter", "junit-jupiter", "5.9.0")
+    testImplementation("org.junit.jupiter", "junit-jupiter-api", "5.9.0")
+    testImplementation("org.junit.jupiter", "junit-jupiter-engine", "5.9.0")
+    detektPlugins("io.gitlab.arturbosch.detekt", "detekt-formatting", "1.21.0")
 }
 
 sourceSets {

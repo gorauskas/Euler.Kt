@@ -1,9 +1,9 @@
 import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
-    kotlin("jvm") version Versions.kotlin
-    id("com.adarshr.test-logger") version Versions.testLogger
-    id("io.gitlab.arturbosch.detekt") version Versions.detekt
+    kotlin("jvm") version "1.7.10"
+    id("com.adarshr.test-logger") version "3.2.0"
+    id("io.gitlab.arturbosch.detekt") version "1.21.0"
     id("idea")
     id("java")
     application
@@ -97,7 +97,7 @@ detekt {
     allRules = true
     parallel = true
     buildUponDefaultConfig = true
-    toolVersion = Versions.detekt
+    toolVersion = "1.21.0"
     config = files("${rootDir.path}/detekt.yml")
     source = files("src/main/kotlin", "src/test/kotlin")
 }

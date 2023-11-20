@@ -1,33 +1,44 @@
 import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
-    kotlin("jvm") version "1.7.10"
-    id("com.adarshr.test-logger") version "3.2.0"
-    id("io.gitlab.arturbosch.detekt") version "1.21.0"
-    id("idea")
-    id("java")
+    idea
+    java
     application
+    kotlin("jvm") version libs.versions.kotlin.lang.get()
+    alias(libs.plugins.test.logger)
+    alias(libs.plugins.detekt)
 }
 
 group = "com.gorauskas"
 version = "1.2.0"
 
 repositories {
+    gradlePluginPortal()
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", "1.7.10")
-    implementation("org.jetbrains.kotlin", "kotlin-stdlib", "1.7.10")
-    implementation("com.github.ajalt.clikt", "clikt", "3.5.0")
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core-jvm", "1.6.4")
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", "1.6.4")
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", "1.6.4")
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-test", "1.6.4")
-    testImplementation("org.junit.jupiter", "junit-jupiter", "5.9.0")
-    testImplementation("org.junit.jupiter", "junit-jupiter-api", "5.9.0")
-    testImplementation("org.junit.jupiter", "junit-jupiter-engine", "5.9.0")
-    detektPlugins("io.gitlab.arturbosch.detekt", "detekt-formatting", "1.21.0")
+    listOf(
+        libs.kotlin.stdlib.core,
+        libs.kotlin.stdlib.jdk8,
+        libs.kotlinx.coroutines.core.jvm,
+        libs.kotlinx.coroutines.jdk8,
+        libs.kotlinx.coroutines.reactor,
+        libs.kotlinx.coroutines.test,
+        libs.clikt,
+    ).forEach {
+        implementation(it)
+    }
+
+    listOf(
+        libs.junit.jupiter.core,
+        libs.junit.jupiter.api,
+        libs.junit.jupiter.engine,
+    ).forEach {
+        testImplementation(it)
+    }
+
+    detektPlugins(libs.detekt.formatting)
 }
 
 sourceSets {
@@ -97,7 +108,7 @@ detekt {
     allRules = true
     parallel = true
     buildUponDefaultConfig = true
-    toolVersion = "1.21.0"
-    config = files("${rootDir.path}/detekt.yml")
-    source = files("src/main/kotlin", "src/test/kotlin")
+    toolVersion = libs.versions.detekt.get()
+    config.from(files("${rootDir.path}/detekt.yml"))
+    source.from(files("src/main/kotlin", "src/test/kotlin"))
 }

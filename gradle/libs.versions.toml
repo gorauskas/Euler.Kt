@@ -1,12 +1,12 @@
 [versions]
-kotlin-lang = "1.9.10"
+kotlin-lang = "1.9.21"
 kotlinx-coroutines = "1.7.3"
 
 gradle-enterprise-plugin = "3.13.4"
 
 clikt = "4.2.1"
-detekt = "1.23.1"
-junit = "5.10.0"
+detekt = "1.23.4"
+junit = "5.10.1"
 test-logger = "4.0.0"
 
 [libraries]

@@ -1,5 +1,13 @@
 rootProject.name = "Euler.Kt"
 
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+    includeBuild("build-logic")
+}
+
 plugins {
     `gradle-enterprise`
 }

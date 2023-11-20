@@ -1,0 +1,9 @@
+plugins {
+    `kotlin-dsl`
+    embeddedKotlin("jvm")
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}

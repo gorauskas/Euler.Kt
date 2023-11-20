@@ -9,8 +9,8 @@ plugins {
     application
 }
 
-group "com.gorauskas"
-version "1.2.0"
+group = "com.gorauskas"
+version = "1.2.0"
 
 repositories {
     mavenCentral()

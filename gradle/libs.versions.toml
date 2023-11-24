@@ -8,6 +8,7 @@ clikt = "4.2.1"
 detekt = "1.23.4"
 junit = "5.10.1"
 test-logger = "4.0.0"
+kover = "0.7.4"
 
 [libraries]
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin-lang" }
@@ -30,3 +31,4 @@ junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", vers
 [plugins]
 test-logger = { id = "com.adarshr.test-logger", version.ref = "test-logger" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }

@@ -3,7 +3,6 @@ package com.gorauskas.euler.solutions.twentyonetothirty
 import com.gorauskas.euler.EULER24_REMAINING_PERMUTATIONS
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.EulerSolution
-import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 
 @Suppress("LabeledExpression")

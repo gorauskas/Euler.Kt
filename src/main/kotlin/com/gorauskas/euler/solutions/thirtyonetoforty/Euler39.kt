@@ -1,7 +1,6 @@
 package com.gorauskas.euler.solutions.thirtyonetoforty
 
 import com.gorauskas.euler.EulerSolution
-import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 
 class Euler39 : EulerSolution {

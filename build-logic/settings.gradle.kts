@@ -1,4 +1,8 @@
+import org.gradle.api.internal.FeaturePreviews
+
 rootProject.name = "build-logic"
+
+enableFeaturePreview(FeaturePreviews.Feature.TYPESAFE_PROJECT_ACCESSORS.name)
 
 dependencyResolutionManagement {
     repositories {
@@ -6,9 +10,6 @@ dependencyResolutionManagement {
         gradlePluginPortal()
     }
     versionCatalogs {
-        create("libs") {
-            from(files("../gradle/libs.versions.toml"))
-        }
         create("buildLibs") {
             from(files("../gradle/buildlibs.versions.toml"))
         }

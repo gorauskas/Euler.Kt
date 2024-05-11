@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions.twentyonetothirty
 
-import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
+import java.math.BigInteger
 
 class Euler29 : EulerSolution {
     override val problem = """
@@ -29,15 +29,14 @@ class Euler29 : EulerSolution {
         There are ${timer { solve() }} distinct terms in the sequence.
     """.trimIndent()
 
-    override fun solve(): Long =
-        (2L..100L)
-            .map { BigInteger.valueOf(it) }
-            .flatMap { i ->
-                (2L..100L)
-                    .map { BigInteger.valueOf(it) }
-                    .map { j -> i.pow(j.intValueExact()) }
-            }
-            .distinct()
-            .count()
-            .toLong()
+    override fun solve(): Long = (2L..100L)
+        .map { BigInteger.valueOf(it) }
+        .flatMap { i ->
+            (2L..100L)
+                .map { BigInteger.valueOf(it) }
+                .map { j -> i.pow(j.intValueExact()) }
+        }
+        .distinct()
+        .count()
+        .toLong()
 }

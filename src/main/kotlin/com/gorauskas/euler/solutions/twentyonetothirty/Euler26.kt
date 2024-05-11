@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions.twentyonetothirty
 
-import com.gorauskas.euler.sequences.primeSequence
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
+import com.gorauskas.euler.sequences.primeSequence
 import kotlinx.coroutines.runBlocking
 
 /**

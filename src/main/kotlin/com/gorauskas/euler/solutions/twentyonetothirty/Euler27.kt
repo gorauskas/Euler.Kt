@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions.twentyonetothirty
 
-import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.functions.ifFalse
 import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer

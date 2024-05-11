@@ -52,6 +52,5 @@ class Euler25 : EulerSolution {
         The first number in the Fibonacci sequence to contain 1000 digits is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        ceil((log10(5.0) / 2L + 999L) / log10((1L + sqrt(5.0)) / 2L)).toLong()
+    override fun solve(): Long = ceil((log10(5.0) / 2L + 999L) / log10((1L + sqrt(5.0)) / 2L)).toLong()
 }

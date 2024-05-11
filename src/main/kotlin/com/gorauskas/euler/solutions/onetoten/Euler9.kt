@@ -22,11 +22,10 @@ class Euler9 : EulerSolution {
     sum equals 1000 is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        (1L..500L).flatMap { a ->
-            (1L..500L).filter { b ->
-                a + b + (1000L - a - b) == 1000L &&
-                    a * a + b * b == (1000L - a - b) * (1000L - a - b)
-            }.map { b -> a * b * (1000L - a - b) }
-        }.first()
+    override fun solve(): Long = (1L..500L).flatMap { a ->
+        (1L..500L).filter { b ->
+            a + b + (1000L - a - b) == 1000L &&
+                a * a + b * b == (1000L - a - b) * (1000L - a - b)
+        }.map { b -> a * b * (1000L - a - b) }
+    }.first()
 }

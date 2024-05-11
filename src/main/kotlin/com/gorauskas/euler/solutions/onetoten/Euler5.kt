@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions.onetoten
 
-import com.gorauskas.euler.extensions.gcd
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.gcd
 import com.gorauskas.euler.functions.timer
 
 class Euler5 : EulerSolution {
@@ -38,6 +38,5 @@ class Euler5 : EulerSolution {
     by all of the numbers from 1 to 20 is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        (1..20L).reduce { x, y -> x * y / x.gcd(y) }
+    override fun solve(): Long = (1..20L).reduce { x, y -> x * y / x.gcd(y) }
 }

@@ -96,8 +96,8 @@ class Euler18 : EulerSolution {
                     tri[tri.size - 2][i] +
                         Math.max(
                             tri[tri.size - 1][i],
-                            tri[tri.size - 1][i + 1]
-                        )
+                            tri[tri.size - 1][i + 1],
+                        ),
                 )
         }
 

@@ -31,8 +31,11 @@ class Euler19 : EulerSolution {
         the twentieth century.
     """.trimIndent()
 
-    override fun solve(): Long =
-        (1_901L..2_000L).flatMap { y -> (1L..12L).filter { m -> dayOfWeek(y, m) == 0L } }.count().toLong()
+    override fun solve(): Long = (1_901L..2_000L).flatMap { y ->
+        (1L..12L).filter { m ->
+            dayOfWeek(y, m) == 0L
+        }
+    }.count().toLong()
 
     /**
      * Zeller's congruence - https://en.wikipedia.org/wiki/Zeller%27s_congruence
@@ -41,10 +44,9 @@ class Euler19 : EulerSolution {
      * @return A number from 0 to 6 representing the day of the week; 0 = Sunday
      * The day in this case is always 1 for the first
      */
-    private fun dayOfWeek(year: Long, month: Long): Long =
-        Math.floorMod(month - 3L, 48_000L).let { m ->
-            Math.floorMod(year + m / 12L, 400L).let { y ->
-                (y + y / 4L - y / 100L + (13L * (m % 12L) + 2L) / 5L + 1L + 2L) % 7L
-            }
+    private fun dayOfWeek(year: Long, month: Long): Long = Math.floorMod(month - 3L, 48_000L).let { m ->
+        Math.floorMod(year + m / 12L, 400L).let { y ->
+            (y + y / 4L - y / 100L + (13L * (m % 12L) + 2L) / 5L + 1L + 2L) % 7L
         }
+    }
 }

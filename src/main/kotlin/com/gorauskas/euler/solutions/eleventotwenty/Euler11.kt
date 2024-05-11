@@ -39,7 +39,14 @@ class Euler11 : EulerSolution {
     override fun solve(): Long = sm.product
 
     enum class Orientation {
-        Up, Down, Left, Right, UpLeft, UpRight, DownLeft, DownRight
+        Up,
+        Down,
+        Left,
+        Right,
+        UpLeft,
+        UpRight,
+        DownLeft,
+        DownRight,
     }
 
     internal inner class StringMatrix(matrix: String) {

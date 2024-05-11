@@ -26,6 +26,11 @@ class Euler13 : EulerSolution {
         The first ten digits of the sum of the large numbers is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        nums.map { BigInteger(it) }.reduce { acc, b -> acc.add(b) }.toString().substring(0, 10).toLong()
+    override fun solve(): Long = nums.map {
+        BigInteger(it)
+    }.reduce { acc, b ->
+        acc.add(b)
+    }.toString()
+        .substring(0, 10)
+        .toLong()
 }

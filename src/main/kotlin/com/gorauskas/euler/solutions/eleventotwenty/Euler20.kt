@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions.eleventotwenty
 
 import com.gorauskas.euler.EULER20_CHAR_OFFSET
-import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.functions.timer
 import java.math.BigInteger
 
@@ -23,11 +23,10 @@ class Euler20 : EulerSolution {
         The sum of the digits in the number 100! is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        BigInteger.valueOf(100)
-            .factorial()
-            .toString()
-            .toCharArray()
-            .map { it.code - EULER20_CHAR_OFFSET }
-            .sum()
+    override fun solve(): Long = BigInteger.valueOf(100)
+        .factorial()
+        .toString()
+        .toCharArray()
+        .map { it.code - EULER20_CHAR_OFFSET }
+        .sum()
 }

@@ -33,8 +33,7 @@ class Euler38 : EulerSolution {
      * Given the constraints of the problem, we know the largest number has to start
      * with the digit 9 - this allows us to significantly narrow the search range
      */
-    override fun solve(): Long =
-        (9_487L downTo 9_213L)
-            .first { ((it * 1L).toString() + (it * 2L).toString()).toLong().isPanDigital() }
-            .let { ((it * 1L).toString() + (it * 2L).toString()).toLong() }
+    override fun solve(): Long = (9_487L downTo 9_213L)
+        .first { ((it * 1L).toString() + (it * 2L).toString()).toLong().isPanDigital() }
+        .let { ((it * 1L).toString() + (it * 2L).toString()).toLong() }
 }

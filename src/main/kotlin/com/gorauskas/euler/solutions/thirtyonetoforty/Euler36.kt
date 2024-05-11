@@ -20,11 +20,10 @@ class Euler36 : EulerSolution {
         The sum of all palindromic numbers in base 10 and 2 is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        (1L..1_000_000L)
-            .filter {
-                it.isPalindrome() &&
-                    it.toString(2).equals(it.toString(2).reversed())
-            }
-            .sum()
+    override fun solve(): Long = (1L..1_000_000L)
+        .filter {
+            it.isPalindrome() &&
+                it.toString(2).equals(it.toString(2).reversed())
+        }
+        .sum()
 }

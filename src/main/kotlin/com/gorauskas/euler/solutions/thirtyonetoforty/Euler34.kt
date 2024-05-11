@@ -3,8 +3,8 @@ package com.gorauskas.euler.solutions.thirtyonetoforty
 import com.gorauskas.euler.EULER34_CHAR_OFFSET
 import com.gorauskas.euler.EULER34_HIGH_RANGE
 import com.gorauskas.euler.EulerSolution
-import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.extensions.factorial
+import com.gorauskas.euler.functions.timer
 
 class Euler34 : EulerSolution {
     override val problem = """

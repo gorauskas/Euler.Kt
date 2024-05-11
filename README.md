@@ -2,7 +2,7 @@
 
 Solutions to the Project Euler problems written in Kotlin.
 
-[![branch: main](https://github.com/gorauskas/Euler.Kt/actions/workflows/gradleKt.yml/badge.svg?branch=main)](https://github.com/gorauskas/Euler.Kt/actions)
+[![branch: main](https://github.com/gorauskas/Euler.Kt/actions/workflows/gradle-build.yaml/badge.svg?branch=main)](https://github.com/gorauskas/Euler.Kt/actions)
 
 Clone this repo and then run the following from the command line:
 

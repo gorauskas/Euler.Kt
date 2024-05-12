@@ -1,5 +1,4 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-import org.owasp.dependencycheck.gradle.extension.DependencyCheckExtension
 
 plugins {
     id("com.autonomousapps.dependency-analysis")
@@ -9,22 +8,22 @@ plugins {
 
 // https://github.com/ben-manes/gradle-versions-plugin/discussions/482
 // https://app.shortcut.com/figure/story/113449/identifying-outdated-dependencies-inter-repository
-tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
-    revision = "release"
-    // reject all non stable versions
-    rejectVersionIf {
-        isNonStable(candidate.version)
-    }
-
-    // disallow release candidates as upgradable versions from stable versions
-    rejectVersionIf {
-        isStable(currentVersion) && isNonStable(candidate.version)
+tasks {
+    named<DependencyUpdatesTask>("dependencyUpdates").configure {
+        revision = "release"
+        // reject all non stable versions
+        rejectVersionIf {
+            isNonStable(candidate.version)
+        }
+        // disallow release candidates as upgradable versions from stable versions
+        rejectVersionIf {
+            isStable(currentVersion) && isNonStable(candidate.version)
+        }
     }
 }
 
-configure<DependencyCheckExtension> {
+dependencyCheck {
     failOnError = true
-
     analyzers.experimentalEnabled = false
     analyzers.assemblyEnabled = false
     analyzers.msbuildEnabled = false

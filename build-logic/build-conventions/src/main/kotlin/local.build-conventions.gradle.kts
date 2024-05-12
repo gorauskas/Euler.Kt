@@ -2,11 +2,15 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
+    application
 }
+
+// Inherit the group and version from the root project
+group = rootProject.group
+version = rootProject.version
 
 val javaVersion = 17
 val kotlinVersion = KotlinVersion.KOTLIN_1_9
@@ -48,10 +52,6 @@ tasks {
     }
     jar {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-        archiveBaseName.set("euler")
-        manifest {
-            attributes["Main-Class"] = "com.gorauskas.euler.AppKt"
-        }
         from(sourceSets.main.get().output)
         dependsOn(configurations.runtimeClasspath)
         from({
@@ -67,17 +67,17 @@ tasks {
     }
 }
 
+configure<KotlinJvmProjectExtension> {
+    jvmToolchain(javaVersion)
+}
+
 configurations.all {
     resolutionStrategy.cacheChangingModulesFor(0, TimeUnit.SECONDS)
     resolutionStrategy.cacheDynamicVersionsFor(0, TimeUnit.SECONDS)
 }
 
-// Align kotlin version with the version used in the kotlin jvm plugin,
-// except for detekt since it requires a specific kotlin version
-configurations.matching { it.name != "detekt" }.configureEach {
-    resolutionStrategy.eachDependency {
-        if (requested.group == "org.jetbrains.kotlin") {
-            useVersion("1.9.21")
-        }
-    }
+// Create JARs in a reproducible build fashion.
+tasks.withType<AbstractArchiveTask>().configureEach {
+    isPreserveFileTimestamps = false
+    isReproducibleFileOrder = true
 }

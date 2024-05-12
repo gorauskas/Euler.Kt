@@ -11,6 +11,7 @@ dependencies {
     listOf(
         buildLibs.build.kotlin.jvm,
         buildLibs.build.kotlin.api,
+        buildLibs.build.kover,
     ).forEach {
         implementation(it)
     }
@@ -22,6 +23,7 @@ dependencies {
         buildLibs.build.owasp.dependencycheck,
         buildLibs.build.versions,
         buildLibs.build.tasktree,
+        buildLibs.build.testlogger,
     ).forEach {
         api(it)
     }

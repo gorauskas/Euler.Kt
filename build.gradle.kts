@@ -1,4 +1,4 @@
-import com.gradle.scan.agent.serialization.scan.serializer.kryo.it
+import org.jetbrains.kotlin.gradle.dsl.KotlinTopLevelExtension
 
 plugins {
     // id("local.build-conventions")
@@ -15,9 +15,21 @@ plugins {
 group = "com.gorauskas"
 version = "1.2.0"
 
+logger.lifecycle("> Using JDK toolchain version: ${java.toolchain.languageVersion.get()}")
+logger.lifecycle("> Using Kotlin version: ${extensions.findByType<KotlinTopLevelExtension>()?.coreLibrariesVersion}")
+
 repositories {
     gradlePluginPortal()
     mavenCentral()
+}
+
+tasks {
+    jar {
+        archiveBaseName.set("euler")
+        manifest {
+            attributes["Main-Class"] = "com.gorauskas.euler.AppKt"
+        }
+    }
 }
 
 dependencies {

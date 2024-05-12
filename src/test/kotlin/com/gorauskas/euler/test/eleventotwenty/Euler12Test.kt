@@ -1,8 +1,8 @@
 package com.gorauskas.euler.test.eleventotwenty
 
+import com.gorauskas.euler.solutions.eleventotwenty.Euler12
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import com.gorauskas.euler.solutions.eleventotwenty.Euler12
 
 class Euler12Test {
     @Test

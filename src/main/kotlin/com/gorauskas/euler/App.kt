@@ -24,20 +24,20 @@ class Euler : CliktCommand(help = "Project euler solutions written in Kotlin") {
     val problem: Int by option(
         "-p",
         "--problem",
-        help = "Specify the problem/solution number you want to run"
+        help = "Specify the problem/solution number you want to run",
     ).int().default(0)
 
     val verbose: Boolean by option(
         "-v",
         "--verbose",
-        help = "Verbose outputs the problem statement and the solution"
+        help = "Verbose outputs the problem statement and the solution",
     ).flag()
 
     init {
         versionOption(
             "1.2.0",
             names = setOf("-V", "--version"),
-            message = { "Euler.Kt - version $it" }
+            message = { "Euler.Kt - version $it" },
         )
     }
 
@@ -59,7 +59,8 @@ class Euler : CliktCommand(help = "Project euler solutions written in Kotlin") {
                 is InvocationTargetException,
                 is ClassNotFoundException,
                 is InstantiationException,
-                is IllegalAccessException -> {
+                is IllegalAccessException,
+                -> {
                     echo("Unable to load Euler Problem class", err = true)
                     echo("Enter java -jar euler.jar -h for usage information", err = true)
                     throw EulerProblemException(problem, exception)
@@ -70,7 +71,8 @@ class Euler : CliktCommand(help = "Project euler solutions written in Kotlin") {
                 is NoSuchOption,
                 is IncorrectArgumentValueCount,
                 is IncorrectOptionValueCount,
-                is UsageError -> {
+                is UsageError,
+                -> {
                     echo("Unable to parse command line parameters", err = true)
                     echo("Enter java -jar euler.jar -h for usage information", err = true)
                     System.exit(1)

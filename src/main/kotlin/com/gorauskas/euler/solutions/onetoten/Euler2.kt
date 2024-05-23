@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions.onetoten
 
-import com.gorauskas.euler.sequences.fibonacciSequence
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
+import com.gorauskas.euler.sequences.fibonacciSequence
 import kotlinx.coroutines.runBlocking
 
 class Euler2 : EulerSolution {

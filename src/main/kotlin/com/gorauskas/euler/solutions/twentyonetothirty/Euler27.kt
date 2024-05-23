@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions.twentyonetothirty
 
-import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.functions.ifFalse
 import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
@@ -45,8 +45,8 @@ class Euler27 : EulerSolution {
         var max = 0L
         var res = 0L
 
-        (-999L..999L).forEach { x ->
-            (-999L..999L).forEach { y ->
+        for (x in -999L..999L) {
+            for (y in -999L..999L) {
                 var done = false
                 var count = 0L
 

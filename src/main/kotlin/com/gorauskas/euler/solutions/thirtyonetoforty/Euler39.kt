@@ -1,7 +1,6 @@
 package com.gorauskas.euler.solutions.thirtyonetoforty
 
 import com.gorauskas.euler.EulerSolution
-import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 
 class Euler39 : EulerSolution {
@@ -25,15 +24,14 @@ class Euler39 : EulerSolution {
         var result = 0L
         var resultSolutions = 0L
 
-        (2L..1000L step 2).forEach { p ->
+        for (p in 2L..1000L step 2) {
             var numberOfSolutions = 0L
-            (2L..p / 3L).forEach { a ->
-                (p * (p - 2L * a) % (2L * (p - a)) == 0L).ifTrue {
+            for (a in 2L..p / 3L) {
+                if (p * (p - 2L * a) % (2L * (p - a)) == 0L) {
                     numberOfSolutions++
                 }
             }
-
-            (numberOfSolutions > resultSolutions).ifTrue {
+            if (numberOfSolutions > resultSolutions) {
                 resultSolutions = numberOfSolutions
                 result = p
             }

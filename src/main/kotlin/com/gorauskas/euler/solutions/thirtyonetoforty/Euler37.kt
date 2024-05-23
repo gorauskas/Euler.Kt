@@ -25,12 +25,10 @@ class Euler37 : EulerSolution {
         The sum of the only eleven primes that are both truncatable left and right is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        runBlocking { primeSequence(10, 740_000).filter { isTruncatable(it) }.sum() }
+    override fun solve(): Long = runBlocking { primeSequence(10, 740_000).filter { isTruncatable(it) }.sum() }
 
-    private fun isTruncatable(n: Long): Boolean =
-        (1 until n.toString().length).filter { d ->
-            n.toString().drop(d).toLong().isPrime() &&
-                n.toString().dropLast(d).toLong().isPrime()
-        }.count() == n.toString().length - 1
+    private fun isTruncatable(n: Long): Boolean = (1 until n.toString().length).filter { d ->
+        n.toString().drop(d).toLong().isPrime() &&
+            n.toString().dropLast(d).toLong().isPrime()
+    }.count() == n.toString().length - 1
 }

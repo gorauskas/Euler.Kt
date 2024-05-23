@@ -48,19 +48,17 @@ fun Long.numberOfDivisors(): Long {
     return this.divisors().count().toLong()
 }
 
-fun Long.factorial(): Long =
-    when {
-        this < 0L -> throw IllegalArgumentException("negative number")
-        this < 2L -> 1L
-        else -> this * (this - 1L).factorial()
-    }
+fun Long.factorial(): Long = when {
+    this < 0L -> throw IllegalArgumentException("negative number")
+    this < 2L -> 1L
+    else -> this * (this - 1L).factorial()
+}
 
-fun Double.factorial(): Double =
-    when {
-        this < 0.0 -> throw IllegalArgumentException("negative number")
-        this < 2.0 -> 1.0
-        else -> this * (this - 1.0).factorial()
-    }
+fun Double.factorial(): Double = when {
+    this < 0.0 -> throw IllegalArgumentException("negative number")
+    this < 2.0 -> 1.0
+    else -> this * (this - 1.0).factorial()
+}
 
 fun BigInteger.factorial(): BigInteger {
     var f = BigInteger.ONE
@@ -74,23 +72,22 @@ fun BigInteger.factorial(): BigInteger {
 
 fun Long.sumOfDivisors(): Long = this.divisors().filter { it != this }.sum()
 
-fun Long.isPanDigital(length: Int = 9): Boolean =
-    listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
-        .take(length)
-        .minus(this.toString().map { it.digitToInt() })
-        .isEmpty()
+fun Long.isPanDigital(length: Int = 9): Boolean = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    .take(length)
+    .minus(this.toString().map { it.digitToInt() })
+    .isEmpty()
 
 fun String.longLength() = this.length.toLong()
 
 fun URI.getData(): String? {
     var path: Path? = null
     return try {
-        if (this.toString().contains("!")) {
+        path = if (this.toString().contains("!")) {
             val p = this.toString().split("!").toTypedArray()
             val fs = FileSystems.newFileSystem(URI.create(p[0]), HashMap<String, String>())
-            path = fs.getPath(p[1])
+            fs.getPath(p[1])
         } else {
-            path = Paths.get(this)
+            Paths.get(this)
         }
         Files.readAllLines(path).joinToString("\n")
     } catch (e: IOException) {

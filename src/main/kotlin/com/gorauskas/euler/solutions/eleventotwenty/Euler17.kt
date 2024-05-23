@@ -3,10 +3,10 @@ package com.gorauskas.euler.solutions.eleventotwenty
 import com.gorauskas.euler.EULER17_CHAR_OFFSET
 import com.gorauskas.euler.EULER17_START_INDEX
 import com.gorauskas.euler.EulerSolution
-import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.extensions.longLength
 import com.gorauskas.euler.functions.ifFalse
 import com.gorauskas.euler.functions.ifTrue
+import com.gorauskas.euler.functions.timer
 
 class Euler17 : EulerSolution {
     private val lookupTable = mapOf(
@@ -38,7 +38,7 @@ class Euler17 : EulerSolution {
         Pair(80L, "eighty"),
         Pair(90L, "ninety"),
         Pair(100L, "hundred"),
-        Pair(1000L, "thousand")
+        Pair(1000L, "thousand"),
     )
 
     override val problem = """
@@ -62,8 +62,11 @@ class Euler17 : EulerSolution {
         have ${timer { solve() }} letters.
     """.trimIndent()
 
-    override fun solve(): Long =
-        buildString { (1L..1000L).forEach { append(spellNumber(it)) } }.longLength()
+    override fun solve(): Long = buildString {
+        for (idx in 1L..1000L) {
+            append((spellNumber(idx)))
+        }
+    }.longLength()
 
     @Suppress("ComplexMethod")
     private fun spellNumber(num: Long): String {

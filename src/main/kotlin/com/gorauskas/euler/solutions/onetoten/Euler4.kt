@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions.onetoten
 
-import com.gorauskas.euler.extensions.isPalindrome
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.isPalindrome
 import com.gorauskas.euler.functions.timer
 
 class Euler4 : EulerSolution {
@@ -19,12 +19,11 @@ class Euler4 : EulerSolution {
         The largest palindrome made of the product of two 3 digit numbers is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        (100..999L).flatMap { x ->
-            (100..999L).map { y ->
-                x * y
-            }
-        }.filter {
-            it.isPalindrome()
-        }.max()
+    override fun solve(): Long = (100..999L).flatMap { x ->
+        (100..999L).map { y ->
+            x * y
+        }
+    }.filter {
+        it.isPalindrome()
+    }.max()
 }

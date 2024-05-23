@@ -1,9 +1,8 @@
 package com.gorauskas.euler.solutions.twentyonetothirty
 
 import com.gorauskas.euler.EULER24_REMAINING_PERMUTATIONS
-import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.EulerSolution
-import com.gorauskas.euler.functions.ifTrue
+import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.functions.timer
 
 @Suppress("LabeledExpression")
@@ -36,21 +35,21 @@ class Euler24 : EulerSolution {
         The millionth lexicographic permutation of the digits 0 through 9 is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        mutableListOf<Long>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9).let { numbers ->
-            val digitCount = numbers.size.toLong()
-            var remainingPermutations = EULER24_REMAINING_PERMUTATIONS
-            var result = ""
+    override fun solve(): Long = mutableListOf<Long>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9).let { numbers ->
+        val digitCount = numbers.size.toLong()
+        var remainingPermutations = EULER24_REMAINING_PERMUTATIONS
+        var result = ""
 
-            (1L until digitCount).forEach loop@{ currentDigit ->
-                (remainingPermutations / (digitCount - currentDigit).factorial()).also { digitPosition ->
-                    remainingPermutations %= (digitCount - currentDigit).factorial()
-                    result += numbers[digitPosition.toInt()]
-                    numbers.removeAt(digitPosition.toInt())
-                    (remainingPermutations == 0L).ifTrue { return@loop } // return@loop = break
-                }
+        for (currentDigit in 1L until digitCount) {
+            val digitPosition = remainingPermutations / (digitCount - currentDigit).factorial()
+            remainingPermutations %= (digitCount - currentDigit).factorial()
+            result += numbers[digitPosition.toInt()]
+            numbers.removeAt(digitPosition.toInt())
+            if (remainingPermutations == 0L) {
+                break
             }
-
-            result.plus(numbers[0]).toLong()
         }
+
+        result.plus(numbers[0]).toLong()
+    }
 }

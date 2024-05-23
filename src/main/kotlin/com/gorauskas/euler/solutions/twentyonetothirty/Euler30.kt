@@ -43,16 +43,15 @@ class Euler30 : EulerSolution {
         powers of their digits is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        (2L..EULER30_UPPER_BOUND)
-            .map { it.toString() }
-            .filter { x ->
-                x == x.toCharArray()
-                    .map { c -> c.code - EULER30_CHAR_OFFSET }
-                    .map { y -> y.toDouble().pow(5.0).toInt() }
-                    .sum()
-                    .toString()
-            }
-            .map { it.toLong() }
-            .sum()
+    override fun solve(): Long = (2L..EULER30_UPPER_BOUND)
+        .map { it.toString() }
+        .filter { x ->
+            x == x.toCharArray()
+                .map { c -> c.code - EULER30_CHAR_OFFSET }
+                .map { y -> y.toDouble().pow(5.0).toInt() }
+                .sum()
+                .toString()
+        }
+        .map { it.toLong() }
+        .sum()
 }

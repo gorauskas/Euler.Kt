@@ -42,11 +42,10 @@ class Euler8 : EulerSolution {
         return greatest
     }
 
-    private fun getNums(): LongArray =
-        buildString { append(EULER8_NUMS) }
-            .replace(" ", "")
-            .replace("\n", "")
-            .toCharArray()
-            .map { it.code - 48L }
-            .toLongArray()
+    private fun getNums(): LongArray = buildString { append(EULER8_NUMS) }
+        .replace(" ", "")
+        .replace("\n", "")
+        .toCharArray()
+        .map { it.code - 48L }
+        .toLongArray()
 }

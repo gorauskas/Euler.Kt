@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions.twentyonetothirty
 
 import com.gorauskas.euler.EULER23_MAX
-import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.functions.timer
 
 class Euler23 : EulerSolution {
@@ -40,18 +40,16 @@ class Euler23 : EulerSolution {
         two abundant numbers is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        genSetOfSumOfTwoAbundants((1L..EULER23_MAX).filter { x -> x.sumOfDivisors() > x })
-            .let { sumOfTwoSet ->
-                (1L..EULER23_MAX)
-                    .filter { !sumOfTwoSet.contains(it) }
-                    .sum()
-            }
+    override fun solve(): Long = genSetOfSumOfTwoAbundants(
+        (1L..EULER23_MAX).filter { x -> x.sumOfDivisors() > x },
+    ).let { sumOfTwoSet ->
+        (1L..EULER23_MAX)
+            .filter { !sumOfTwoSet.contains(it) }
+            .sum()
+    }
 
-    private fun genSetOfSumOfTwoAbundants(abundants: List<Long>): Set<Long> =
-        (0 until abundants.size - 2).flatMap { x ->
-            (x until abundants.size - 1).map { y ->
-                abundants[x] + abundants[y]
-            }.filter { it <= EULER23_MAX }
-        }.toSet()
+    @Suppress("MaxLineLength", "ParameterListWrapping")
+    private fun genSetOfSumOfTwoAbundants(abundants: List<Long>): Set<Long> = (0 until abundants.size - 2).flatMap { x ->
+        (x until abundants.size - 1).map { y -> abundants[x] + abundants[y] }.filter { it <= EULER23_MAX }
+    }.toSet()
 }

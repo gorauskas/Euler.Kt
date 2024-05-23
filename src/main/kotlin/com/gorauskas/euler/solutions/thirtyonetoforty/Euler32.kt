@@ -3,8 +3,8 @@ package com.gorauskas.euler.solutions.thirtyonetoforty
 import com.gorauskas.euler.EULER32_HIGH_START
 import com.gorauskas.euler.EULER32_LOW_START
 import com.gorauskas.euler.EulerSolution
-import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.extensions.isPanDigital
+import com.gorauskas.euler.functions.timer
 
 class Euler32 : EulerSolution {
     override val problem = """
@@ -30,15 +30,18 @@ class Euler32 : EulerSolution {
         be written as a 1 through 9 pandigital is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        (1L..101L).flatMap { i ->
-            val start = if (i > 9L) { EULER32_LOW_START } else { EULER32_HIGH_START }
-            (start..10_000L / i + 1L).map { j ->
-                Triple(i, j, "$i$j${i * j}")
-            }.filter {
-                it.third.toLong().isPanDigital()
-            }.map {
-                it.first * it.second
-            }
-        }.toSet().sum()
+    override fun solve(): Long = (1L..101L).flatMap { i ->
+        val start = if (i > 9L) {
+            EULER32_LOW_START
+        } else {
+            EULER32_HIGH_START
+        }
+        (start..10_000L / i + 1L).map { j ->
+            Triple(i, j, "$i$j${i * j}")
+        }.filter {
+            it.third.toLong().isPanDigital()
+        }.map {
+            it.first * it.second
+        }
+    }.toSet().sum()
 }

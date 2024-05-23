@@ -26,18 +26,17 @@ class Euler35 : EulerSolution {
         There are ${timer { solve() }} circular primes below 1 million.
     """.trimIndent()
 
-    override fun solve(): Long =
-        runBlocking {
-            primeSequence(1_000_000).filter { prime ->
-                checkRotations(
-                    prime.toString()
-                        .splitToSequence("")
-                        .filter { it.isNotEmpty() }
-                        .map { it.toLong() },
-                    prime
-                )
-            }.count().toLong()
-        }
+    override fun solve(): Long = runBlocking {
+        primeSequence(1_000_000).filter { prime ->
+            checkRotations(
+                prime.toString()
+                    .splitToSequence("")
+                    .filter { it.isNotEmpty() }
+                    .map { it.toLong() },
+                prime,
+            )
+        }.count().toLong()
+    }
 
     /**
      * Checks the circular rotations of each prime number for primes.

@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions.twentyonetothirty
 
 import com.gorauskas.euler.EULER22_CHAR_OFFSET
-import com.gorauskas.euler.extensions.getData
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.getData
 import com.gorauskas.euler.functions.timer
 
 class Euler22 : EulerSolution {
@@ -27,19 +27,19 @@ class Euler22 : EulerSolution {
         The total of all the name scores in the file is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        javaClass.getResource("/p022_names.txt")!!.toURI()
-            .getData()!!
-            .split(",")
-            .map {
-                it.replace("\"", "")
-                    .replace("\n", "")
-            }
-            .sorted()
-            .foldIndexed(0) { index, total, item ->
-                total + nameScore(item, index + 1)
-            }
+    override fun solve(): Long = javaClass.getResource("/p022_names.txt")!!.toURI()
+        .getData()!!
+        .split(",")
+        .map {
+            it.replace("\"", "")
+                .replace("\n", "")
+        }
+        .sorted()
+        .foldIndexed(0) { index, total, item ->
+            total + nameScore(item, index + 1)
+        }
 
-    private fun nameScore(name: String, pos: Int): Long =
-        pos * name.toCharArray().map { it.code - EULER22_CHAR_OFFSET }.sum()
+    private fun nameScore(name: String, pos: Int): Long = pos * name.toCharArray().map {
+        it.code - EULER22_CHAR_OFFSET
+    }.sum()
 }

@@ -2,6 +2,7 @@ package com.gorauskas.euler.solutions.onetoten
 
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
+import kotlin.math.pow
 
 class Euler6 : EulerSolution {
     override val problem = """
@@ -30,7 +31,9 @@ class Euler6 : EulerSolution {
     is: ${timer { solve() }}
     """.trimIndent()
 
-    @Suppress("MaxLineLength")
-    override fun solve(): Long =
-        (Math.pow((1..100).map { it.toDouble() }.sum(), 2.0) - (1..100).map { Math.pow(it.toDouble(), 2.0) }.sum()).toLong()
+    override fun solve(): Long {
+        val difference = (1L..100L).sumOf { it.toDouble() }.pow(2.0) -
+            (1L..100L).sumOf { it.toDouble().pow(2.0) }
+        return difference.toLong()
+    }
 }

@@ -2,8 +2,8 @@ package com.gorauskas.euler.solutions.onetoten
 
 import com.gorauskas.euler.EULER3_MAX
 import com.gorauskas.euler.EULER3_PF_NUMBER
-import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.EulerSolution
+import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.functions.timer
 
 class Euler3 : EulerSolution {
@@ -20,8 +20,7 @@ class Euler3 : EulerSolution {
     The largest prime factor of the number 600851475143 is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        (2..EULER3_MAX)
-            .filter { EULER3_PF_NUMBER % it == 0L && it.isPrime() }
-            .max()
+    override fun solve(): Long = (2..EULER3_MAX)
+        .filter { EULER3_PF_NUMBER % it == 0L && it.isPrime() }
+        .max()
 }

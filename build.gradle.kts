@@ -1,103 +1,57 @@
-import io.gitlab.arturbosch.detekt.Detekt
+import org.jetbrains.kotlin.gradle.dsl.KotlinTopLevelExtension
 
 plugins {
-    kotlin("jvm") version Versions.kotlin
-    id("com.adarshr.test-logger") version Versions.testLogger
-    id("io.gitlab.arturbosch.detekt") version Versions.detekt
-    id("idea")
-    id("java")
+    // id("local.build-conventions")
+    idea
+    java
     application
+    kotlin("jvm") version libs.versions.kotlin.lang.get()
+    id("local.build-conventions")
+    id("local.code-analysis")
+    id("local.dependency-analysis")
+    id("local.testing")
 }
 
-group "com.gorauskas"
-version "1.2.0"
+group = "com.gorauskas"
+version = "1.2.0"
+
+logger.lifecycle("> Using JDK toolchain version: ${java.toolchain.languageVersion.get()}")
+logger.lifecycle("> Using Kotlin version: ${extensions.findByType<KotlinTopLevelExtension>()?.coreLibrariesVersion}")
 
 repositories {
+    gradlePluginPortal()
     mavenCentral()
-}
-
-dependencies {
-    implementation("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", Versions.kotlin)
-    implementation("org.jetbrains.kotlin", "kotlin-stdlib", Versions.kotlin)
-    implementation("com.github.ajalt.clikt", "clikt", Versions.clikt)
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core-jvm", Versions.kotlinCoroutines)
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", Versions.kotlinCoroutines)
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", Versions.kotlinCoroutines)
-    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-test", Versions.kotlinCoroutines)
-    testImplementation("org.junit.jupiter", "junit-jupiter", Versions.junit)
-    testImplementation("org.junit.jupiter", "junit-jupiter-api", Versions.junit)
-    testImplementation("org.junit.jupiter", "junit-jupiter-engine", Versions.junit)
-    detektPlugins("io.gitlab.arturbosch.detekt", "detekt-formatting", Versions.detekt)
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs("$projectDir/src/main/kotlin/")
-        }
-    }
-    test {
-        java {
-            srcDirs("$projectDir/src/test/kotlin/")
-        }
-    }
 }
 
 tasks {
     jar {
-        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         archiveBaseName.set("euler")
         manifest {
             attributes["Main-Class"] = "com.gorauskas.euler.AppKt"
         }
-        from(sourceSets.main.get().output)
-        dependsOn(configurations.runtimeClasspath)
-        from({
-            configurations.runtimeClasspath.get().map {
-                if (it.isDirectory)
-                    it
-                else
-                    zipTree(it)
-            }
-        })
     }
 }
 
-tasks.compileKotlin {
-    kotlinOptions.jvmTarget = "17"
-}
-
-tasks.compileTestKotlin {
-    kotlinOptions.jvmTarget = "17"
-}
-
-tasks.test {
-    useJUnitPlatform()
-    testLogging {
-        events("passed", "skipped", "failed")
+dependencies {
+    listOf(
+        libs.kotlin.stdlib.core,
+        libs.kotlin.stdlib.jdk8,
+        libs.kotlinx.coroutines.core.jvm,
+        libs.kotlinx.coroutines.jdk8,
+        libs.kotlinx.coroutines.reactor,
+        libs.kotlinx.coroutines.test,
+        libs.clikt,
+    ).forEach {
+        implementation(it)
     }
-}
 
-tasks.withType<Detekt>().configureEach {
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
-        txt.required.set(false)
-        sarif.required.set(false)
-        md.required.set(false)
+    listOf(
+        libs.junit.jupiter.core,
+        libs.junit.jupiter.api,
+        libs.junit.jupiter.engine,
+    ).forEach {
+        testImplementation(it)
     }
-}
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
-detekt {
-    allRules = true
-    parallel = true
-    buildUponDefaultConfig = true
-    toolVersion = Versions.detekt
-    config = files("${rootDir.path}/detekt.yml")
-    source = files("src/main/kotlin", "src/test/kotlin")
+    detektPlugins(libs.detekt.formatting)
 }

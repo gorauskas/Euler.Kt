@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions.eleventotwenty
 
 import com.gorauskas.euler.EULER16_CHAR_OFFSET
-import java.math.BigInteger
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
+import java.math.BigInteger
 
 class Euler16 : EulerSolution {
     override val problem = """
@@ -19,11 +19,10 @@ class Euler16 : EulerSolution {
         The sum of the digits of the number 2^1000 is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long =
-        BigInteger.ONE
-            .shiftLeft(1000)
-            .toString()
-            .toCharArray()
-            .map { it.code - EULER16_CHAR_OFFSET }
-            .sum()
+    override fun solve(): Long = BigInteger.ONE
+        .shiftLeft(1000)
+        .toString()
+        .toCharArray()
+        .map { it.code - EULER16_CHAR_OFFSET }
+        .sum()
 }

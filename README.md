@@ -2,7 +2,7 @@
 
 Solutions to the Project Euler problems written in Kotlin.
 
-[![Build Euler.Kt](https://github.com/gorauskas/Euler.Kt/workflows/Build%20Euler.Kt/badge.svg)](https://github.com/gorauskas/Euler.Kt/actions)
+[![branch: main](https://github.com/gorauskas/Euler.Kt/actions/workflows/gradleKt.yml/badge.svg?branch=main)](https://github.com/gorauskas/Euler.Kt/actions)
 
 Clone this repo and then run the following from the command line:
 
@@ -12,7 +12,7 @@ Clone this repo and then run the following from the command line:
 ## Usage
 
     Usage: euler [OPTIONS]
-    
+
     Options:
       -p, --problem INT  Specify the problem/solution number you want to run
       -v, --verbose      Verbose outputs the problem statement and the solution
@@ -35,6 +35,5 @@ where `#` is for the problem number. If the user requests verbose output, the
 program calls the `problem` property of the loaded `Euler#` class and then
 calls the `answer` property.
 
-All `Euler#` classes are implemented using the `EulerInterface` common interface for all
-classes. This is the key construct that allows classes to be loaded and executed
-dynamically.
+All `Euler#` classes are implemented using the `EulerInterface` common interface for all classes. This is the key
+construct that allows classes to be loaded and executed dynamically.

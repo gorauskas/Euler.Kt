@@ -38,15 +38,19 @@ jobs:
         run: ./gradlew build ${{ github.event.inputs.adhocCommand || '' }}
 
       - name: Send Email
+        continue-on-error: true
         uses: dawidd6/action-send-mail@v3
         with:
-          connection_url: ${{secrets.MAIL_CONN}}
+          server_address: ${{ secrets.MAIL_HOST }}
+          server_port: ${{ secrets.MAIL_PORT }}
           secure: true
+          username: ${{ secrets.MAIL_USER }}
+          password: ${{ secrets.MAIL_PWD }}
           subject: Euler.Kt [GHA Result]
-          to: ${{vars.MAIL_TO}}
-          from: Yuri G <${{vars.MAIL_FROM}}>
-          body: Build job of ${{github.repository}} completed successfully!
-          reply_to: ${{vars.MAIL_FROM}}
+          to: ${{ vars.MAIL_TO }}
+          from: Yuri G <${{ vars.MAIL_FROM }}>
+          body: Build job of ${{ github.repository }} completed successfully!
+          reply_to: ${{ vars.MAIL_FROM }}
           ignore_cert: true
           convert_markdown: true
           attachments: git.diff

@@ -24,11 +24,11 @@ tasks {
         configureEach {
             jvmTarget = "17"
             reports {
-                xml.required.set(true)
+                xml.required.set(false)
                 html.required.set(true)
                 txt.required.set(false)
                 sarif.required.set(false)
-                md.required.set(false)
+                md.required.set(true)
             }
         }
     }

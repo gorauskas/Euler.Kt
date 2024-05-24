@@ -73,16 +73,18 @@ jobs:
           to: ${{ vars.MAIL_TO }}
           from: Yuri G <${{ vars.MAIL_FROM }}>
           reply_to: ${{ vars.MAIL_FROM }}
-          subject: [SUCCESS GHA Result] ${{ github.repository }}
+          subject: SUCCESS GHA Result > ${{ github.repository }}
           convert_markdown: true
           html_body: |
             ## Build Success
-            ${{ needs.release.outputs.package_name }} ${{ needs.release.outputs.package_version }} has been built successfully!
+            ${{ needs.release.outputs.package_name }} ${{ needs.release.outputs.package_version }} has been built
+            successfully!
 
             ## Change Details
             ${{ github.event.head_commit.message }}
 
-            For more information, please check change history at https://${{ needs.release.outputs.repo_owner }}.github.io/${{ needs.release.outputs.repo_name }}/${{ needs.release.outputs.package_version }}/history
+            For more information, please check change history at
+            https://${{ needs.release.outputs.repo_owner }}.github.io/${{ needs.release.outputs.repo_name }}/${{ needs.release.outputs.package_version }}/history
 
       - name: FAILURE Email
         if: ${{ steps.check.outputs.status == 'failure' }}
@@ -97,9 +99,9 @@ jobs:
           to: ${{ vars.MAIL_TO }}
           from: Yuri G <${{ vars.MAIL_FROM }}>
           reply_to: ${{ vars.MAIL_FROM }}
-          subject: [FAILURE GHA Result] ${{ github.repository }}
+          subject: FAILURE GHA Result > ${{ github.repository }}
           convert_markdown: true
-          html_body: file://build/reports/detekt/detekt.md
+          html_body: |
             ## Change Details
             ${{ github.event.head_commit.message }}
 

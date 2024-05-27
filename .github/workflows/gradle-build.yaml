@@ -12,12 +12,17 @@ on:
         required: false
         default: ''
 
+permissions:
+  actions: read
+
 concurrency:
   group: gradle-build-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+
   gradle-build:
+
     name: Gradle Build (${{ github.head_ref }})
     runs-on: ubuntu-latest
 
@@ -25,8 +30,6 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          ref: main
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -36,3 +39,74 @@ jobs:
 
       - name: Gradle Build
         run: ./gradlew build ${{ github.event.inputs.adhocCommand || '' }}
+
+      - name: Declare variables for convenient use
+        id: variables_step
+        run: |
+          echo "repo_owner=${GITHUB_REPOSITORY%/*}" >> $GITHUB_OUTPUT
+          echo "repo_name=${GITHUB_REPOSITORY#*/}" >> $GITHUB_OUTPUT
+          echo "package_name=`java -jar build/libs/euler*.jar -V | awk '{print $1}'`" >> $GITHUB_OUTPUT
+          echo "package_version=`java -jar build/libs/euler*.jar -V | awk '{print $3}'`" >> $GITHUB_OUTPUT
+        shell: bash
+
+  email-notification:
+
+    needs: gradle-build
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: martialonline/workflow-status@v4
+        id: check
+
+      - name: SUCCESS Email
+        if: ${{ steps.check.outputs.status == 'success' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.MAIL_HOST }}
+          server_port: ${{ secrets.MAIL_PORT }}
+          username: ${{ secrets.MAIL_USER }}
+          password: ${{ secrets.MAIL_PWD }}
+          secure: true
+          ignore_cert: true
+          to: ${{ vars.MAIL_TO }}
+          from: Yuri G <${{ vars.MAIL_FROM }}>
+          reply_to: ${{ vars.MAIL_FROM }}
+          subject: SUCCESS GHA Result > ${{ github.repository }}
+          convert_markdown: true
+          html_body: |
+            ## Build Success
+            ${{ needs.release.outputs.package_name }} ${{ needs.release.outputs.package_version }} has been built
+            successfully!
+
+            ## Change Details
+            ${{ github.event.head_commit.message }}
+
+            For more information, please check change history at
+            https://${{ needs.release.outputs.repo_owner }}.github.io/${{ needs.release.outputs.repo_name }}/${{ needs.release.outputs.package_version }}/history
+
+      - name: FAILURE Email
+        if: ${{ steps.check.outputs.status == 'failure' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.MAIL_HOST }}
+          server_port: ${{ secrets.MAIL_PORT }}
+          username: ${{ secrets.MAIL_USER }}
+          password: ${{ secrets.MAIL_PWD }}
+          secure: true
+          ignore_cert: true
+          to: ${{ vars.MAIL_TO }}
+          from: Yuri G <${{ vars.MAIL_FROM }}>
+          reply_to: ${{ vars.MAIL_FROM }}
+          subject: FAILURE GHA Result > ${{ github.repository }}
+          convert_markdown: true
+          html_body: |
+            ## Change Details
+            ${{ github.event.head_commit.message }}
+
+            ## Status:
+            ${{ steps.check.outputs.status }}
+
+            ## View Log
+            https://github.com/${{ needs.release.outputs.repo_owner }}/${{ needs.release.outputs.repo_name }}/actions

@@ -4,6 +4,7 @@ import kotlinx.kover.api.DefaultIntellijEngine
 import kotlinx.kover.api.KoverMergedConfig
 import kotlinx.kover.api.KoverProjectConfig
 import kotlinx.kover.api.KoverTaskExtension
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
     kotlin("jvm")
@@ -47,11 +48,11 @@ configure<TestLoggerExtension> {
 }
 
 tasks.withType<Test>().configureEach {
-    maxParallelForks = 1
     useJUnitPlatform()
-    maxHeapSize = "4096m"
+    maxParallelForks = 1
+    maxHeapSize = "2048m"
     testLogging {
-        setExceptionFormat("full")
+        exceptionFormat = TestExceptionFormat.FULL
         events("passed", "skipped", "failed", "standardOut", "standardError")
     }
 }

@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.eleventotwenty
+package com.gorauskas.euler.solutions.ten
 
 import com.gorauskas.euler.EULER15_DIRS
 import com.gorauskas.euler.EULER15_MOVES

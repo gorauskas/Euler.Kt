@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.eleventotwenty
+package com.gorauskas.euler.solutions.ten
 
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.getData

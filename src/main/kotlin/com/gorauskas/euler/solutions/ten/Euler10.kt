@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.onetoten
+package com.gorauskas.euler.solutions.ten
 
 import com.gorauskas.euler.EULER10_MAX
 import com.gorauskas.euler.EulerSolution

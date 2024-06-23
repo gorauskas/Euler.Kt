@@ -1,17 +1,17 @@
-package com.gorauskas.euler.solutions.eleventotwenty
+package com.gorauskas.euler.solutions.ten
 
 import com.gorauskas.euler.EULER11_MATRIX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
-import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.Down
-import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.DownLeft
-import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.DownRight
-import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.Left
-import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.Right
-import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.Up
-import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.UpLeft
-import com.gorauskas.euler.solutions.eleventotwenty.Euler11.Orientation.UpRight
+import com.gorauskas.euler.solutions.ten.Euler11.Orientation.Down
+import com.gorauskas.euler.solutions.ten.Euler11.Orientation.DownLeft
+import com.gorauskas.euler.solutions.ten.Euler11.Orientation.DownRight
+import com.gorauskas.euler.solutions.ten.Euler11.Orientation.Left
+import com.gorauskas.euler.solutions.ten.Euler11.Orientation.Right
+import com.gorauskas.euler.solutions.ten.Euler11.Orientation.Up
+import com.gorauskas.euler.solutions.ten.Euler11.Orientation.UpLeft
+import com.gorauskas.euler.solutions.ten.Euler11.Orientation.UpRight
 
 class Euler11 : EulerSolution {
     private val sm by lazy { StringMatrix(EULER11_MATRIX.trimIndent()) }

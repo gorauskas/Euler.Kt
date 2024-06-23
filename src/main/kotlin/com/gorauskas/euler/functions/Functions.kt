@@ -25,12 +25,11 @@ inline fun Boolean?.ifFalse(fn: Boolean?.() -> Unit): Boolean? {
     return this
 }
 
-fun resolvePackage(problem: Int): String? =
-    when (problem) {
-        in 1..9 -> "one."
-        in 10..19 -> "ten."
-        in 20..29 -> "twenty."
-        in 30..39 -> "thirty."
-        in 40..49 -> "forty."
-        else -> null
-    }
+fun resolvePackage(problem: Int): String? = when (problem) {
+    in 1..9 -> "one."
+    in 10..19 -> "ten."
+    in 20..29 -> "twenty."
+    in 30..39 -> "thirty."
+    in 40..49 -> "forty."
+    else -> null
+}

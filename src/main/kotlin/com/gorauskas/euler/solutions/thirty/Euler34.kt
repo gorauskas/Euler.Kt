@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.thirtyonetoforty
+package com.gorauskas.euler.solutions.thirty
 
 import com.gorauskas.euler.EULER34_CHAR_OFFSET
 import com.gorauskas.euler.EULER34_HIGH_RANGE

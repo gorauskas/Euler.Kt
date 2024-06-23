@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.thirtyonetoforty
+package com.gorauskas.euler.solutions.thirty
 
 import com.gorauskas.euler.EULER32_HIGH_START
 import com.gorauskas.euler.EULER32_LOW_START

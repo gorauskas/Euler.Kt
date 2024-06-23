@@ -1,4 +1,4 @@
-package com.gorauskas.euler.test.thirtyonetoforty
+package com.gorauskas.euler.test.thirty
 
 import com.gorauskas.euler.solutions.thirty.Euler39
 import org.junit.jupiter.api.Assertions

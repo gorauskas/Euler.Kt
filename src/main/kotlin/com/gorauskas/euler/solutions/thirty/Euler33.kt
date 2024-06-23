@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.thirtyonetoforty
+package com.gorauskas.euler.solutions.thirty
 
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.ifTrue

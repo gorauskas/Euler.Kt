@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.thirtyonetoforty
+package com.gorauskas.euler.solutions.forty
 
 import com.gorauskas.euler.EULER40_CHAR_OFFSET
 import com.gorauskas.euler.EulerSolution

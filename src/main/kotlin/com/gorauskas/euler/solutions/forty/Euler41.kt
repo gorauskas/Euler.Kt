@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.fortyonetofifty
+package com.gorauskas.euler.solutions.forty
 
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPanDigital

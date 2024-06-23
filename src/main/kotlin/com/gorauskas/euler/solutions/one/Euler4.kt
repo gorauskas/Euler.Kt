@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.onetoten
+package com.gorauskas.euler.solutions.one
 
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPalindrome

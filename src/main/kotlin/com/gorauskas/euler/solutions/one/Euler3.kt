@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.onetoten
+package com.gorauskas.euler.solutions.one
 
 import com.gorauskas.euler.EULER3_MAX
 import com.gorauskas.euler.EULER3_PF_NUMBER

@@ -1,4 +1,4 @@
-package com.gorauskas.euler.test.onetoten
+package com.gorauskas.euler.test.one
 
 import com.gorauskas.euler.solutions.one.Euler9
 import org.junit.jupiter.api.Assertions

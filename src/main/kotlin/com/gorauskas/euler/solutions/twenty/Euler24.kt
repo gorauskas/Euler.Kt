@@ -1,4 +1,4 @@
-package com.gorauskas.euler.solutions.twentyonetothirty
+package com.gorauskas.euler.solutions.twenty
 
 import com.gorauskas.euler.EULER24_REMAINING_PERMUTATIONS
 import com.gorauskas.euler.EulerSolution

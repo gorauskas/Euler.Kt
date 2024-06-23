@@ -1,4 +1,4 @@
-package com.gorauskas.euler.test.eleventotwenty
+package com.gorauskas.euler.test.twenty
 
 import com.gorauskas.euler.solutions.twenty.Euler20
 import org.junit.jupiter.api.Assertions

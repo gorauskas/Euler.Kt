@@ -26,6 +26,12 @@ jobs:
     name: Gradle Build (${{ github.head_ref }})
     runs-on: ubuntu-latest
 
+    outputs:
+      package_version: ${{ steps.variables_step.outputs.package_version }}
+      package_name: ${{ steps.variables_step.outputs.package_name }}
+      repo_name: ${{ steps.variables_step.outputs.repo_name }}
+      repo_owner: ${{ steps.variables_step.outputs.repo_owner }}
+
     steps:
 
       - name: Checkout Code
@@ -40,17 +46,18 @@ jobs:
       - name: Gradle Build
         run: ./gradlew build ${{ github.event.inputs.adhocCommand || '' }}
 
-      - name: Declare variables for convenient use
+      - name: Declare Output
         id: variables_step
         run: |
           echo "repo_owner=${GITHUB_REPOSITORY%/*}" >> $GITHUB_OUTPUT
           echo "repo_name=${GITHUB_REPOSITORY#*/}" >> $GITHUB_OUTPUT
           echo "package_name=`java -jar build/libs/euler*.jar -V | awk '{print $1}'`" >> $GITHUB_OUTPUT
-          echo "package_version=`java -jar build/libs/euler*.jar -V | awk '{print $3}'`" >> $GITHUB_OUTPUT
+          echo "package_version=`java -jar build/libs/euler*.jar -V | awk '{print $3 " " $4}'`" >> $GITHUB_OUTPUT
         shell: bash
 
   email-notification:
 
+    name: Email Notification (${{ github.head_ref }})
     needs: gradle-build
     if: always()
     runs-on: ubuntu-latest
@@ -59,6 +66,15 @@ jobs:
 
       - uses: martialonline/workflow-status@v4
         id: check
+
+      - name: Show Stuff
+        if: always()
+        run: |
+          echo "repo_owner=${{ needs.gradle-build.outputs.repo_owner }}"
+          echo "repo_name=${{ needs.gradle-build.outputs.repo_name }}"
+          echo "package_name=${{ needs.gradle-build.outputs.package_name }}"
+          echo "package_version=${{ needs.gradle-build.outputs.package_version }}"
+        shell: bash
 
       - name: SUCCESS Email
         if: ${{ steps.check.outputs.status == 'success' }}
@@ -77,14 +93,14 @@ jobs:
           convert_markdown: true
           html_body: |
             ## Build Success
-            ${{ needs.release.outputs.package_name }} ${{ needs.release.outputs.package_version }} has been built
+            ${{ needs.gradle-build.outputs.package_name }} ${{ needs.gradle-build.outputs.package_version }} has been built
             successfully!
 
             ## Change Details
             ${{ github.event.head_commit.message }}
 
-            For more information, please check change history at
-            https://${{ needs.release.outputs.repo_owner }}.github.io/${{ needs.release.outputs.repo_name }}/${{ needs.release.outputs.package_version }}/history
+            For more information, please check run history at
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
       - name: FAILURE Email
         if: ${{ steps.check.outputs.status == 'failure' }}
@@ -102,6 +118,9 @@ jobs:
           subject: FAILURE GHA Result > ${{ github.repository }}
           convert_markdown: true
           html_body: |
+            ## Build Failed
+            Build for ${{ needs.gradle-build.outputs.package_name }} ${{ needs.gradle-build.outputs.package_version }} has failed!!!
+
             ## Change Details
             ${{ github.event.head_commit.message }}
 
@@ -109,4 +128,4 @@ jobs:
             ${{ steps.check.outputs.status }}
 
             ## View Log
-            https://github.com/${{ needs.release.outputs.repo_owner }}/${{ needs.release.outputs.repo_name }}/actions
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

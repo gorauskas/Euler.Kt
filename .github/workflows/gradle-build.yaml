@@ -99,8 +99,8 @@ jobs:
             ## Change Details
             ${{ github.event.head_commit.message }}
 
-            For more information, please check change history at
-            https://${{ needs.gradle-build.outputs.repo_owner }}.github.io/${{ needs.gradle-build.outputs.repo_name }}/${{ needs.gradle-build.outputs.package_version }}/history
+            For more information, please check run history at
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
       - name: FAILURE Email
         if: ${{ steps.check.outputs.status == 'failure' }}
@@ -118,6 +118,9 @@ jobs:
           subject: FAILURE GHA Result > ${{ github.repository }}
           convert_markdown: true
           html_body: |
+            ## Build Failed
+            Build for ${{ needs.gradle-build.outputs.package_name }} ${{ needs.gradle-build.outputs.package_version }} has failed!!!
+
             ## Change Details
             ${{ github.event.head_commit.message }}
 
@@ -125,4 +128,4 @@ jobs:
             ${{ steps.check.outputs.status }}
 
             ## View Log
-            https://github.com/${{ needs.gradle-build.outputs.repo_owner }}/${{ needs.gradle-build.outputs.repo_name }}/actions
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

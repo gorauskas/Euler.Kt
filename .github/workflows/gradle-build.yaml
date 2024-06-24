@@ -67,6 +67,15 @@ jobs:
       - uses: martialonline/workflow-status@v4
         id: check
 
+      - name: Show Stuff
+        if: always()
+        run: |
+          echo "repo_owner=${{ needs.gradle-build.outputs.repo_owner }}"
+          echo "repo_name=${{ needs.gradle-build.outputs.repo_name }}"
+          echo "package_name=${{ needs.gradle-build.outputs.package_name }}"
+          echo "package_version=${{ needs.gradle-build.outputs.package_version }}"
+        shell: bash
+
       - name: SUCCESS Email
         if: ${{ steps.check.outputs.status == 'success' }}
         uses: dawidd6/action-send-mail@v3

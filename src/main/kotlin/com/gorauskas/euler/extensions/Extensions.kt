@@ -1,5 +1,6 @@
 package com.gorauskas.euler.extensions
 
+import com.gorauskas.euler.EULER_CHAR_OFFSET
 import com.gorauskas.euler.exceptions.EulerResourceException
 import java.io.IOException
 import java.math.BigInteger
@@ -78,6 +79,8 @@ fun Long.isPanDigital(length: Int = 9): Boolean = listOf(1, 2, 3, 4, 5, 6, 7, 8,
     .isEmpty()
 
 fun String.longLength() = this.length.toLong()
+
+fun String.toScore(): Long = toCharArray().map { it.code - EULER_CHAR_OFFSET }.sum().toLong()
 
 fun URI.getData(): String? {
     var path: Path? = null

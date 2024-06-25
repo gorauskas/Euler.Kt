@@ -6,6 +6,7 @@ package com.gorauskas.euler
  * I use magic numbers for numbers less than 10 or simple things like 20, 100, 1000.
  */
 
+const val EULER_CHAR_OFFSET = 64
 const val EULER3_PF_NUMBER = 600_851_475_143L
 const val EULER3_MAX = 775_164L
 const val EULER7_MAX = 105_000

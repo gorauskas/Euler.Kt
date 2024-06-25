@@ -1,0 +1,13 @@
+package com.gorauskas.euler.test.forty
+
+import com.gorauskas.euler.solutions.forty.Euler42
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
+
+class Euler42Test {
+    @Test
+    fun testSolve() {
+        val e = Euler42()
+        Assertions.assertEquals(162L, e.solve())
+    }
+}

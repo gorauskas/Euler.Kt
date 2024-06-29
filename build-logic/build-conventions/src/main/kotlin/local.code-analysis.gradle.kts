@@ -16,7 +16,7 @@ detekt {
     allRules = false
     parallel = true
     config.from(files("${rootDir.path}/detekt.yml"))
-    source.from(files("src/main/kotlin", "src/test/kotlin"))
+    source.from(files("src/main/kotlin", "src/solutions/kotlin"))
 }
 
 tasks {

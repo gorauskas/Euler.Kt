@@ -3,10 +3,10 @@ package com.gorauskas.euler.solutions.forty
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class Euler40Test {
+class Euler43Test {
     @Test
     fun testSolve() {
-        val e = Euler40()
-        Assertions.assertEquals(210L, e.solve())
+        val e = Euler43()
+        Assertions.assertEquals(16_695_334_890L, e.solve())
     }
 }

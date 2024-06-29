@@ -1,6 +1,5 @@
-package com.gorauskas.euler.test.one
+package com.gorauskas.euler.solutions.one
 
-import com.gorauskas.euler.solutions.one.Euler3
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

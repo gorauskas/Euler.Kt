@@ -25,6 +25,7 @@ inline fun Boolean?.ifFalse(fn: Boolean?.() -> Unit): Boolean? {
     return this
 }
 
+@Suppress("MagicNumber")
 fun resolvePackage(problem: Int): String? = when (problem) {
     in 1..9 -> "one."
     in 10..19 -> "ten."

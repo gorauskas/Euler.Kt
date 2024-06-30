@@ -4,7 +4,6 @@ import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.primeSequence
-import kotlinx.coroutines.runBlocking
 
 /**
  * Repeating decimal Totient Rule = https://en.wikipedia.org/wiki/Repeating_decimal#Totient_rule
@@ -43,7 +42,7 @@ class Euler26 : EulerSolution {
     """.trimIndent()
 
     override fun solve(): Long {
-        val ps = runBlocking { primeSequence(1000).toList().reversed() }
+        val ps = primeSequence(1000).toList().reversed()
         var seqlen = 0
 
         for (p in ps) {

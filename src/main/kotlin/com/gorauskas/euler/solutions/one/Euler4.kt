@@ -1,5 +1,6 @@
 package com.gorauskas.euler.solutions.one
 
+import com.gorauskas.euler.EULER004_RANGE_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPalindrome
 import com.gorauskas.euler.functions.timer
@@ -19,8 +20,8 @@ class Euler4 : EulerSolution {
         The largest palindrome made of the product of two 3 digit numbers is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = (100..999L).flatMap { x ->
-        (100..999L).map { y ->
+    override fun solve(): Long = (100..EULER004_RANGE_MAX).flatMap { x ->
+        (100..EULER004_RANGE_MAX).map { y ->
             x * y
         }
     }.filter {

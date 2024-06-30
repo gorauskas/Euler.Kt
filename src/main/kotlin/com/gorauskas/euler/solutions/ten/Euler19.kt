@@ -1,5 +1,8 @@
 package com.gorauskas.euler.solutions.ten
 
+import com.gorauskas.euler.EULER019_CENTURY_END
+import com.gorauskas.euler.EULER019_CENTURY_START
+import com.gorauskas.euler.EULER019_LAST_MONTH
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 
@@ -31,8 +34,8 @@ class Euler19 : EulerSolution {
         the twentieth century.
     """.trimIndent()
 
-    override fun solve(): Long = (1_901L..2_000L).flatMap { y ->
-        (1L..12L).filter { m ->
+    override fun solve(): Long = (EULER019_CENTURY_START..EULER019_CENTURY_END).flatMap { y ->
+        (1L..EULER019_LAST_MONTH).filter { m ->
             dayOfWeek(y, m) == 0L
         }
     }.count().toLong()
@@ -44,9 +47,12 @@ class Euler19 : EulerSolution {
      * @return A number from 0 to 6 representing the day of the week; 0 = Sunday
      * The day in this case is always 1 for the first
      */
-    private fun dayOfWeek(year: Long, month: Long): Long = Math.floorMod(month - 3L, 48_000L).let { m ->
-        Math.floorMod(year + m / 12L, 400L).let { y ->
-            (y + y / 4L - y / 100L + (13L * (m % 12L) + 2L) / 5L + 1L + 2L) % 7L
+    @Suppress("MagicNumber")
+    private fun dayOfWeek(year: Long, month: Long): Long = Math.floorMod(month - 3L, 48_000L)
+        .let { m ->
+            Math.floorMod(year + m / 12L, 400L)
+                .let { y ->
+                    (y + y / 4L - y / 100L + (13L * (m % 12L) + 2L) / 5L + 1L + 2L) % 7L
+                }
         }
-    }
 }

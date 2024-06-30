@@ -1,5 +1,7 @@
 package com.gorauskas.euler.solutions.twenty
 
+import com.gorauskas.euler.EULER027_RANGE_MAX
+import com.gorauskas.euler.EULER027_RANGE_MIN
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.functions.ifFalse
@@ -45,8 +47,8 @@ class Euler27 : EulerSolution {
         var max = 0L
         var res = 0L
 
-        for (x in -999L..999L) {
-            for (y in -999L..999L) {
+        for (x in EULER027_RANGE_MIN..EULER027_RANGE_MAX) {
+            for (y in EULER027_RANGE_MIN..EULER027_RANGE_MAX) {
                 var done = false
                 var count = 0L
 

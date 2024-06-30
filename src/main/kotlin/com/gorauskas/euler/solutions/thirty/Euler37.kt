@@ -1,10 +1,10 @@
 package com.gorauskas.euler.solutions.thirty
 
+import com.gorauskas.euler.EULER037_PRIME_SEQUENCE_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.primeSequence
-import kotlinx.coroutines.runBlocking
 
 class Euler37 : EulerSolution {
     override val problem = """
@@ -25,7 +25,7 @@ class Euler37 : EulerSolution {
         The sum of the only eleven primes that are both truncatable left and right is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = runBlocking { primeSequence(10, 740_000).filter { isTruncatable(it) }.sum() }
+    override fun solve(): Long = primeSequence(10, EULER037_PRIME_SEQUENCE_MAX).filter { isTruncatable(it) }.sum()
 
     private fun isTruncatable(n: Long): Boolean = (1 until n.toString().length).filter { d ->
         n.toString().drop(d).toLong().isPrime() &&

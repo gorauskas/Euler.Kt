@@ -1,6 +1,6 @@
 package com.gorauskas.euler.solutions.ten
 
-import com.gorauskas.euler.EULER18_TRIANGLE
+import com.gorauskas.euler.EULER018_TRIANGLE
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 
@@ -19,7 +19,7 @@ class Euler18 : EulerSolution {
      * convert it to Long and return the data structure:
      * List<List<Long>>
      */
-    val triangle = EULER18_TRIANGLE.trimIndent()
+    val triangle = EULER018_TRIANGLE.trimIndent()
         .split("\n")
         .map { line ->
             line.split(" ").map { it.toLong() }
@@ -40,7 +40,7 @@ class Euler18 : EulerSolution {
 
             Find the maximum total from top to bottom of the triangle below:
 
-            $EULER18_TRIANGLE
+            $EULER018_TRIANGLE
     """.trimIndent()
 
     override val answer = """

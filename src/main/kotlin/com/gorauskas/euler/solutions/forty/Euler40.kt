@@ -1,6 +1,10 @@
 package com.gorauskas.euler.solutions.forty
 
-import com.gorauskas.euler.EULER40_CHAR_OFFSET
+import com.gorauskas.euler.EULER040_CHAR_OFFSET
+import com.gorauskas.euler.EULER040_IDX_HUNDK
+import com.gorauskas.euler.EULER040_IDX_ONEMIL
+import com.gorauskas.euler.EULER040_IDX_TENK
+import com.gorauskas.euler.EULER040_RANGE_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 
@@ -25,14 +29,14 @@ class Euler40 : EulerSolution {
     """.trimIndent()
 
     override fun solve(): Long {
-        val ls = (0L..1_000_000L).joinToString("")
-        var result = (ls.get(1).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(10).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(100).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(1_000).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(10_000).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(100_000).code - EULER40_CHAR_OFFSET).toLong()
-        result *= (ls.get(1_000_000).code - EULER40_CHAR_OFFSET).toLong()
+        val ls = (0L..EULER040_RANGE_MAX).joinToString("")
+        var result = (ls[1].code - EULER040_CHAR_OFFSET).toLong()
+        result *= (ls[10].code - EULER040_CHAR_OFFSET).toLong()
+        result *= (ls[100].code - EULER040_CHAR_OFFSET).toLong()
+        result *= (ls[1_000].code - EULER040_CHAR_OFFSET).toLong()
+        result *= (ls[EULER040_IDX_TENK].code - EULER040_CHAR_OFFSET).toLong()
+        result *= (ls[EULER040_IDX_HUNDK].code - EULER040_CHAR_OFFSET).toLong()
+        result *= (ls[EULER040_IDX_ONEMIL].code - EULER040_CHAR_OFFSET).toLong()
         return result
     }
 }

@@ -1,5 +1,6 @@
 package com.gorauskas.euler.solutions.one
 
+import com.gorauskas.euler.EULER001_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 
@@ -19,5 +20,5 @@ class Euler1 : EulerSolution {
     The sum of all the multiples of 3 or 5 below 1000 is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = (1L..999L).filter { it % 3L == 0L || it % 5L == 0L }.sum()
+    override fun solve(): Long = (1L..EULER001_MAX).filter { it % 3L == 0L || it % 5L == 0L }.sum()
 }

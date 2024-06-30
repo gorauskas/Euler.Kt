@@ -1,10 +1,9 @@
 package com.gorauskas.euler.solutions.ten
 
-import com.gorauskas.euler.EULER10_MAX
+import com.gorauskas.euler.EULER010_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.primeSequence
-import kotlinx.coroutines.runBlocking
 
 class Euler10 : EulerSolution {
     override val problem = """
@@ -20,5 +19,5 @@ class Euler10 : EulerSolution {
     The sum of all the primes below two million is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = runBlocking { primeSequence(EULER10_MAX).sum() }
+    override fun solve(): Long = primeSequence(EULER010_MAX).sum()
 }

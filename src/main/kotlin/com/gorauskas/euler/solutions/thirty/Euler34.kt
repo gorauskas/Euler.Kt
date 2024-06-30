@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions.thirty
 
-import com.gorauskas.euler.EULER34_CHAR_OFFSET
-import com.gorauskas.euler.EULER34_HIGH_RANGE
+import com.gorauskas.euler.EULER034_CHAR_OFFSET
+import com.gorauskas.euler.EULER034_HIGH_RANGE
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.functions.timer
@@ -29,10 +29,10 @@ class Euler34 : EulerSolution {
         val fact = listOf(1L) + (1L..9L).map { it.factorial() }
         var r = 0L
 
-        (10..EULER34_HIGH_RANGE).map { n ->
+        (10..EULER034_HIGH_RANGE).map { n ->
             val x: Long = n.toString()
                 .toCharArray()
-                .map { it.code - EULER34_CHAR_OFFSET }
+                .map { it.code - EULER034_CHAR_OFFSET }
                 .map { i -> fact.get(i) }
                 .sum()
 

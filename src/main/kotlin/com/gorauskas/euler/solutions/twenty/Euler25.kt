@@ -2,6 +2,7 @@
 
 package com.gorauskas.euler.solutions.twenty
 
+import com.gorauskas.euler.EULER025_TARGET_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 import kotlin.math.ceil
@@ -52,5 +53,5 @@ class Euler25 : EulerSolution {
         The first number in the Fibonacci sequence to contain 1000 digits is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = ceil((log10(5.0) / 2L + 999L) / log10((1L + sqrt(5.0)) / 2L)).toLong()
+    override fun solve(): Long = ceil((log10(5.0) / 2L + EULER025_TARGET_MAX) / log10((1L + sqrt(5.0)) / 2L)).toLong()
 }

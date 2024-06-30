@@ -1,6 +1,6 @@
 package com.gorauskas.euler.solutions.twenty
 
-import com.gorauskas.euler.EULER20_CHAR_OFFSET
+import com.gorauskas.euler.EULER020_CHAR_OFFSET
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.functions.timer
@@ -27,6 +27,6 @@ class Euler20 : EulerSolution {
         .factorial()
         .toString()
         .toCharArray()
-        .map { it.code - EULER20_CHAR_OFFSET }
+        .map { it.code - EULER020_CHAR_OFFSET }
         .sum()
 }

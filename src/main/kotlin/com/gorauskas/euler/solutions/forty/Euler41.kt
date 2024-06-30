@@ -1,5 +1,6 @@
 package com.gorauskas.euler.solutions.forty
 
+import com.gorauskas.euler.EULER041_TARGET_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPanDigital
 import com.gorauskas.euler.extensions.isPrime
@@ -39,7 +40,7 @@ class Euler41 : EulerSolution {
     """.trimIndent()
 
     override fun solve(): Long {
-        var n = 7_654_321L
+        var n = EULER041_TARGET_MAX
         while (!(n.isPrime() && n.isPanDigital(7))) {
             n -= 2L
         }

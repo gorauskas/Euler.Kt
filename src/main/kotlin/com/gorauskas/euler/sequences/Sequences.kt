@@ -2,27 +2,27 @@ package com.gorauskas.euler.sequences
 
 import com.gorauskas.euler.extensions.isPrime
 
-suspend fun fibonacciSequence(): Sequence<Long> = sequence {
+fun fibonacciSequence(): Sequence<Long> = sequence {
     yieldAll(generateSequence(Pair(0L, 1L)) { Pair(it.second, it.first + it.second) }.map { p -> p.first })
 }
 
-suspend fun fibonacciSequence(max: Long) = fibonacciSequence().takeWhile { it < max }
+fun fibonacciSequence(max: Long) = fibonacciSequence().takeWhile { it < max }
 
-suspend fun primeSequence(): Sequence<Long> = sequence {
+fun primeSequence(): Sequence<Long> = sequence {
     yieldAll(generateSequence(0L) { it + 1 }.filter { n -> n.isPrime() })
 }
 
-suspend fun primeSequence(max: Int) = primeSequence().takeWhile { it < max }
+fun primeSequence(max: Int) = primeSequence().takeWhile { it < max }
 
-suspend fun primeSequence(min: Int, max: Int) = primeSequence().dropWhile { it < min }.takeWhile { it < max }
+fun primeSequence(min: Int, max: Int) = primeSequence().dropWhile { it < min }.takeWhile { it < max }
 
-suspend fun triangleSequence(): Sequence<Long> = sequence {
+fun triangleSequence(): Sequence<Long> = sequence {
     yieldAll(generateSequence(1L) { it + 1 }.map { n -> (n * n + n) / 2 })
 }
 
-suspend fun triangleSequence(max: Int) = triangleSequence().takeWhile { it < max }
+fun triangleSequence(max: Int) = triangleSequence().takeWhile { it < max }
 
-suspend fun collatzSequence(n: Long): Sequence<Long> = sequence {
+fun collatzSequence(n: Long): Sequence<Long> = sequence {
     yieldAll(
         generateSequence(n) {
             when {
@@ -32,4 +32,46 @@ suspend fun collatzSequence(n: Long): Sequence<Long> = sequence {
             }
         },
     )
+}
+
+/**
+ * Mimics [Python itertools module function](https://docs.python.org/3/library/itertools.html#itertools.permutations)
+ * and returns successive [len]-length permutations of
+ * [input].
+ *
+ * If [input] is sorted, permutations will be yielded in lexicographic order.
+ *
+ * If [input] contains only unique values, there will be no repeat values in each permutation. e.g.:
+ *
+ *     elements = "ABCD", len = 2 -> AB AC AD BA BC BD CA CB CD DA DB DC
+ *
+ * The number of yielded permutations, if `n` = the amount of elements, is:
+ *
+ *     n!/(n - len)!
+ */
+fun <T : Any> permutations(input: Iterable<T>, len: Int = -1) = sequence {
+    val pool = input.toList()
+    val n = pool.size
+    val k = if (len == -1) n else len
+    if (k == 0 || k > n) {
+        return@sequence
+    }
+    var indices = (0 until n).toMutableList()
+    val cycles = (n downTo n - k + 1).toMutableList()
+    yield(List(k) { pool[indices[it]] })
+    while (true) {
+        var i = k - 1
+        while (i >= 0) {
+            if (--cycles[i] == 0) {
+                indices = (indices.take(i) + indices.slice(i + 1..indices.lastIndex) + indices[i]).toMutableList()
+                cycles[i] = n - i
+                if (i-- == 0) return@sequence
+            } else {
+                val j = cycles[i]
+                indices[n - j] = indices[i].also { indices[i] = indices[n - j] }
+                yield(List(k) { pool[indices[it]] })
+                break
+            }
+        }
+    }
 }

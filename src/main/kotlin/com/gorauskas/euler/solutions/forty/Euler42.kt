@@ -5,7 +5,6 @@ import com.gorauskas.euler.extensions.getData
 import com.gorauskas.euler.extensions.toScore
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.triangleSequence
-import kotlinx.coroutines.runBlocking
 
 class Euler42 : EulerSolution {
     override val problem = """
@@ -31,16 +30,13 @@ class Euler42 : EulerSolution {
         There are ${timer { solve() }} triangle words in the file.
     """.trimIndent()
 
-    override fun solve(): Long = runBlocking {
-        javaClass.getResource("/p042_words.txt")!!
-            .toURI()
-            .getData()!!
-            .split(",")
-            .map { it.replace("\"", "") }
-            .let { words ->
-                with(triangleSequence(200)) {
-                    words.count { contains(it.toScore()) }.toLong()
-                }
+    override fun solve(): Long = javaClass.getResource("/p042_words.txt")!!.toURI()
+        .getData()!!
+        .split(",")
+        .map { it.replace("\"", "") }
+        .let { words ->
+            with(triangleSequence(200)) {
+                words.count { contains(it.toScore()) }.toLong()
             }
-    }
+        }
 }

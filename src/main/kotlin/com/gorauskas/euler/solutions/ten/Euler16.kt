@@ -1,6 +1,6 @@
 package com.gorauskas.euler.solutions.ten
 
-import com.gorauskas.euler.EULER16_CHAR_OFFSET
+import com.gorauskas.euler.EULER016_CHAR_OFFSET
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 import java.math.BigInteger
@@ -23,6 +23,6 @@ class Euler16 : EulerSolution {
         .shiftLeft(1000)
         .toString()
         .toCharArray()
-        .map { it.code - EULER16_CHAR_OFFSET }
+        .map { it.code - EULER016_CHAR_OFFSET }
         .sum()
 }

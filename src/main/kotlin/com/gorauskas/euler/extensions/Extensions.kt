@@ -1,6 +1,6 @@
 package com.gorauskas.euler.extensions
 
-import com.gorauskas.euler.EULER_CHAR_OFFSET
+import com.gorauskas.euler.EULER_CHAR_OFFSET_64
 import com.gorauskas.euler.exceptions.EulerResourceException
 import java.io.IOException
 import java.math.BigInteger
@@ -9,6 +9,7 @@ import java.nio.file.FileSystems
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+import kotlin.math.sqrt
 
 fun Long.isPrime(): Boolean {
     if (this and 1 == 0L) {
@@ -26,7 +27,7 @@ fun Long.isPrime(): Boolean {
     return this != 1L
 }
 
-fun Long.isPalindrome(): Boolean = this.toString().equals(this.toString().reversed())
+fun Long.isPalindrome(): Boolean = this.toString() == this.toString().reversed()
 
 fun Long.gcd(i: Long): Long = if (i == 0L) this else i.gcd(this % i)
 
@@ -34,7 +35,7 @@ fun Long.isMultipleOf(multiple: Long): Boolean = if (this == 0L || multiple == 0
 
 fun Long.divisors(): List<Long> {
     val factors = mutableSetOf<Long>()
-    (1L..Math.sqrt(this.toDouble()).toLong() + 1L)
+    (1L..sqrt(this.toDouble()).toLong() + 1L)
         .map {
             if (this.isMultipleOf(it)) {
                 factors.add(it)
@@ -75,12 +76,12 @@ fun Long.sumOfDivisors(): Long = this.divisors().filter { it != this }.sum()
 
 fun Long.isPanDigital(length: Int = 9): Boolean = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
     .take(length)
-    .minus(this.toString().map { it.digitToInt() })
+    .minus(this.toString().map { it.digitToInt() }.toSet())
     .isEmpty()
 
 fun String.longLength() = this.length.toLong()
 
-fun String.toScore(): Long = toCharArray().map { it.code - EULER_CHAR_OFFSET }.sum().toLong()
+fun String.toScore(): Long = toCharArray().sumOf { it.code - EULER_CHAR_OFFSET_64 }.toLong()
 
 fun URI.getData(): String? {
     var path: Path? = null

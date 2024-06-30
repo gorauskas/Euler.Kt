@@ -37,7 +37,7 @@ class ExtensionsTest {
     @Test
     fun testDivisors() {
         Assertions.assertInstanceOf(List::class.java, 999L.divisors())
-        Assertions.assertTrue(999L.divisors().sorted() == listOf(1, 3, 9, 27, 37, 111, 333, 999))
+        Assertions.assertTrue(999L.divisors().sorted() == listOf(1L, 3, 9, 27, 37, 111, 333, 999))
     }
 
     @Test

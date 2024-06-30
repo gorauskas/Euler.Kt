@@ -30,6 +30,9 @@ tasks {
             attributes["Main-Class"] = "com.gorauskas.euler.AppKt"
         }
     }
+    test {
+        jvmArgs("--add-opens=java.base/java.nio.file=ALL-UNNAMED")
+    }
 }
 
 dependencies {
@@ -49,6 +52,7 @@ dependencies {
         libs.junit.jupiter.core,
         libs.junit.jupiter.api,
         libs.junit.jupiter.engine,
+        libs.mockk.core,
     ).forEach {
         testImplementation(it)
     }

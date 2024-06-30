@@ -1,8 +1,8 @@
 package com.gorauskas.euler.solutions.twenty
 
-import com.gorauskas.euler.EULER22_CHAR_OFFSET
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.getData
+import com.gorauskas.euler.extensions.toScore
 import com.gorauskas.euler.functions.timer
 
 class Euler22 : EulerSolution {
@@ -39,7 +39,5 @@ class Euler22 : EulerSolution {
             total + nameScore(item, index + 1)
         }
 
-    private fun nameScore(name: String, pos: Int): Long = pos * name.toCharArray().map {
-        it.code - EULER22_CHAR_OFFSET
-    }.sum()
+    private fun nameScore(name: String, pos: Int): Long = pos * name.toScore()
 }

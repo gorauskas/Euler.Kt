@@ -1,6 +1,6 @@
 package com.gorauskas.euler.solutions.twenty
 
-import com.gorauskas.euler.EULER24_REMAINING_PERMUTATIONS
+import com.gorauskas.euler.EULER024_REMAINING_PERMUTATIONS
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.functions.timer
@@ -37,7 +37,7 @@ class Euler24 : EulerSolution {
 
     override fun solve(): Long = mutableListOf<Long>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9).let { numbers ->
         val digitCount = numbers.size.toLong()
-        var remainingPermutations = EULER24_REMAINING_PERMUTATIONS
+        var remainingPermutations = EULER024_REMAINING_PERMUTATIONS
         var result = ""
 
         for (currentDigit in 1L until digitCount) {

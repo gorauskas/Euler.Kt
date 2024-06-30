@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions.thirty
 
-import com.gorauskas.euler.EULER30_CHAR_OFFSET
-import com.gorauskas.euler.EULER30_UPPER_BOUND
+import com.gorauskas.euler.EULER030_CHAR_OFFSET
+import com.gorauskas.euler.EULER030_UPPER_BOUND
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 import kotlin.math.pow
@@ -43,11 +43,11 @@ class Euler30 : EulerSolution {
         powers of their digits is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = (2L..EULER30_UPPER_BOUND)
+    override fun solve(): Long = (2L..EULER030_UPPER_BOUND)
         .map { it.toString() }
         .filter { x ->
             x == x.toCharArray()
-                .map { c -> c.code - EULER30_CHAR_OFFSET }
+                .map { c -> c.code - EULER030_CHAR_OFFSET }
                 .map { y -> y.toDouble().pow(5.0).toInt() }
                 .sum()
                 .toString()

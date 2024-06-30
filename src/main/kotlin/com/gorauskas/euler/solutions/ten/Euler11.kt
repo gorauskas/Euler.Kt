@@ -1,20 +1,12 @@
 package com.gorauskas.euler.solutions.ten
 
-import com.gorauskas.euler.EULER11_MATRIX
+import com.gorauskas.euler.EULER011_MATRIX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
-import com.gorauskas.euler.solutions.ten.Euler11.Orientation.Down
-import com.gorauskas.euler.solutions.ten.Euler11.Orientation.DownLeft
-import com.gorauskas.euler.solutions.ten.Euler11.Orientation.DownRight
-import com.gorauskas.euler.solutions.ten.Euler11.Orientation.Left
-import com.gorauskas.euler.solutions.ten.Euler11.Orientation.Right
-import com.gorauskas.euler.solutions.ten.Euler11.Orientation.Up
-import com.gorauskas.euler.solutions.ten.Euler11.Orientation.UpLeft
-import com.gorauskas.euler.solutions.ten.Euler11.Orientation.UpRight
 
 class Euler11 : EulerSolution {
-    private val sm by lazy { StringMatrix(EULER11_MATRIX.trimIndent()) }
+    private val sm by lazy { StringMatrix(EULER011_MATRIX.trimIndent()) }
 
     override val problem = """
         Project Euler Problem 11:
@@ -22,7 +14,7 @@ class Euler11 : EulerSolution {
             In the 20x20 grid below, four numbers along a diagonal line have been
             marked in red.
 
-            $EULER11_MATRIX
+            $EULER011_MATRIX
 
             The product of these numbers is 26 x 63 x 78 x 14 = 1788696.
 
@@ -72,49 +64,49 @@ class Euler11 : EulerSolution {
             val l = ArrayList<Long>()
 
             when (orient) {
-                Down -> {
+                Orientation.Down -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y + 1][x])
                     l.add(longMatrix[y + 2][x])
                     l.add(longMatrix[y + 3][x])
                 }
-                DownLeft -> {
+                Orientation.DownLeft -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y + 1][x - 1])
                     l.add(longMatrix[y + 2][x - 2])
                     l.add(longMatrix[y + 3][x - 3])
                 }
-                DownRight -> {
+                Orientation.DownRight -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y + 1][x + 1])
                     l.add(longMatrix[y + 2][x + 2])
                     l.add(longMatrix[y + 3][x + 3])
                 }
-                Left -> {
+                Orientation.Left -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y][x - 1])
                     l.add(longMatrix[y][x - 2])
                     l.add(longMatrix[y][x - 3])
                 }
-                Right -> {
+                Orientation.Right -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y][x + 1])
                     l.add(longMatrix[y][x + 2])
                     l.add(longMatrix[y][x + 3])
                 }
-                Up -> {
+                Orientation.Up -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y - 1][x])
                     l.add(longMatrix[y - 2][x])
                     l.add(longMatrix[y - 3][x])
                 }
-                UpLeft -> {
+                Orientation.UpLeft -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y - 1][x - 1])
                     l.add(longMatrix[y - 2][x - 2])
                     l.add(longMatrix[y - 3][x - 3])
                 }
-                UpRight -> {
+                Orientation.UpRight -> {
                     l.add(longMatrix[y][x])
                     l.add(longMatrix[y - 1][x + 1])
                     l.add(longMatrix[y - 2][x + 2])
@@ -125,6 +117,7 @@ class Euler11 : EulerSolution {
             return l
         }
 
+        @Suppress("MagicNumber")
         private fun calculateIntMatrix() {
             val numbers = strMatrix.split("[ \\n]".toRegex()).map { it.toLong() }
             var i = 0
@@ -140,7 +133,7 @@ class Euler11 : EulerSolution {
             }
         }
 
-        @Suppress("NestedBlockDepth")
+        @Suppress("NestedBlockDepth", "MagicNumber")
         private fun calcGreatProdOf4AdjacentNums() {
             val js = (3..16).toList()
             val ks = (3..16).toList()

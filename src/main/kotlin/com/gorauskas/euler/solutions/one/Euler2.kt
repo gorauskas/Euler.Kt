@@ -1,9 +1,9 @@
 package com.gorauskas.euler.solutions.one
 
+import com.gorauskas.euler.EULER002_FIB_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.fibonacciSequence
-import kotlinx.coroutines.runBlocking
 
 class Euler2 : EulerSolution {
     override val problem = """
@@ -25,5 +25,5 @@ class Euler2 : EulerSolution {
         not exceeding 4 million is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = runBlocking { fibonacciSequence(4_000_000L).filter { it % 2L == 0L }.sum() }
+    override fun solve(): Long = fibonacciSequence(EULER002_FIB_MAX).filter { it % 2L == 0L }.sum()
 }

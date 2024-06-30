@@ -1,10 +1,10 @@
 package com.gorauskas.euler.solutions.thirty
 
+import com.gorauskas.euler.EULER035_PRIME_SEQUENCE_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.primeSequence
-import kotlinx.coroutines.runBlocking
 
 @Suppress("CommentOverPrivateFunction")
 class Euler35 : EulerSolution {
@@ -26,17 +26,15 @@ class Euler35 : EulerSolution {
         There are ${timer { solve() }} circular primes below 1 million.
     """.trimIndent()
 
-    override fun solve(): Long = runBlocking {
-        primeSequence(1_000_000).filter { prime ->
-            checkRotations(
-                prime.toString()
-                    .splitToSequence("")
-                    .filter { it.isNotEmpty() }
-                    .map { it.toLong() },
-                prime,
-            )
-        }.count().toLong()
-    }
+    override fun solve(): Long = primeSequence(EULER035_PRIME_SEQUENCE_MAX).filter { prime ->
+        checkRotations(
+            prime.toString()
+                .splitToSequence("")
+                .filter { it.isNotEmpty() }
+                .map { it.toLong() },
+            prime,
+        )
+    }.count().toLong()
 
     /**
      * Checks the circular rotations of each prime number for primes.

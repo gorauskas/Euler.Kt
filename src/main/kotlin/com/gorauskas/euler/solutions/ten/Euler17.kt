@@ -1,13 +1,14 @@
 package com.gorauskas.euler.solutions.ten
 
-import com.gorauskas.euler.EULER17_CHAR_OFFSET
-import com.gorauskas.euler.EULER17_START_INDEX
+import com.gorauskas.euler.EULER017_CHAR_OFFSET
+import com.gorauskas.euler.EULER017_START_INDEX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.longLength
 import com.gorauskas.euler.functions.ifFalse
 import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 
+@Suppress("MagicNumber")
 class Euler17 : EulerSolution {
     private val lookupTable = mapOf(
         Pair(1L, "one"),
@@ -71,9 +72,9 @@ class Euler17 : EulerSolution {
     @Suppress("ComplexMethod")
     private fun spellNumber(num: Long): String {
         return buildString {
-            var ltIndex = EULER17_START_INDEX
+            var ltIndex = EULER017_START_INDEX
             val nums = num.toString().reversed().toCharArray()
-                .map { it.code - EULER17_CHAR_OFFSET }
+                .map { it.code - EULER017_CHAR_OFFSET }
             (nums.size == 4 && nums[3] != 0L).ifTrue {
                 append(lookupTable[nums[3]] + " thousand")
             }

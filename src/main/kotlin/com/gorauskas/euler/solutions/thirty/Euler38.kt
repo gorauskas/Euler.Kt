@@ -1,5 +1,7 @@
 package com.gorauskas.euler.solutions.thirty
 
+import com.gorauskas.euler.EULER038_RANGE_MAX
+import com.gorauskas.euler.EULER038_RANGE_MIN
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPanDigital
 import com.gorauskas.euler.functions.timer
@@ -33,7 +35,7 @@ class Euler38 : EulerSolution {
      * Given the constraints of the problem, we know the largest number has to start
      * with the digit 9 - this allows us to significantly narrow the search range
      */
-    override fun solve(): Long = (9_487L downTo 9_213L)
+    override fun solve(): Long = (EULER038_RANGE_MAX downTo EULER038_RANGE_MIN)
         .first { ((it * 1L).toString() + (it * 2L).toString()).toLong().isPanDigital() }
         .let { ((it * 1L).toString() + (it * 2L).toString()).toLong() }
 }

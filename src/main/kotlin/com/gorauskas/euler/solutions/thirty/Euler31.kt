@@ -1,6 +1,5 @@
 package com.gorauskas.euler.solutions.thirty
 
-import com.gorauskas.euler.EULER31_TARGET
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 
@@ -27,14 +26,14 @@ class Euler31 : EulerSolution {
 
     override fun solve(): Long {
         val coins = listOf(1, 2, 5, 10, 20, 50, 100, 200)
-        val ways = (mutableListOf(1L) + MutableList(EULER31_TARGET) { 0L }).toMutableList()
+        val ways = (mutableListOf(1L) + MutableList(200) { 0L }).toMutableList()
 
         for (coin in coins) {
-            for (i in coin..EULER31_TARGET) {
+            for (i in coin..200) {
                 ways[i] += ways[i - coin]
             }
         }
 
-        return ways[EULER31_TARGET]
+        return ways[200]
     }
 }

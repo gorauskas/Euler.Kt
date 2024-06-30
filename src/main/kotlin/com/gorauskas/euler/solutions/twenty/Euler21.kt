@@ -1,5 +1,6 @@
 package com.gorauskas.euler.solutions.twenty
 
+import com.gorauskas.euler.EULER021_RANGE_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.functions.timer
@@ -26,7 +27,7 @@ class Euler21 : EulerSolution {
         The sum of all the amicable numbers under 10000 is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = (0L..10_000L).filter {
+    override fun solve(): Long = (0L..EULER021_RANGE_MAX).filter {
         it.sumOfDivisors().sumOfDivisors() == it && it != it.sumOfDivisors()
     }.sum()
 }

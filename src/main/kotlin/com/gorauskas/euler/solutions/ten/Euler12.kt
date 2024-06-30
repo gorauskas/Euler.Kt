@@ -4,7 +4,6 @@ import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.numberOfDivisors
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.triangleSequence
-import kotlinx.coroutines.runBlocking
 
 class Euler12 : EulerSolution {
     override val problem = """
@@ -40,5 +39,5 @@ class Euler12 : EulerSolution {
         The first triangle number to have over 500 divisors is: ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = runBlocking { triangleSequence().filter { it.numberOfDivisors() > 500 }.first() }
+    override fun solve(): Long = triangleSequence().filter { it.numberOfDivisors() > 500 }.first()
 }

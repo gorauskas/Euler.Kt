@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions.ten
 
-import com.gorauskas.euler.EULER15_DIRS
-import com.gorauskas.euler.EULER15_MOVES
+import com.gorauskas.euler.EULER015_DIRS
+import com.gorauskas.euler.EULER015_MOVES
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.functions.timer
@@ -35,8 +35,8 @@ class Euler15 : EulerSolution {
 
     override fun solve(): Long {
         val centralBinomialCoefficient =
-            EULER15_MOVES.factorial() /
-                ((EULER15_MOVES - EULER15_DIRS).factorial() * EULER15_DIRS.factorial())
+            40.0.factorial() /
+                ((EULER015_MOVES - EULER015_DIRS).factorial() * EULER015_DIRS.factorial())
         return centralBinomialCoefficient.toLong()
     }
 }

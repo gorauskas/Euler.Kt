@@ -1,9 +1,10 @@
 package com.gorauskas.euler.solutions.ten
 
+import com.gorauskas.euler.EULER014_RANGE_MAX
+import com.gorauskas.euler.EULER014_RANGE_MIN
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.collatzSequence
-import kotlinx.coroutines.runBlocking
 
 class Euler14 : EulerSolution {
     private var num = 0L
@@ -37,16 +38,14 @@ class Euler14 : EulerSolution {
 
     /**
      * Loop starts at 500000 because any number between 1 and 499999 multiplied by 2
-     * (the reverse of i / 2) will equal a number between 500000 to 999999.
+     * (the reverse of i / 2) will equal a number between 500000 and 999999.
      */
     override fun solve(): Long {
-        for (n in 500_000L..999_999L) {
-            runBlocking {
-                collatzSequence(n).also { cs ->
-                    if (cs.count() > len) {
-                        len = cs.count()
-                        num = n
-                    }
+        for (n in EULER014_RANGE_MIN..EULER014_RANGE_MAX) {
+            collatzSequence(n).also { cs ->
+                if (cs.count() > len) {
+                    len = cs.count()
+                    num = n
                 }
             }
         }

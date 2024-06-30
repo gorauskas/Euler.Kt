@@ -1,6 +1,6 @@
 package com.gorauskas.euler.solutions.twenty
 
-import com.gorauskas.euler.EULER23_MAX
+import com.gorauskas.euler.EULER023_RANGE_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.sumOfDivisors
 import com.gorauskas.euler.functions.timer
@@ -41,15 +41,15 @@ class Euler23 : EulerSolution {
     """.trimIndent()
 
     override fun solve(): Long = genSetOfSumOfTwoAbundants(
-        (1L..EULER23_MAX).filter { x -> x.sumOfDivisors() > x },
+        (1L..EULER023_RANGE_MAX).filter { x -> x.sumOfDivisors() > x },
     ).let { sumOfTwoSet ->
-        (1L..EULER23_MAX)
+        (1L..EULER023_RANGE_MAX)
             .filter { !sumOfTwoSet.contains(it) }
             .sum()
     }
 
     @Suppress("MaxLineLength", "ParameterListWrapping")
     private fun genSetOfSumOfTwoAbundants(abundants: List<Long>): Set<Long> = (0 until abundants.size - 2).flatMap { x ->
-        (x until abundants.size - 1).map { y -> abundants[x] + abundants[y] }.filter { it <= EULER23_MAX }
+        (x until abundants.size - 1).map { y -> abundants[x] + abundants[y] }.filter { it <= EULER023_RANGE_MAX }
     }.toSet()
 }

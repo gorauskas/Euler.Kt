@@ -1,7 +1,9 @@
 package com.gorauskas.euler.solutions.thirty
 
-import com.gorauskas.euler.EULER32_HIGH_START
-import com.gorauskas.euler.EULER32_LOW_START
+import com.gorauskas.euler.EULER032_HIGH_START
+import com.gorauskas.euler.EULER032_LOW_START
+import com.gorauskas.euler.EULER032_MULTIPLICAND_MAX
+import com.gorauskas.euler.EULER032_MULTIPLIER_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPanDigital
 import com.gorauskas.euler.functions.timer
@@ -30,13 +32,13 @@ class Euler32 : EulerSolution {
         be written as a 1 through 9 pandigital is ${timer { solve() }}
     """.trimIndent()
 
-    override fun solve(): Long = (1L..101L).flatMap { i ->
+    override fun solve(): Long = (1L..EULER032_MULTIPLICAND_MAX).flatMap { i ->
         val start = if (i > 9L) {
-            EULER32_LOW_START
+            EULER032_LOW_START
         } else {
-            EULER32_HIGH_START
+            EULER032_HIGH_START
         }
-        (start..10_000L / i + 1L).map { j ->
+        (start..EULER032_MULTIPLIER_MAX / i + 1L).map { j ->
             Triple(i, j, "$i$j${i * j}")
         }.filter {
             it.third.toLong().isPanDigital()

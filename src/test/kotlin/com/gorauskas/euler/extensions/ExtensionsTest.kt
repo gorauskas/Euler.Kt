@@ -1,20 +1,10 @@
-package com.gorauskas.euler
+package com.gorauskas.euler.extensions
 
-import com.gorauskas.euler.extensions.factorial
-import com.gorauskas.euler.extensions.gcd
-import com.gorauskas.euler.extensions.getData
-import com.gorauskas.euler.extensions.isMultipleOf
-import com.gorauskas.euler.extensions.isPalindrome
-import com.gorauskas.euler.extensions.isPanDigital
-import com.gorauskas.euler.extensions.isPrime
-import com.gorauskas.euler.extensions.numberOfDivisors
-import com.gorauskas.euler.extensions.sumOfDivisors
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.math.BigInteger
 
 class ExtensionsTest {
-
     @Test
     fun testIsPrime() {
         Assertions.assertTrue(1_217L.isPrime())
@@ -42,6 +32,12 @@ class ExtensionsTest {
         Assertions.assertTrue(10L.isMultipleOf(5L))
         Assertions.assertTrue(21L.isMultipleOf(7L))
         Assertions.assertFalse(10L.isMultipleOf(3L))
+    }
+
+    @Test
+    fun testDivisors() {
+        Assertions.assertInstanceOf(List::class.java, 999L.divisors())
+        Assertions.assertTrue(999L.divisors().sorted() == listOf(1, 3, 9, 27, 37, 111, 333, 999))
     }
 
     @Test
@@ -89,7 +85,17 @@ class ExtensionsTest {
     }
 
     @Test
+    fun testStringLongLength() {
+        Assertions.assertEquals("Euler".longLength(), 5L)
+    }
+
+    @Test
+    fun testStringScore() {
+        Assertions.assertEquals("Euler".toScore(), 189L)
+    }
+
+    @Test
     fun testGetDataFromUri() {
-        Assertions.assertEquals("Jonas Gorauskas", javaClass.getResource("/test.txt")!!.toURI().getData())
+        Assertions.assertEquals("Project Euler", javaClass.getResource("/test.txt")!!.toURI().getData())
     }
 }

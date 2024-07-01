@@ -2,9 +2,11 @@ package com.gorauskas.euler.exceptions
 
 import com.gorauskas.euler.Euler
 import com.gorauskas.euler.extensions.getData
+import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.io.IOException
@@ -12,6 +14,11 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 class ExceptionsTest {
+    @AfterEach
+    fun tearDown() {
+        clearAllMocks()
+    }
+
     @Test
     fun testEulerResourceException() {
         val mockPath = mockk<Path>()

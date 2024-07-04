@@ -2,13 +2,13 @@ package com.gorauskas.euler.sequences
 
 import com.gorauskas.euler.extensions.isPrime
 
-fun fibonacciSequence(): Sequence<Long> = sequence {
+fun fibonacciSequence() = sequence {
     yieldAll(generateSequence(Pair(0L, 1L)) { Pair(it.second, it.first + it.second) }.map { p -> p.first })
 }
 
 fun fibonacciSequence(max: Long) = fibonacciSequence().takeWhile { it < max }
 
-fun primeSequence(): Sequence<Long> = sequence {
+fun primeSequence() = sequence {
     yieldAll(generateSequence(0L) { it + 1 }.filter { n -> n.isPrime() })
 }
 
@@ -16,7 +16,7 @@ fun primeSequence(max: Int) = primeSequence().takeWhile { it < max }
 
 fun primeSequence(min: Int, max: Int) = primeSequence().dropWhile { it < min }.takeWhile { it < max }
 
-fun triangleSequence(): Sequence<Long> = sequence {
+fun triangleSequence() = sequence {
     yieldAll(generateSequence(1L) { it + 1 }.map { n -> (n * n + n) / 2 })
 }
 
@@ -33,6 +33,14 @@ fun collatzSequence(n: Long): Sequence<Long> = sequence {
         },
     )
 }
+
+fun pentagonalSequence() = sequence {
+    yieldAll(generateSequence(1L) { it + 1L }.map { x -> x * (3L * x - 1L) / 2L })
+}
+
+fun pentagonalSequence(maxValue: Long) = pentagonalSequence().takeWhile { it <= maxValue }
+
+fun pentagonalSequence(maxSize: Int) = pentagonalSequence().take(maxSize)
 
 /**
  * Mimics [Python itertools module function](https://docs.python.org/3/library/itertools.html#itertools.permutations)

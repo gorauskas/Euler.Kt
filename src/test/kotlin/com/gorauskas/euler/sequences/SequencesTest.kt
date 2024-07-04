@@ -33,6 +33,14 @@ class SequencesTest {
     }
 
     @Test
+    fun testPentagonalSequence() {
+        Assertions.assertInstanceOf(Sequence::class.java, pentagonalSequence(3L))
+        Assertions.assertTrue(pentagonalSequence(25L).toList() == listOf(1L, 5, 12, 22))
+        Assertions.assertTrue(pentagonalSequence(100L).toList() == listOf(1L, 5, 12, 22, 35, 51, 70, 92))
+        Assertions.assertTrue(pentagonalSequence(100).count() == 100)
+    }
+
+    @Test
     fun testPermutations() {
         Assertions.assertInstanceOf(Sequence::class.java, permutations("ABC".toList(), 2))
         Assertions.assertTrue(

@@ -85,6 +85,14 @@ class ExtensionsTest {
     }
 
     @Test
+    fun testIsPentagonal() {
+        Assertions.assertTrue(35L.isPentagonal())
+        Assertions.assertTrue(51L.isPentagonal())
+        Assertions.assertTrue(70L.isPentagonal())
+        Assertions.assertFalse(100L.isPentagonal())
+    }
+
+    @Test
     fun testStringLongLength() {
         Assertions.assertEquals("Euler".longLength(), 5L)
     }

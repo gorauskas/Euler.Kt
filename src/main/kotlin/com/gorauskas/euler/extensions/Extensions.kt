@@ -9,7 +9,6 @@ import java.nio.file.FileSystems
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.function.LongPredicate
 import kotlin.math.sqrt
 
 fun Long.isPrime(): Boolean {
@@ -80,7 +79,8 @@ fun Long.isPanDigital(length: Int = 9): Boolean = listOf(1, 2, 3, 4, 5, 6, 7, 8,
     .minus(this.toString().map { it.digitToInt() }.toSet())
     .isEmpty()
 
-fun Long.isPentagonal() = ((sqrt((24.0 * this + 1.0)) + 1.0) / 6.0) % 1.0 == 0.0
+@Suppress("MagicNumber")
+fun Long.isPentagonal() = ((sqrt(24.0 * this + 1) + 1) / 6.0) % 1.0 == 0.0
 
 fun String.longLength() = this.length.toLong()
 

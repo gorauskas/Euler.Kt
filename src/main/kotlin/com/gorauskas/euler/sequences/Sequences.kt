@@ -42,6 +42,14 @@ fun pentagonalSequence(maxValue: Long) = pentagonalSequence().takeWhile { it <= 
 
 fun pentagonalSequence(maxSize: Int) = pentagonalSequence().take(maxSize)
 
+fun hexagonalSequence() = sequence {
+    yieldAll(generateSequence(1L) { it + 1L }.map { x -> x * (2L * x - 1L) })
+}
+
+fun hexagonalSequence(maxValue: Long) = hexagonalSequence().takeWhile { it <= maxValue }
+
+fun hexagonalSequence(maxSize: Int) = hexagonalSequence().take(maxSize)
+
 /**
  * Mimics [Python itertools module function](https://docs.python.org/3/library/itertools.html#itertools.permutations)
  * and returns successive [len]-length permutations of

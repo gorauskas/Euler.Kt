@@ -1,5 +1,7 @@
 package com.gorauskas.euler.solutions.forty
 
+import com.gorauskas.euler.EULER044_PENTA_SEQUENCE_MAX_SIZE
+import com.gorauskas.euler.EULER044_RANGE_MAX
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPentagonal
 import com.gorauskas.euler.functions.timer
@@ -28,9 +30,9 @@ class Euler44 : EulerSolution {
     """.trimIndent()
 
     override fun solve(): Long {
-        val pentagonals = pentagonalSequence(100_000).toList()
+        val pentagonals = pentagonalSequence(EULER044_PENTA_SEQUENCE_MAX_SIZE).toList()
 
-        for (x in 1 until 2500) {
+        for (x in 1 until EULER044_RANGE_MAX) {
             for (y in 1 until x) {
                 val pX = pentagonals[x]
                 val pY = pentagonals[y]

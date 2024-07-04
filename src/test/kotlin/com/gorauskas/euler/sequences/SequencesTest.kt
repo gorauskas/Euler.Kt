@@ -41,6 +41,13 @@ class SequencesTest {
     }
 
     @Test
+    fun testHexagonalSequence() {
+        Assertions.assertInstanceOf(Sequence::class.java, hexagonalSequence(3))
+        Assertions.assertTrue(hexagonalSequence(5).toList() == listOf(1L, 6, 15, 28, 45))
+        Assertions.assertTrue(hexagonalSequence(50L).toList() == listOf(1L, 6, 15, 28, 45))
+    }
+
+    @Test
     fun testPermutations() {
         Assertions.assertInstanceOf(Sequence::class.java, permutations("ABC".toList(), 2))
         Assertions.assertTrue(

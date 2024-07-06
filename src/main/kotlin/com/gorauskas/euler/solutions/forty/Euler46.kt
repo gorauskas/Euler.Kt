@@ -36,7 +36,8 @@ class Euler46 : EulerSolution {
 
     @Suppress("LoopWithTooManyJumpStatements")
     override fun solve(): Long {
-        var (min, limit) = 0 to EULER046_MAX_PRIME
+        var min: Int
+        var limit = EULER046_MAX_PRIME
         var primes = primeSequence(limit).toList()
         var composite = EULER046_LOWER_BOUND
 

@@ -12,19 +12,11 @@ import java.nio.file.Paths
 import kotlin.math.sqrt
 
 fun Long.isPrime(): Boolean {
-    if (this and 1 == 0L) {
-        return this == 2L
+    if (this <= 1L) return false
+    for (i in 2L..sqrt(this.toDouble()).toLong()) {
+        if (this % i == 0L) return false
     }
-
-    var k = 3L
-    while (k * k <= this) {
-        if (this % k == 0L) {
-            return false
-        }
-        k += 2
-    }
-
-    return this != 1L
+    return true
 }
 
 fun Long.isPalindrome(): Boolean = this.toString() == this.toString().reversed()
@@ -49,6 +41,21 @@ fun Long.numberOfDivisors(): Long {
     if (this == 1L) return this
     return this.divisors().count().toLong()
 }
+
+fun Long.factors(): List<Long> = (1L..sqrt(this.toDouble()).toLong())
+    .flatMap { i ->
+        if (this % i == 0L) {
+            if (i == this / i) {
+                listOf(i)
+            } else {
+                listOf(i, this / i)
+            }
+        } else {
+            emptyList()
+        }
+    }.sorted()
+
+fun Long.primeFactors(): List<Long> = this.factors().filter { it.isPrime() }
 
 fun Long.factorial(): Long = when {
     this < 0L -> throw IllegalArgumentException("negative number")

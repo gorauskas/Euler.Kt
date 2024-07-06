@@ -50,6 +50,20 @@ class ExtensionsTest {
     }
 
     @Test
+    fun testFactors() {
+        Assertions.assertTrue(30L.factors() == listOf(1L, 2, 3, 5, 6, 10, 15, 30))
+        Assertions.assertTrue(64L.factors() == listOf(1L, 2, 4, 8, 16, 32, 64))
+        Assertions.assertTrue(93L.factors() == listOf(1L, 3, 31, 93))
+    }
+
+    @Test
+    fun testPrimeFactors() {
+        Assertions.assertTrue(42L.primeFactors() == listOf(2L, 3, 7))
+        Assertions.assertTrue(66L.primeFactors() == listOf(2L, 3, 11))
+        Assertions.assertTrue(94L.primeFactors() == listOf(2L, 47))
+    }
+
+    @Test
     fun testLongFactorial() {
         Assertions.assertEquals(479_001_600L, 12L.factorial())
         Assertions.assertEquals(120L, 5L.factorial())

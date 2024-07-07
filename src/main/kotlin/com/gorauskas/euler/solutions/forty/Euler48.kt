@@ -32,8 +32,8 @@ class Euler48 : EulerSolution {
      * performing modulo at every step. BigInteger's built-in `modPow(exp, mod)`
      * implements this.
      */
-    override fun solve(): Long =
-        BigInteger.valueOf(EULER_NUM_TEN_BILLION_INT).let { bigmod ->
+    override fun solve(): Long = BigInteger.valueOf(EULER_NUM_TEN_BILLION_INT)
+        .let { bigmod ->
             (1L..1000L).fold(BigInteger.ZERO) { acc, i ->
                 val power = BigInteger.valueOf(i)
                 acc + power.modPow(power, bigmod)

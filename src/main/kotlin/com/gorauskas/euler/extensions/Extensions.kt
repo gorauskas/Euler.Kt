@@ -89,6 +89,8 @@ fun Long.isPanDigital(length: Int = 9): Boolean = listOf(1, 2, 3, 4, 5, 6, 7, 8,
 @Suppress("MagicNumber")
 fun Long.isPentagonal() = ((sqrt(24.0 * this + 1) + 1) / 6.0) % 1.0 == 0.0
 
+fun String.sorted(): String = toCharArray().sorted().joinToString("")
+
 fun String.longLength() = this.length.toLong()
 
 fun String.toScore(): Long = toCharArray().sumOf { it.code - EULER_CHAR_OFFSET_64 }.toLong()

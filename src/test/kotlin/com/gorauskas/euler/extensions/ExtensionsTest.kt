@@ -107,13 +107,18 @@ class ExtensionsTest {
     }
 
     @Test
+    fun testStringSorted() {
+        Assertions.assertEquals("ABCD", "DCBA".sorted())
+    }
+
+    @Test
     fun testStringLongLength() {
-        Assertions.assertEquals("Euler".longLength(), 5L)
+        Assertions.assertEquals(5L, "Euler".longLength())
     }
 
     @Test
     fun testStringScore() {
-        Assertions.assertEquals("Euler".toScore(), 189L)
+        Assertions.assertEquals(189L, "Euler".toScore())
     }
 
     @Test

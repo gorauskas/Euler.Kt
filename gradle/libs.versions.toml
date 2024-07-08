@@ -1,12 +1,11 @@
 [versions]
-kotlin-lang = "1.9.21"
-kotlinx-coroutines = "1.7.3"
+kotlin-lang = "1.9.24"
+kotlinx-coroutines = "1.8.1"
 
-clikt = "4.2.1"
-detekt = "1.23.4"
-gradle-enterprise-plugin = "3.13.4"
-junit = "5.10.1"
-kover = "0.7.4"
+clikt = "4.4.0"
+detekt = "1.23.6"
+junit = "5.10.3"
+kover = "0.8.2"
 mockk = "1.13.11"
 test-logger = "4.0.0"
 
@@ -14,9 +13,8 @@ test-logger = "4.0.0"
 kotlin-stdlib-core = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin-lang" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin-lang" }
 
-clikt = { module = "com.github.ajalt.clikt:clikt", version.ref = "clikt" }
+clikt = { module = "com.github.ajalt.clikt:clikt-jvm", version.ref = "clikt" }
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
-gradle-enterprise-plugin = { module = "com.gradle:gradle-enterprise-gradle-plugin", version.ref = "gradle-enterprise-plugin" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-jupiter-core = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }

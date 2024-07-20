@@ -107,6 +107,11 @@ class ExtensionsTest {
     }
 
     @Test
+    fun testLongSorted() {
+        Assertions.assertEquals("12345", 54321L.sorted())
+    }
+
+    @Test
     fun testStringSorted() {
         Assertions.assertEquals("ABCD", "DCBA".sorted())
     }

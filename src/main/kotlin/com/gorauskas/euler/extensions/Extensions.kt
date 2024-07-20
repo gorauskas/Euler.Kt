@@ -86,6 +86,8 @@ fun Long.isPanDigital(length: Int = 9): Boolean = listOf(1, 2, 3, 4, 5, 6, 7, 8,
     .minus(this.toString().map { it.digitToInt() }.toSet())
     .isEmpty()
 
+fun Long.sorted(): String = toString().sorted()
+
 @Suppress("MagicNumber")
 fun Long.isPentagonal() = ((sqrt(24.0 * this + 1) + 1) / 6.0) % 1.0 == 0.0
 

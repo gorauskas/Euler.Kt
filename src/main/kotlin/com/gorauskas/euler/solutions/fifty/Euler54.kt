@@ -13,15 +13,31 @@ class Euler54 : EulerSolution {
     }
 
     private enum class Rank(val value: Int) {
-        TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6),
-        SEVEN(7), EIGHT(8), NINE(9), TEN(10),
-        JACK(11), QUEEN(12), KING(13), ACE(14),
+        TWO(2),
+        THREE(3),
+        FOUR(4),
+        FIVE(5),
+        SIX(6),
+        SEVEN(7),
+        EIGHT(8),
+        NINE(9),
+        TEN(10),
+        JACK(11),
+        QUEEN(12),
+        KING(13),
+        ACE(14),
     }
 
     private enum class HandRank(val value: Int) {
-        HIGH_CARD(1), PAIR(2), TWO_PAIR(3),
-        THREE_OF_A_KIND(4), STRAIGHT(5), FLUSH(6),
-        FULL_HOUSE(7), FOUR_OF_A_KIND(8), STRAIGHT_FLUSH(9),
+        HIGH_CARD(1),
+        PAIR(2),
+        TWO_PAIR(3),
+        THREE_OF_A_KIND(4),
+        STRAIGHT(5),
+        FLUSH(6),
+        FULL_HOUSE(7),
+        FOUR_OF_A_KIND(8),
+        STRAIGHT_FLUSH(9),
         ROYAL_FLUSH(10),
     }
 
@@ -98,14 +114,13 @@ class Euler54 : EulerSolution {
         Player One wins ${timer { solve() }} hands.
     """.trimIndent()
 
-    override fun solve(): Long =
-        javaClass.getResource("/p054_poker.txt")!!.toURI()
-            .getData()!!
-            .split("\n")
-            .map { it.split(" ") }
-            .map { it.slice(0..4).toPokerHand() to it.slice(5..9).toPokerHand() }
-            .count { compare(it.first, it.second) == 1 }
-            .toLong()
+    override fun solve(): Long = javaClass.getResource("/p054_poker.txt")!!.toURI()
+        .getData()!!
+        .split("\n")
+        .map { it.split(" ") }
+        .map { it.slice(0..4).toPokerHand() to it.slice(5..9).toPokerHand() }
+        .count { compare(it.first, it.second) == 1 }
+        .toLong()
 
     /**
      * Takes a Hand object and returns its rank by:
@@ -170,21 +185,20 @@ class Euler54 : EulerSolution {
      * Transforms something like `listOf("2D", "9C", "AS", "AH", "AC")`
      * into a `Hand` data class
      */
-    private fun List<String>.toPokerHand(): Hand =
-        map { card ->
-            val rankVal = when (card[0].toString()) {
-                "T" -> 10
-                "J" -> 11
-                "Q" -> 12
-                "K" -> 13
-                "A" -> 14
-                else -> card[0].toString().toInt()
-            }
-            Card(
-                Rank.entries.associateBy { it.value }[rankVal]!!,
-                Suit.entries.associateBy { it.key }[card[1].toString()]!!,
-            )
-        }.let {
-            Hand(it)
+    private fun List<String>.toPokerHand(): Hand = map { card ->
+        val rankVal = when (card[0].toString()) {
+            "T" -> 10
+            "J" -> 11
+            "Q" -> 12
+            "K" -> 13
+            "A" -> 14
+            else -> card[0].toString().toInt()
         }
+        Card(
+            Rank.entries.associateBy { it.value }[rankVal]!!,
+            Suit.entries.associateBy { it.key }[card[1].toString()]!!,
+        )
+    }.let {
+        Hand(it)
+    }
 }

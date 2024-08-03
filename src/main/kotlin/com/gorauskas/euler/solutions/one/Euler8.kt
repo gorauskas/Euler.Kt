@@ -2,7 +2,6 @@ package com.gorauskas.euler.solutions.one
 
 import com.gorauskas.euler.EULER008_CHAR_OFFSET
 import com.gorauskas.euler.EULER008_NUMS
-import com.gorauskas.euler.EULER008_TARGET
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
@@ -31,8 +30,8 @@ class Euler8 : EulerSolution {
         var greatest = 0L
         var i = 0
 
-        while (i + EULER008_TARGET <= nums.size) {
-            val x = nums.drop(i).take(EULER008_TARGET).reduce { acc, l -> acc * l }.toLong()
+        while (i + 13 <= nums.size) {
+            val x = nums.drop(i).take(13).reduce { acc, l -> acc * l }.toLong()
 
             (greatest < x).ifTrue {
                 greatest = x

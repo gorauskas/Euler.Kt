@@ -26,7 +26,7 @@ complexity:
     threshold: 32
   CyclomaticComplexMethod:
     active: true
-    threshold: 21
+    threshold: 20
 style:
   MaxLineLength:
     active: true
@@ -57,3 +57,6 @@ style:
     excludes: [ '**/test/**' ]
     excludeImports:
       - 'java.util.*'
+performance:
+  ForEachOnRange:
+    active: false

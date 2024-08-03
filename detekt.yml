@@ -15,7 +15,7 @@ formatting:
 exceptions:
   TooGenericExceptionCaught:
     active: true
-    excludes: ['**/test/**']
+    excludes: [ '**/test/**' ]
 complexity:
   TooManyFunctions:
     active: true
@@ -24,6 +24,9 @@ complexity:
   NestedBlockDepth:
     active: true
     threshold: 32
+  CyclomaticComplexMethod:
+    active: true
+    threshold: 21
 style:
   MaxLineLength:
     active: true
@@ -33,7 +36,12 @@ style:
     excludeCommentStatements: false
   MagicNumber:
     active: true
-    ignoreNumbers: ['-3', '-2', '-1', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '50', '100', '200', '500', '1000']
+    ignoreNumbers: [
+      '-5', '-4', '-3', '-2', '-1',
+      '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+      '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
+      '20', '40', '50', '100', '200', '500', '1000'
+    ]
   ForbiddenComment:
     active: false
   ThrowsCount:
@@ -46,6 +54,6 @@ style:
     excludeReturnFromLambda: true
   WildcardImport:
     active: true
-    excludes: ['**/test/**']
+    excludes: [ '**/test/**' ]
     excludeImports:
       - 'java.util.*'

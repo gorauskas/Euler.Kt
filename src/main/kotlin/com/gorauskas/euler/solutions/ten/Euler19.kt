@@ -2,7 +2,6 @@ package com.gorauskas.euler.solutions.ten
 
 import com.gorauskas.euler.EULER019_CENTURY_END
 import com.gorauskas.euler.EULER019_CENTURY_START
-import com.gorauskas.euler.EULER019_LAST_MONTH
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 
@@ -35,7 +34,7 @@ class Euler19 : EulerSolution {
     """.trimIndent()
 
     override fun solve(): Long = (EULER019_CENTURY_START..EULER019_CENTURY_END).flatMap { y ->
-        (1L..EULER019_LAST_MONTH).filter { m ->
+        (1L..12).filter { m ->
             dayOfWeek(y, m) == 0L
         }
     }.count().toLong()

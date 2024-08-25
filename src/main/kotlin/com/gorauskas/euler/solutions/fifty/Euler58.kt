@@ -1,5 +1,6 @@
 package com.gorauskas.euler.solutions.fifty
 
+import com.gorauskas.euler.EULER058_LOWER_BOUND
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.functions.timer
@@ -35,12 +36,12 @@ class Euler58 : EulerSolution {
     """.trimIndent()
 
     override fun solve(): Long {
-        var np = 0L  // primes
-        var d = 1L   // diagonals
-        var r = 1.0  // ratio
-        var s = 2L   // side
+        var np = 0L // primes
+        var d = 1L // diagonals
+        var r = 1.0 // ratio
+        var s = 2L // side
 
-        while (r >= 0.10) {
+        while (r >= EULER058_LOWER_BOUND) {
             np += (1L..3L).sumOf {
                 if ((d + s * it).isPrime()) 1L else 0L
             }

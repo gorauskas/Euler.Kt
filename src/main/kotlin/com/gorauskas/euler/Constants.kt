@@ -6,6 +6,8 @@ package com.gorauskas.euler
  * I use magic numbers for numbers less than 10 or simple things like 20, 100, 1000.
  */
 
+const val EULER_EMPTY_STRING = ""
+
 const val EULER_CHAR_OFFSET_48_INT = 48
 const val EULER_CHAR_OFFSET_48_LONG = 48L
 const val EULER_CHAR_OFFSET_64 = 64L
@@ -79,6 +81,11 @@ const val EULER053_UPPER_BOUND = 1000000L
 const val EULER055_UPPER_BOUND = 29
 const val EULER057_UPPER_BOUND = 1000
 const val EULER058_LOWER_BOUND = 0.10
+const val EULER059_KEY_LENGTH = 3
+const val EULER059_KEY_RANGE_LOWER = 97
+const val EULER059_KEY_RANGE_UPPER = 122
+const val EULER059_CIPHER_SAMPLE_LENGTH = 80
+const val EULER059_PLAIN_TEXT_SAMPLE = " the "
 
 const val EULER008_NUMS =
     """
@@ -103,6 +110,7 @@ const val EULER008_NUMS =
             05886116467109405077541002256983155200055935729725
             71636269561882670428252483600823257530420752963450
     """
+
 const val EULER011_MATRIX =
     """
             08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08

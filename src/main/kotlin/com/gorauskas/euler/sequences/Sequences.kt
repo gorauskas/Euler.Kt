@@ -91,3 +91,41 @@ fun <T : Any> permutations(input: Iterable<T>, len: Int = -1) = sequence {
         }
     }
 }
+
+/**
+ * Mimics [Python itertools module function](https://docs.python.org/3/library/itertools.html#itertools.product)
+ *
+ * Returns cartesian product of input elements. Roughly equivalent to nested for-loops in a generator expression.
+ * For example, `product(A, B)` returns the same as `((x,y) for x in A for y in B)`.
+ *
+ * To return the product of an iterable with itself, specify the number of repetitions using [repeat].
+ *
+ * If [elements] is sorted, product lists will be yielded in lexicographic order.
+ */
+fun <T : Any> product(vararg elements: Iterable<T>, repeat: Int = 1) = sequence {
+    if (elements.isEmpty()) return@sequence
+    // Repeat each set the required number of times
+    val repeatedSets = List(repeat) { elements.toList() }.flatten().toMutableList()
+    // Start with a sequence containing an empty list
+    val results = repeatedSets.fold(sequenceOf(emptyList<T>())) { acc, set ->
+        acc.flatMap { accList -> set.asSequence().map { element -> accList + element } }
+    }
+    for (result in results) {
+        yield(result)
+    }
+}
+
+/**
+ * Mimics [Python itertools module function](https://docs.python.org/3/library/itertools.html#itertools.cycle)
+ *
+ * Returns a sequence of elements from the input iterable and saving a copy of each.
+ * When the input is exhausted, return elements from the saved copy. Repeats indefinitely.
+ */
+fun <T : Any> Iterable<T>.cycle() = sequence {
+    if (this@cycle.toList().isEmpty()) return@sequence
+    while (true) {
+        for (item in this@cycle) {
+            yield(item)
+        }
+    }
+}

@@ -24,14 +24,20 @@ tasks {
 
 dependencyCheck {
     failOnError = true
-    analyzers.experimentalEnabled = false
-    analyzers.assemblyEnabled = false
-    analyzers.msbuildEnabled = false
-    analyzers.nuspecEnabled = false
-    analyzers.nugetconfEnabled = false
-    analyzers.pyPackageEnabled = false
-    analyzers.pyDistributionEnabled = false
-    analyzers.rubygemsEnabled = false
+    analyzers {
+        experimentalEnabled = false
+        assemblyEnabled = false
+        msbuildEnabled = false
+        nuspecEnabled = false
+        nugetconfEnabled = false
+        pyPackageEnabled = false
+        pyDistributionEnabled = false
+        rubygemsEnabled = false
+    }
+    nvd {
+        apiKey = System.getenv("NVD_API_KEY")
+        apiKey = providers.environmentVariable("NVD_API_KEY").get()
+    }
 }
 
 fun isNonStable(version: String): Boolean {

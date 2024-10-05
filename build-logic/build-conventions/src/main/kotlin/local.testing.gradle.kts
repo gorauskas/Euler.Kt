@@ -1,31 +1,12 @@
+
 import com.adarshr.gradle.testlogger.TestLoggerExtension
 import com.adarshr.gradle.testlogger.theme.ThemeType
-import kotlinx.kover.api.DefaultIntellijEngine
-import kotlinx.kover.api.KoverMergedConfig
-import kotlinx.kover.api.KoverProjectConfig
-import kotlinx.kover.api.KoverTaskExtension
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
     kotlin("jvm")
     id("com.adarshr.test-logger")
     id("org.jetbrains.kotlinx.kover")
-}
-
-configure<KoverProjectConfig> {
-    isDisabled.set(false)
-    engine.set(DefaultIntellijEngine)
-}
-
-configure<KoverMergedConfig> {
-    enable() // create Kover merged report tasks from this project and subprojects with enabled Kover plugin
-}
-
-tasks.withType<Test> {
-    extensions.configure(KoverTaskExtension::class) {
-        isDisabled.set(false)
-        includes.addAll("com.gorauskas.*")
-    }
 }
 
 configure<TestLoggerExtension> {

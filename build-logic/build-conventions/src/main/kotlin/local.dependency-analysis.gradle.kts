@@ -24,14 +24,25 @@ tasks {
 
 dependencyCheck {
     failOnError = true
-    analyzers.experimentalEnabled = false
-    analyzers.assemblyEnabled = false
-    analyzers.msbuildEnabled = false
-    analyzers.nuspecEnabled = false
-    analyzers.nugetconfEnabled = false
-    analyzers.pyPackageEnabled = false
-    analyzers.pyDistributionEnabled = false
-    analyzers.rubygemsEnabled = false
+    format = "HTML"
+    analyzers {
+        retirejs { enabled = false }
+        ossIndex { enabled = false }
+        assemblyEnabled = false
+        msbuildEnabled = false
+        nodeEnabled = false
+        nodeAuditEnabled = false
+        nugetconfEnabled = false
+        nuspecEnabled = false
+        opensslEnabled = false
+        experimentalEnabled = false
+
+        jarEnabled = true
+        archiveEnabled = true
+    }
+    nvd {
+        apiKey = System.getenv("NVD_API_KEY")
+    }
 }
 
 fun isNonStable(version: String): Boolean {

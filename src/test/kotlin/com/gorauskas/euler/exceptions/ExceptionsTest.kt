@@ -1,5 +1,6 @@
 package com.gorauskas.euler.exceptions
 
+import com.github.ajalt.clikt.core.main
 import com.gorauskas.euler.Euler
 import com.gorauskas.euler.extensions.getData
 import io.mockk.clearAllMocks

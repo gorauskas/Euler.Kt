@@ -11,16 +11,16 @@ plugins {
 group = rootProject.group
 version = rootProject.version
 
-val javaVersion = 17
-val kotlinVersion = KotlinVersion.KOTLIN_1_9
+val javaVersion = 21
+val kotlinVersion = KotlinVersion.KOTLIN_2_0
 
 configure<KotlinJvmProjectExtension> {
     jvmToolchain(javaVersion)
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 sourceSets {
@@ -38,7 +38,6 @@ sourceSets {
 
 tasks {
     compileKotlin {
-        kotlinOptions.jvmTarget = javaVersion.toString()
         compilerOptions {
             freeCompilerArgs.addAll("-Xjsr305=strict", "-opt-in=kotlin.RequiresOptIn")
             languageVersion.set(kotlinVersion)
@@ -47,7 +46,11 @@ tasks {
         }
     }
     compileTestKotlin {
-        kotlinOptions.jvmTarget = javaVersion.toString()
+        compilerOptions {
+            languageVersion.set(kotlinVersion)
+            apiVersion.set(kotlinVersion)
+            jvmTarget.set(JvmTarget.fromTarget(javaVersion.toString()))
+        }
     }
     jar {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE

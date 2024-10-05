@@ -41,7 +41,7 @@ dependencyCheck {
         archiveEnabled = true
     }
     nvd {
-        apiKey = providers.environmentVariable("NVD_API_KEY").get()
+        apiKey = System.getenv("NVD_API_KEY")
     }
 }
 

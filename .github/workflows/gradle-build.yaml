@@ -19,6 +19,9 @@ concurrency:
   group: gradle-build-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+
 jobs:
 
   gradle-build:

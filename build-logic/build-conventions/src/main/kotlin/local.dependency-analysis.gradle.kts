@@ -24,18 +24,23 @@ tasks {
 
 dependencyCheck {
     failOnError = true
+    format = "HTML"
     analyzers {
-        experimentalEnabled = false
+        retirejs { enabled = false }
+        ossIndex { enabled = false }
         assemblyEnabled = false
         msbuildEnabled = false
-        nuspecEnabled = false
+        nodeEnabled = false
+        nodeAuditEnabled = false
         nugetconfEnabled = false
-        pyPackageEnabled = false
-        pyDistributionEnabled = false
-        rubygemsEnabled = false
+        nuspecEnabled = false
+        opensslEnabled = false
+        experimentalEnabled = false
+
+        jarEnabled = true
+        archiveEnabled = true
     }
     nvd {
-        apiKey = System.getenv("NVD_API_KEY")
         apiKey = providers.environmentVariable("NVD_API_KEY").get()
     }
 }

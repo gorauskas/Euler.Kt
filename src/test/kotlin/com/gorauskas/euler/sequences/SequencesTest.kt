@@ -2,6 +2,7 @@ package com.gorauskas.euler.sequences
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import java.util.stream.Collectors.toList
 
 class SequencesTest {
     @Test
@@ -57,6 +58,47 @@ class SequencesTest {
         Assertions.assertTrue(
             permutations((0 until 3)).map { it.joinToString("") }.toList() ==
                 listOf("012", "021", "102", "120", "201", "210"),
+        )
+    }
+
+    @Test
+    fun testProduct() {
+        Assertions.assertInstanceOf(Sequence::class.java, product(listOf(1, 2), "ab".toList(), listOf(3.0, 4.0)))
+        Assertions.assertTrue(
+            product("ABCD".map { it.toString() }, "xy".map { it.toString() }).toList() ==
+                listOf(
+                    listOf("A", "x"),
+                    listOf("A", "y"),
+                    listOf("B", "x"),
+                    listOf("B", "y"),
+                    listOf("C", "x"),
+                    listOf("C", "y"),
+                    listOf("D", "x"),
+                    listOf("D", "y"),
+                ),
+        )
+        Assertions.assertTrue(
+            product(0 until 2, repeat = 3).toList() ==
+                listOf(
+                    listOf(0, 0, 0),
+                    listOf(0, 0, 1),
+                    listOf(0, 1, 0),
+                    listOf(0, 1, 1),
+                    listOf(1, 0, 0),
+                    listOf(1, 0, 1),
+                    listOf(1, 1, 0),
+                    listOf(1, 1, 1),
+                ),
+        )
+    }
+
+    @Test
+    fun testCycle() {
+        val cycles = "ABCD".map { it.toString() }.cycle()
+        Assertions.assertInstanceOf(Sequence::class.java, cycles)
+        Assertions.assertTrue(
+            cycles.take(10).toList() ==
+                listOf("A", "B", "C", "D", "A", "B", "C", "D", "A", "B"),
         )
     }
 }

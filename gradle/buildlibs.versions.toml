@@ -1,29 +1,28 @@
 # Dependencies needed by build-logic/
 [versions]
-java = "17"
-kotlin = "1.9.24"
-kotlin-language = "1.9"
+java = "21"
+kotlin-lang = "2.0.20"
 
-build-dependency-analysis = "1.32.0"
-build-detekt = "1.23.6"
-build-figure-semver = "1.9.1"
+build-dependency-analysis = "2.1.4"
+build-detekt = "1.23.7"
+build-figure-semver = "2.0.0"
 build-github-release = "2.5.2"
-build-kover = "0.6.1"
-build-owasp-dependencycheck = "10.0.2"
+build-kover = "0.8.3"
+build-owasp-dependencycheck = "10.0.4"
 build-spotless = "6.25.0"
 build-swiftzer-semver = "2.0.0"
-build-tasktree = "2.1.1"
+build-tasktree = "4.0.0"
 build-testlogger = "4.0.0"
 build-versions = "0.51.0"
 
 [libraries]
 build-dependency-analysis = { module = "com.autonomousapps:dependency-analysis-gradle-plugin", version.ref = "build-dependency-analysis" }
 build-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "build-detekt" }
-# build-figure-semver = { module = "com.figure.gradle:semver-plugin", version.ref = "build-figure-semver" }
+build-figure-semver = { module = "com.figure.gradle.semver:gradle-semver-plugin", version.ref = "build-figure-semver" }
 build-github-release = { module = "com.github.breadmoirai:github-release", version.ref = "build-github-release" }
-build-kotlin-api = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin-api", version.ref = "kotlin" }
-build-kotlin-jvm = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-build-kover = { module = "org.jetbrains.kotlinx:kover", version.ref = "build-kover" }
+build-kotlin-api = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin-api", version.ref = "kotlin-lang" }
+build-kotlin-jvm = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin-lang" }
+build-kover = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "build-kover" }
 build-owasp-dependencycheck = { module = "org.owasp:dependency-check-gradle", version.ref = "build-owasp-dependencycheck" }
 build-spotless = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "build-spotless" }
 build-swiftzer-semver = { module = "net.swiftzer.semver:semver", version.ref = "build-swiftzer-semver" }
@@ -32,4 +31,4 @@ build-testlogger = { module = "com.adarshr:gradle-test-logger-plugin", version.r
 build-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "build-versions" }
 
 [plugins]
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-lang" }

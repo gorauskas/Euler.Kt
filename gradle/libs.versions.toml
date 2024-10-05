@@ -1,13 +1,12 @@
 [versions]
-kotlin-lang = "1.9.24"
-kotlinx-coroutines = "1.8.1"
+kotlin-lang = "2.0.20"
+kotlinx-coroutines = "1.9.0"
 
-clikt = "4.4.0"
-detekt = "1.23.6"
-junit = "5.10.3"
-kover = "0.8.2"
-mockk = "1.13.11"
-test-logger = "4.0.0"
+clikt = "5.0.0"
+detekt = "1.23.7"
+junit = "5.11.1"
+kover = "0.8.3"
+mockk = "1.13.12"
 
 [libraries]
 kotlin-stdlib-core = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin-lang" }
@@ -18,7 +17,6 @@ detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", 
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-jupiter-core = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-lang" }
 kotlinx-coroutines-core-jvm = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-jdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-reactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "kotlinx-coroutines" }
@@ -28,4 +26,3 @@ mockk-core = { module = "io.mockk:mockk", version.ref = "mockk" }
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
-test-logger = { id = "com.adarshr.test-logger", version.ref = "test-logger" }

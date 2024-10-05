@@ -2,12 +2,14 @@ package com.gorauskas.euler
 
 import com.github.ajalt.clikt.core.BadParameterValue
 import com.github.ajalt.clikt.core.CliktCommand
+import com.github.ajalt.clikt.core.Context
 import com.github.ajalt.clikt.core.IncorrectArgumentValueCount
 import com.github.ajalt.clikt.core.IncorrectOptionValueCount
 import com.github.ajalt.clikt.core.MissingArgument
 import com.github.ajalt.clikt.core.MissingOption
 import com.github.ajalt.clikt.core.NoSuchOption
 import com.github.ajalt.clikt.core.UsageError
+import com.github.ajalt.clikt.core.main
 import com.github.ajalt.clikt.parameters.options.default
 import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
@@ -20,7 +22,7 @@ import java.lang.reflect.InvocationTargetException
 private const val EULER_PACKAGE = "com.gorauskas.euler.solutions."
 private const val EULER_CLASS = "Euler"
 
-class Euler : CliktCommand(help = "Project euler solutions written in Kotlin") {
+class Euler : CliktCommand() {
     val problem: Int by option(
         "-p",
         "--problem",
@@ -40,6 +42,8 @@ class Euler : CliktCommand(help = "Project euler solutions written in Kotlin") {
             message = { "Euler.Kt - version $it" },
         )
     }
+
+    override fun help(context: Context) = "Project euler solutions written in Kotlin"
 
     @Suppress("TooGenericExceptionCaught")
     override fun run() {

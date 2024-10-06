@@ -33,5 +33,6 @@ fun resolvePackage(problem: Int): String? = when (problem) {
     in 30..39 -> "thirty."
     in 40..49 -> "forty."
     in 50..59 -> "fifty."
+    in 60..69 -> "sixty."
     else -> null
 }

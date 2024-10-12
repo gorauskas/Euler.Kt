@@ -19,11 +19,14 @@ fun Long.isPrime(): Boolean {
     return true
 }
 
-fun Long.isPalindrome(): Boolean = this.toString() == this.toString().reversed()
+fun Long.isPalindrome(): Boolean =
+    this.toString() == this.toString().reversed()
 
-fun Long.gcd(i: Long): Long = if (i == 0L) this else i.gcd(this % i)
+fun Long.gcd(i: Long): Long =
+    if (i == 0L) this else i.gcd(this % i)
 
-fun Long.isMultipleOf(multiple: Long): Boolean = if (this == 0L || multiple == 0L) false else this % multiple == 0L
+fun Long.isMultipleOf(multiple: Long): Boolean =
+    if (this == 0L || multiple == 0L) false else this % multiple == 0L
 
 fun Long.divisors(): List<Long> {
     val factors = mutableSetOf<Long>()
@@ -42,32 +45,36 @@ fun Long.numberOfDivisors(): Long {
     return this.divisors().count().toLong()
 }
 
-fun Long.factors(): List<Long> = (1L..sqrt(this.toDouble()).toLong())
-    .flatMap { i ->
-        if (this % i == 0L) {
-            if (i == this / i) {
-                listOf(i)
+fun Long.factors(): List<Long> =
+    (1L..sqrt(this.toDouble()).toLong())
+        .flatMap { i ->
+            if (this % i == 0L) {
+                if (i == this / i) {
+                    listOf(i)
+                } else {
+                    listOf(i, this / i)
+                }
             } else {
-                listOf(i, this / i)
+                emptyList()
             }
-        } else {
-            emptyList()
-        }
-    }.sorted()
+        }.sorted()
 
-fun Long.primeFactors(): List<Long> = this.factors().filter { it.isPrime() }
+fun Long.primeFactors(): List<Long> =
+    this.factors().filter { it.isPrime() }
 
-fun Long.factorial(): Long = when {
-    this < 0L -> throw IllegalArgumentException("negative number")
-    this < 2L -> 1L
-    else -> this * (this - 1L).factorial()
-}
+fun Long.factorial(): Long =
+    when {
+        this < 0L -> throw IllegalArgumentException("negative number")
+        this < 2L -> 1L
+        else -> this * (this - 1L).factorial()
+    }
 
-fun Double.factorial(): Double = when {
-    this < 0.0 -> throw IllegalArgumentException("negative number")
-    this < 2.0 -> 1.0
-    else -> this * (this - 1.0).factorial()
-}
+fun Double.factorial(): Double =
+    when {
+        this < 0.0 -> throw IllegalArgumentException("negative number")
+        this < 2.0 -> 1.0
+        else -> this * (this - 1.0).factorial()
+    }
 
 fun BigInteger.factorial(): BigInteger {
     var f = BigInteger.ONE
@@ -79,23 +86,28 @@ fun BigInteger.factorial(): BigInteger {
     return f
 }
 
-fun Long.sumOfDivisors(): Long = this.divisors().filter { it != this }.sum()
+fun Long.sumOfDivisors(): Long =
+    this.divisors().filter { it != this }.sum()
 
-fun Long.isPanDigital(length: Int = 9): Boolean = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
-    .take(length)
-    .minus(this.toString().map { it.digitToInt() }.toSet())
-    .isEmpty()
+fun Long.isPanDigital(length: Int = 9): Boolean =
+    listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+        .take(length)
+        .minus(this.toString().map { it.digitToInt() }.toSet())
+        .isEmpty()
 
 fun Long.sorted(): String = toString().sorted()
 
-@Suppress("MagicNumber")
-fun Long.isPentagonal() = ((sqrt(24.0 * this + 1) + 1) / 6.0) % 1.0 == 0.0
+fun Long.isPentagonal() =
+    ((sqrt(24.0 * this + 1) + 1) / 6.0) % 1.0 == 0.0
 
-fun String.sorted(): String = toCharArray().sorted().joinToString("")
+fun String.sorted(): String =
+    toCharArray().sorted().joinToString("")
 
-fun String.longLength() = this.length.toLong()
+fun String.longLength() =
+    this.length.toLong()
 
-fun String.toScore(): Long = toCharArray().sumOf { it.code - EULER_CHAR_OFFSET_64 }.toLong()
+fun String.toScore(): Long =
+    toCharArray().sumOf { it.code - EULER_CHAR_OFFSET_64 }.toLong()
 
 fun URI.getData(): String? {
     var path: Path? = null

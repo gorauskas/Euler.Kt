@@ -34,7 +34,6 @@ class Euler46 : EulerSolution {
         and twice a square is ${timer { solve() }}
     """.trimIndent()
 
-    @Suppress("LoopWithTooManyJumpStatements")
     override fun solve(): Long {
         var min: Int
         var limit = EULER046_MAX_PRIME

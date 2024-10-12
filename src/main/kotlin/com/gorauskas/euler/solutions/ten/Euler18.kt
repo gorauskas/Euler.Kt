@@ -11,7 +11,6 @@ import com.gorauskas.euler.functions.timer
  * not optimal. Problem 67 is basically the same problem as this one, but the
  * input data is too large for brute force. I need a clever algorithm...
  */
-@Suppress("CommentOverPrivateFunction")
 class Euler18 : EulerSolution {
     /**
      * I want to represent the data as a List of List of Long.

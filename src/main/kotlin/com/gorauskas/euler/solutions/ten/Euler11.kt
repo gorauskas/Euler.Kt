@@ -117,7 +117,6 @@ class Euler11 : EulerSolution {
             return l
         }
 
-        @Suppress("MagicNumber")
         private fun calculateIntMatrix() {
             val numbers = strMatrix.split("[ \\n]".toRegex()).map { it.toLong() }
             var i = 0
@@ -133,7 +132,6 @@ class Euler11 : EulerSolution {
             }
         }
 
-        @Suppress("NestedBlockDepth", "MagicNumber")
         private fun calcGreatProdOf4AdjacentNums() {
             val js = (3..16).toList()
             val ks = (3..16).toList()

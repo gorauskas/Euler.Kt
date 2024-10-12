@@ -46,7 +46,7 @@ class Euler19 : EulerSolution {
      * @return A number from 0 to 6 representing the day of the week; 0 = Sunday
      * The day in this case is always 1 for the first
      */
-    private fun dayOfWeek(year: Long, month: Long): Long = 
+    private fun dayOfWeek(year: Long, month: Long): Long =
         Math.floorMod(month - 3L, EULER019_UPPER_BOUND)
             .let { m ->
                 Math.floorMod(year + m / 12L, 400L)

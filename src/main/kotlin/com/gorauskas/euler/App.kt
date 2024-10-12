@@ -45,7 +45,6 @@ class Euler : CliktCommand() {
 
     override fun help(context: Context) = "Project euler solutions written in Kotlin"
 
-    @Suppress("TooGenericExceptionCaught")
     override fun run() {
         try {
             val classLoader = this.javaClass.classLoader

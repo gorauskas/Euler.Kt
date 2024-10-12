@@ -21,7 +21,6 @@ class Euler52 : EulerSolution {
         The smallest positive integer is ${timer { solve() }}
     """.trimIndent()
 
-    @Suppress("ComplexCondition")
     override fun solve(): Long {
         var n = EULER052_LOWER_BOUND
 

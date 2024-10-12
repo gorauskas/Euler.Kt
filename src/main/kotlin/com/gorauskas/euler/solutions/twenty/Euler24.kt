@@ -5,7 +5,6 @@ import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.extensions.factorial
 import com.gorauskas.euler.functions.timer
 
-@Suppress("LabeledExpression")
 class Euler24 : EulerSolution {
     /**
      * we want the 999999 permutation of 0123456789 (which is the millionth one using index 0)

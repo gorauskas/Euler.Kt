@@ -12,7 +12,6 @@ import com.gorauskas.euler.sequences.permutations
  * 4. this can be reduced further by considering the division by 13 and so on
  */
 class Euler43 : EulerSolution {
-    @Suppress("MagicNumber")
     private val primes = listOf(0, 2, 3, 5, 7, 11, 13, 17)
 
     override val problem = """

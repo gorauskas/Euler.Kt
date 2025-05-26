@@ -34,6 +34,5 @@ class Euler28 : EulerSolution {
         spiral is ${timer { solve() }}
     """.trimIndent()
 
-    @Suppress("MagicNumber")
     override fun solve(): Long = 500.0.let { n -> (16L * n.pow(3.0) + 26L * 500L) / 3 + 10 * n.pow(2.0) + 1 }.toLong()
 }

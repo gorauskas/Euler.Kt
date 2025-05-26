@@ -48,8 +48,10 @@ class Euler23 : EulerSolution {
             .sum()
     }
 
-    @Suppress("MaxLineLength", "ParameterListWrapping")
-    private fun genSetOfSumOfTwoAbundants(abundants: List<Long>): Set<Long> = (0 until abundants.size - 2).flatMap { x ->
-        (x until abundants.size - 1).map { y -> abundants[x] + abundants[y] }.filter { it <= EULER023_RANGE_MAX }
-    }.toSet()
+    private fun genSetOfSumOfTwoAbundants(abundants: List<Long>): Set<Long> =
+        (0 until abundants.size - 2).flatMap { x ->
+            (x until abundants.size - 1).map { y ->
+                abundants[x] + abundants[y]
+            }.filter { it <= EULER023_RANGE_MAX }
+        }.toSet()
 }

@@ -45,12 +45,11 @@ class Euler55 : EulerSolution {
 
     override fun solve(): Long = (1L..EULER_NUM_TENK_LONG).count { it.isLychrel() }.toLong()
 
-    @Suppress("UnusedPrivateProperty")
     private fun Long.isLychrel(): Boolean {
         var num = this
         var res: Long
 
-        for (i in 0..EULER055_UPPER_BOUND) {
+        (0..EULER055_UPPER_BOUND).forEach {
             res = num.reversed()
             num += res
 

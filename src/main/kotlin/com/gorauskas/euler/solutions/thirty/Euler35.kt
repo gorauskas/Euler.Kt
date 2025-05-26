@@ -6,7 +6,6 @@ import com.gorauskas.euler.extensions.isPrime
 import com.gorauskas.euler.functions.timer
 import com.gorauskas.euler.sequences.primeSequence
 
-@Suppress("CommentOverPrivateFunction")
 class Euler35 : EulerSolution {
     override val problem = """
         Project Euler Problem 35:

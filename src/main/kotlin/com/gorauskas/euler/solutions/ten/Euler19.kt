@@ -2,10 +2,10 @@ package com.gorauskas.euler.solutions.ten
 
 import com.gorauskas.euler.EULER019_CENTURY_END
 import com.gorauskas.euler.EULER019_CENTURY_START
+import com.gorauskas.euler.EULER019_UPPER_BOUND
 import com.gorauskas.euler.EulerSolution
 import com.gorauskas.euler.functions.timer
 
-@Suppress("CommentOverPrivateFunction")
 class Euler19 : EulerSolution {
     override val problem = """
         Project Euler Problem 19:
@@ -46,12 +46,12 @@ class Euler19 : EulerSolution {
      * @return A number from 0 to 6 representing the day of the week; 0 = Sunday
      * The day in this case is always 1 for the first
      */
-    @Suppress("MagicNumber")
-    private fun dayOfWeek(year: Long, month: Long): Long = Math.floorMod(month - 3L, 48_000L)
-        .let { m ->
-            Math.floorMod(year + m / 12L, 400L)
-                .let { y ->
-                    (y + y / 4L - y / 100L + (13L * (m % 12L) + 2L) / 5L + 1L + 2L) % 7L
-                }
-        }
+    private fun dayOfWeek(year: Long, month: Long): Long =
+        Math.floorMod(month - 3L, EULER019_UPPER_BOUND)
+            .let { m ->
+                Math.floorMod(year + m / 12L, 400L)
+                    .let { y ->
+                        (y + y / 4L - y / 100L + (13L * (m % 12L) + 2L) / 5L + 1L + 2L) % 7L
+                    }
+            }
 }

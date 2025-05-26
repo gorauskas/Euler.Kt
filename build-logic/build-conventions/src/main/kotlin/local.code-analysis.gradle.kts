@@ -32,8 +32,9 @@ detekt {
 // Spotless
 spotless {
     val disabledRules = mapOf(
-        "ktlint_standard_filename" to "disabled",
         "ktlint_standard_annotation" to "disabled",
+        "ktlint_standard_filename" to "disabled",
+        "ktlint_standard_function-signature" to "disabled",
         "ktlint_standard_value-argument-comment" to "disabled",
         "ktlint_standard_value-parameter-comment" to "disabled",
     )

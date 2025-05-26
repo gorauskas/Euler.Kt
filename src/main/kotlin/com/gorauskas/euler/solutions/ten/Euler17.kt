@@ -8,7 +8,6 @@ import com.gorauskas.euler.functions.ifFalse
 import com.gorauskas.euler.functions.ifTrue
 import com.gorauskas.euler.functions.timer
 
-@Suppress("MagicNumber")
 class Euler17 : EulerSolution {
     private val lookupTable = mapOf(
         Pair(1L, "one"),
@@ -69,7 +68,6 @@ class Euler17 : EulerSolution {
         }
     }.longLength()
 
-    @Suppress("ComplexMethod")
     private fun spellNumber(num: Long): String {
         return buildString {
             var ltIndex = EULER017_START_INDEX

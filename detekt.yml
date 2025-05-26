@@ -58,11 +58,12 @@ style:
       '28', '38', '48', '58', '68', '78', '88', '98',
       '29', '39', '49', '59', '69', '79', '89', '99',
       '100', '200', '300', '400', '500',
-      '1000'
+      '1000',
+      '10000',
     ]
   ReturnCount:
     active: true
-    max: 3
+    max: 5
     excludeReturnFromLambda: true
   ThrowsCount:
     max: 5

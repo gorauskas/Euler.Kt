@@ -12,7 +12,7 @@ group = rootProject.group
 version = rootProject.version
 
 val javaVersion = 21
-val kotlinVersion = KotlinVersion.KOTLIN_2_0
+val kotlinVersion = KotlinVersion.KOTLIN_2_1
 
 configure<KotlinJvmProjectExtension> {
     jvmToolchain(javaVersion)
@@ -67,6 +67,13 @@ tasks {
         isPreserveFileTimestamps = false
         isReproducibleFileOrder = true
     }
+    // Create JARs in a reproducible build fashion.
+    withType<AbstractArchiveTask>() {
+        configureEach {
+            isPreserveFileTimestamps = false
+            isReproducibleFileOrder = true
+        }
+    }
 }
 
 configure<KotlinJvmProjectExtension> {
@@ -76,10 +83,4 @@ configure<KotlinJvmProjectExtension> {
 configurations.all {
     resolutionStrategy.cacheChangingModulesFor(0, TimeUnit.SECONDS)
     resolutionStrategy.cacheDynamicVersionsFor(0, TimeUnit.SECONDS)
-}
-
-// Create JARs in a reproducible build fashion.
-tasks.withType<AbstractArchiveTask>().configureEach {
-    isPreserveFileTimestamps = false
-    isReproducibleFileOrder = true
 }

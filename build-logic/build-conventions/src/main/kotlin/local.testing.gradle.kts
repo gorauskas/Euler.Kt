@@ -28,12 +28,16 @@ configure<TestLoggerExtension> {
     logLevel = LogLevel.LIFECYCLE
 }
 
-tasks.withType<Test>().configureEach {
-    useJUnitPlatform()
-    maxParallelForks = 1
-    maxHeapSize = "2048m"
-    testLogging {
-        exceptionFormat = TestExceptionFormat.FULL
-        events("passed", "skipped", "failed", "standardOut", "standardError")
+tasks {
+    withType<Test>() {
+        configureEach {
+            useJUnitPlatform()
+            maxParallelForks = 3
+            maxHeapSize = "2048m"
+            testLogging {
+                exceptionFormat = TestExceptionFormat.FULL
+                events("passed", "skipped", "failed", "standardOut", "standardError")
+            }
+        }
     }
 }

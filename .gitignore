@@ -4,6 +4,7 @@
 build/
 lib/
 /build-logic/.gradle
+.wt/
 
 # Eclipse
 /bin/

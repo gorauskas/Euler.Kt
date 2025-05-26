@@ -10,35 +10,6 @@ plugins {
 
 val kotlinVersion = provider { plugins.getPlugin(KotlinPluginWrapper::class.java).pluginVersion }
 
-// Detekt
-detekt {
-    buildUponDefaultConfig = true
-    allRules = false
-    parallel = true
-    config.from(files("${rootDir.path}/detekt.yml"))
-    source.from(files("src/main/kotlin", "src/solutions/kotlin"))
-}
-
-tasks {
-    withType<Detekt> {
-        configureEach {
-            jvmTarget = "21"
-            reports {
-                xml.required.set(false)
-                html.required.set(true)
-                txt.required.set(false)
-                sarif.required.set(false)
-                md.required.set(true)
-            }
-        }
-    }
-    withType<DetektCreateBaselineTask> {
-        configureEach {
-            jvmTarget = "21"
-        }
-    }
-}
-
 // Align kotlin version with the version used in the kotlin jvm plugin,
 // except for detekt since it requires a specific kotlin version
 configurations.matching { it.name != "detekt" }.configureEach {
@@ -47,6 +18,15 @@ configurations.matching { it.name != "detekt" }.configureEach {
             useVersion(kotlinVersion.get())
         }
     }
+}
+
+// Detekt
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+    parallel = true
+    config.from(files("${rootDir.path}/detekt.yml"))
+    source.from(files("src/main/kotlin", "src/test/kotlin"))
 }
 
 // Spotless
@@ -75,6 +55,23 @@ spotless {
 }
 
 tasks {
+    withType<Detekt> {
+        configureEach {
+            jvmTarget = "21"
+            reports {
+                xml.required.set(false)
+                html.required.set(true)
+                txt.required.set(false)
+                sarif.required.set(false)
+                md.required.set(true)
+            }
+        }
+    }
+    withType<DetektCreateBaselineTask> {
+        configureEach {
+            jvmTarget = "21"
+        }
+    }
     // Registers "lint" task runs "spotlessCheck"
     register("lint") {
         group = "verification"

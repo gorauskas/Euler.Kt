@@ -129,3 +129,20 @@ fun <T : Any> Iterable<T>.cycle() = sequence {
         }
     }
 }
+
+/**
+ * Problem 61: ensure each type is used exactly once in a different order.
+ */
+fun <T> List<T>.permutations(): Sequence<List<T>> = sequence {
+    val list = this@permutations
+    if (list.isEmpty()) {
+        yield(emptyList())
+    } else {
+        for (i in list.indices) {
+            val rest = list.toMutableList().apply { removeAt(i) }
+            for (perm in rest.permutations()) {
+                yield(listOf(list[i]) + perm)
+            }
+        }
+    }
+}

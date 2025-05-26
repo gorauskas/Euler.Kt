@@ -91,6 +91,12 @@ fun Long.sorted(): String = toString().sorted()
 @Suppress("MagicNumber")
 fun Long.isPentagonal() = ((sqrt(24.0 * this + 1) + 1) / 6.0) % 1.0 == 0.0
 
+@Suppress("MagicNumber")
+fun Long.isHexagonal() = ((sqrt(8.0 * this + 1) + 1) / 4.0) % 1.0 == 0.0
+
+@Suppress("MagicNumber")
+fun Long.isTriangular() = ((sqrt(8.0 * this + 1) + 1) / 2.0) % 1.0 == 0.0
+
 fun String.sorted(): String = toCharArray().sorted().joinToString("")
 
 fun String.longLength() = this.length.toLong()

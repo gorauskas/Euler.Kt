@@ -64,11 +64,9 @@ class Euler61 : EulerSolution {
 
     override val answer = """
 
-        Cyclical Figurate Numbers (61):
-
-            The sum of the only ordered set of six cyclic 4-digit numbers for
-            which each polygonal type is represented by a different number in
-            the set is ${timer { solve() }}
+        The sum of the only ordered set of six cyclic 4-digit numbers for
+        which each polygonal type is represented by a different number in
+        the set is ${timer { solve() }}
     """.trimIndent()
 
     override fun solve(): Long {
